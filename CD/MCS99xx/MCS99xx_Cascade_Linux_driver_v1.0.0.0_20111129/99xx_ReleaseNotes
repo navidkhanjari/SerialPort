@@ -1,0 +1,40 @@
+			99xx Release Notes
+
+Version 1.0.0.0
+---------------
+Date: 08-02-10
+
+1. Changes are made to support upto linux kernel 2.6.31
+
+
+Version 0.0.0.4
+
+Date:09-04-2009
+--------------------
+1.Added support for 9904,9912,9922,9950 PIDs besides 9900.
+
+Version 0.0.0.3
+
+Date:09-03-2009
+--------------------
+1.Added support for DMA operation.
+2.Fixed the bug 414(SerialMouse Functionality fails with MCS9900 cascade(4S+4S) board).
+3.HW team implemented port disable bits (Bit-0 in the memory mapped register at
+  3FC location) for each port. By default this bit is disabled when device enumerates.
+  Device driver for the serial has to clear this bit before
+  accessing any of the registers and the driver has to set this bit.
+
+Version 0.0.0.2
+
+Date:26-2-2009
+--------------------
+1.Added cascade support for any type of PCIE multifunction board.
+2.Please go through the readme file.
+
+Version 0.0.0.1
+
+Date: 12-2-2009
+---------------------
+1. Initial release .
+
+

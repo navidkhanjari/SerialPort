@@ -1,0 +1,155 @@
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;  FILE : NmPorts.inf
+;;  OS SUPPORTED : WIN98/ME.
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; Version Section
+;
+[Version]
+LayoutFile = layout.inf
+Signature  = $CHICAGO$
+Class      = Ports
+ClassGuid  = {4D36E978-E325-11CE-BFC1-08002BE10318}
+Provider   = %ProviderName%
+DriverVer  = 11/27/2006
+
+
+
+[DestinationDirs]
+DefaultDestDir  = 11    ;LDID_SYS
+Inf.Copy = 17       	;DIRID_INF
+
+[SourceDiskFiles]
+;NmPorts.inf=1
+
+[SourceDisksNames]
+1=%DiskName%,,
+
+;------------------------
+; Install class "Ports"
+;------------------------
+[ClassInstall]
+CopyFiles=Inf.Copy,Uninstall.Copy
+AddReg=PortsClass.AddReg
+
+[PortsClass.AddReg]
+HKR,,,,"Ports (COM & LPT)"
+HKR,,Icon,,-23
+
+;----------------------
+; Install Drivers
+;----------------------
+[Manufacturer]
+%ProviderName%=Multi_IO_Cards
+
+[Multi_IO_Cards]
+%ComPortName%=ComPort,NMMFENUM\PCI9710_COM
+%LptPortName%=LptPort,NMMFENUM\PCI9710_LPT
+%EcpPortName%=EcpPort,NMMFENUM\PCI9710_ECP
+
+;
+; Install Sections
+;
+
+[ComPort]
+AddReg=ComPort.AddReg
+LogConfig=c1a,c2a,c3a,c4a,caa
+
+[LptPort]
+AddReg=LptPort.AddReg
+LogConfig=p1a,p2a,paa
+Reboot
+
+[EcpPort]
+AddReg=EcpPort.AddReg
+LogConfig=p1a,p2a,paa
+Reboot
+
+[c1a]
+ConfigPriority=HARDRECONFIG
+IOConfig=3f8-3ff(3ff::)
+IRQConfig=S:3,4,5,7,9,10,11,12,14,15
+
+[c2a]
+ConfigPriority=HARDRECONFIG
+IOConfig=2f8-2ff(3ff::)
+IRQConfig=S:3,4,5,7,9,10,11,12,14,15
+
+[c3a]
+ConfigPriority=HARDRECONFIG
+IOConfig=3e8-2ff(3ff::)
+IRQConfig=S:3,4,5,7,9,10,11,12,14,15
+
+[c4a]
+ConfigPriority=HARDRECONFIG
+IOConfig=2e8-2ff(3ff::)
+IRQConfig=S:3,4,5,7,9,10,11,12,14,15
+
+[caa]
+ConfigPriority=HARDRECONFIG
+IOConfig=8@100-FFFF%FFF8(FFFF::)
+IRQConfig=S:3,4,5,7,9,10,11,12,14,15
+
+[p1a]
+ConfigPriority=HARDRECONFIG
+IOConfig=378-37f(ffff::),778-77f(ffff::)
+IRQConfig=S:3,4,5,7,9,10,11,12,14,15
+
+[p2a]
+ConfigPriority=HARDRECONFIG
+IOConfig=278-27f(ffff::),678-67f(ffff::)
+IRQConfig=S:3,4,5,7,9,10,11,12,14,15
+
+[paa]
+ConfigPriority=HARDRECONFIG
+IOConfig=8@100-FFFF%FFF8(FFFF::)
+IRQConfig=S:3,4,5,7,9,10,11,12,14,15
+
+[ComPort.AddReg]
+HKR,,DevLoader,,*vcomm
+HKR,,Contention,0,*vcd
+HKR,,Enumerator,0,serenum.vxd
+HKR,,PortDriver,,serial.vxd
+HKR,,ConfigDialog,,serialui.dll
+HKR,,DCB,3,1c,00,00,00,80,25,00,00,15,20,00,00,00,00,0a,00,0a,00,08,00,00,11,13,00,00,00
+HKR,,PortSubClass,1,01
+HKR,,EnumPropPages,,"serialui.dll,EnumPropPages"
+
+[LptPort.AddReg]
+HKR,,DevLoader,0,*vcomm
+HKR,,Contention,0,*vpd
+HKR,,Enumerator,0,lptenum.vxd
+HKR,,PortDriver,0,lpt.vxd
+HKR,,ECPDevice,1,00
+HKR,,PortSubClass,1,00
+
+[EcpPort.AddReg]
+HKR,,DevLoader,0,*vcomm
+HKR,,Contention,0,*vpd
+HKR,,Enumerator,0,lptenum.vxd
+HKR,,PortDriver,0,lpt.vxd
+HKR,,ECPDevice,1,01
+HKR,,PortSubClass,1,00
+
+
+[Inf.Copy]
+;NmPorts.inf
+
+[Uninstall.Copy]
+;NmUninst.exe
+
+[Strings]
+ProviderName="MosChip Technology"
+DiskName="PCI Multi-IO Drivers Disk"
+ComPortName="MosChip PCI Serial Port"
+LptPortName="MosChip PCI Parallel Port"
+EcpPortName="MosChip PCI Parallel Port"
+
+
+;-----------------------
+; END OF FILE
+;-----------------------
+

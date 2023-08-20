@@ -1,0 +1,60 @@
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;  NetMos Technology, inc.
+;;
+;;  FILE : NmSNull.inf
+;;  OS SUPPORTED : WIN95, WIN98 ONLY.
+;;  This file works in conjunction with nmenum.vxd.
+;;  This file is needed only if nmenum.vxd and nmenum.inf
+;;  are used. Also it is needed only for 9705, 9735, 9745
+;;  chipsets.
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;
+; Version Section
+;
+[Version]
+LayoutFile = layout.inf
+Signature  = $CHICAGO$
+Class      = NetMosBridge
+Provider   = %ProviderName%
+
+;------------------------
+; Install class "NetMosBridge"
+;------------------------
+[ClassInstall]
+AddReg=Class.AddReg
+
+[Class.AddReg]
+HKR,,,,"NetMosBridge"
+HKR,,SilentInstall,,"1"
+HKR,,Icon,,-23
+
+;----------------------
+; Install Drivers
+;----------------------
+[Manufacturer]
+%MfgName%=NetMosPorts
+
+;
+; Manufacturer Name Section
+;
+[NetMosPorts]
+%NullPortName%=NullPort,NMENUM\PCI9710_NULL
+
+;
+; Install Sections
+;
+[NullPort]
+
+[Strings]
+ProviderName="NetMos Technology"
+MfgName="NetMos Technology"
+NullPortName="NetMos Bridge"
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; END OF FILE
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+

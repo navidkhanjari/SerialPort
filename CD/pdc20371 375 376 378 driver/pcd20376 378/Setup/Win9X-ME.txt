@@ -1,0 +1,22 @@
+Install Win9x-ME Promise FastTrak 378 Controller Driver manually.
+
+1. Please check BIOS setting was RAID mode or IDE mode (default was RAID mode).
+
+2. Press "Start" button.
+
+3. Move highlight bar to "Settings" and select "Control Panel".
+
+4. Double click on "System" icon.
+
+5. Select "Device Manager" page.
+
+6. View devices by type and find "Other devices" node.
+   
+7. Select the "PCI RAID Controller" node and then click the "Properties" button.
+
+8. Please select [General] page to reinstall driver or select [Driver] page to 
+   update driver.
+
+9. Follow the instruction to insert your  ASUS support CD to install
+   the driver. (Driver Location: RAID mode {CD-ROM Drive}:\Drivers\Promise\378RAID\98-ME
+                                 IDE mode {CD-ROM Drive}:\Drivers\Promise\378ATA\98-ME) 

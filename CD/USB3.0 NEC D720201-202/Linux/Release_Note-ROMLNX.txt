@@ -1,0 +1,299 @@
+******************************************************************************
+************ D720201 & D720202 ROM Writer Solution for Linux *****************
+******************************************************************************
+ Release Note                                                September 10.2012
+
+ Renesas Electronics uPD720201 & uPD720202
+ USB3.0 Host Controller ROM Writer Solution Package for Linux
+ 
+ Package Version 20120910 : September 10th, 2012
+ Copyright (C) 2011-2012 Renesas Electronics Corporation. All Rights Reserved.
+------------------------------------------------------------------------------
+
+D720201 and D720202 ROM Writer solution is the application and device driver
+for linux to write the FW file and the configuraiton file into the serial ROM.
+When the system dose not use the serial Rom, please use FW Download Solution.
+
+----------------------------------------------------------------------------------------
+Table of Contents
+----------------------------------------------------------------------------------------
+1. Release Files
+2. History
+3. How to use
+4. Notes
+5. History
+6. Licensing Information
+7. Configuration file(.ini) format
+
+----------------------------------------------------------------------------------------
+1. Release Files
+----------------------------------------------------------------------------------------
+ USB3-201-202-TL-ROM-LNX-20120910
+ - lx201FWxx        // Application source code directory
+ - xhc201w          // A special driver (xhc201.ko) source code directory
+ - cleanall.sh      // Shell script to clean 
+ - install.sh       // Shell script to load xhc201.ko
+ - makeall.sh       // Shell script to compile whole programs. 
+ - Makefile.apli    // Makefile for application
+ - Makefile.drv     // Makefile for the special driver
+ - uninstall.sh     // Script file for uninstall xhc201.ko
+ - cfg201v3.ini     // Configuration file for uPD720201
+ - cfg202v3.ini     // Configuration file for uPD720202
+
+----------------------------------------------------------------------------------------
+2. How to compile
+----------------------------------------------------------------------------------------
+ Please execute the following commands:
+
+    . makeall.sh       Compile the application program and the special driver. 
+    . cleanall.sh      Delete the application program, driver's intermediate file, and 
+                       the execution file.
+
+----------------------------------------------------------------------------------------
+3. How to use
+----------------------------------------------------------------------------------------
+ 1) Modifications
+   1-1)MODULE_NAME
+   If necessary, please modify the module name of the xHCI driver used in MODULE_NAME
+   and MODULE_EXISTS in the following files.
+   The module name is assumed "xhci_hcd" by default in this application.
+
+     install.sh
+     uninstall.sh
+
+   1-2)KERNEL_DIR
+   If necessary, please modify the kernel directory in KERNEL_DIR in the following files.
+   The kernel directroy is assumed "=/usr/src/linux-$(KERNEL_VERSION)
+
+     Makefile.drv
+
+ 2) Command usage
+  The application can be executed with the following steps.
+  For detailed usage, please enter "./lx201fw21 /?" on the command line.
+
+   Step1: Install(load) the special driver.
+
+           sh install.sh
+
+   Step2: Run this application. The application can be run anytime until the special 
+          driver is uninstalled (loaded).
+
+           ./lx201fw21 {argument1}
+
+   Step3 (if necessary): 
+          uninstall(unload) the special driver 
+
+           sh uninstall.sh
+
+----------------------------------------------------------------------------------------
+4. Notes
+----------------------------------------------------------------------------------------
+ 1) When using user-defined Subsystem ID and Subsystem Vendor ID, please be
+    sure to modify the following files which are contained in this package.
+    Please see "7. Configuration file(.ini) format" in more detail.
+
+      cfg201v3.ini
+      cfg202v3.ini
+ 
+ 2) The firmware file (.mem) can be downloaded from the Renesas "Premium User" website.
+    Please be sure to use the latest version.
+ 
+ 3) It is recommended that all devices attached to the uPD720201 or uPD720202 USB ports 
+    should be removed before running this application.
+
+ 4) After writing the firmware, you should restart the system for update.
+
+----------------------------------------------------------------------------------------
+5. History
+----------------------------------------------------------------------------------------
+  Version   Date           Description      
+  ---------+--------------+-------------------------------------------------------------
+  20120910  Sep 10, 2012    -Updated the configuration file(.ini).
+                             Added the new section ([DisableCompletionTimeout]).
+
+                            -Added the new function for changing the configuration of 
+                             "Completion Timeout Disable" bit in PCI Configuration space.
+                              ##Note##
+                             To use this function, you should write the firmware 
+                             (v2.0.1.8 or later).
+
+                             When a system requires default value of "Completion Timeout 
+                             Disable" bit is '1b', [DisableCompletionTimeout] should be
+                             set to '1'.
+
+  20120216  Feb 16, 2012    -Updated the configuration file(.ini).
+
+  20111227  Dec 27, 2011    -First Release.
+                             Linux Kernel 2.6.31 ~ 2.6.39 (x86, x64)
+
+----------------------------------------------------------------------------------------
+6. Licensing Information
+----------------------------------------------------------------------------------------
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License version 2
+as published by the Free Software Foundation.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+
+
+--------------------------------------------------------------------------------
+7. Configuration file(.ini) format
+--------------------------------------------------------------------------------
+[SubSystemVendorID]
+FFFF
+
+[SubSystemID]
+FFFF
+
+[EnableDeviceNonRemovalPort1]
+0
+; When set to '1', the uPD720201 forces the Device Removal(DR) bit to '1b' 
+; in both the PORT1 PORTSC and PORT5 PORTSC. The uPD720202 forces the DR bit to
+; '1b' in both the PORT1 PORTSC and PORT3 PORTSC. Default value is '0'
+
+[EnableDeviceNonRemovalPort2]
+0
+; When set to '1', the uPD720201 forces the Device Removal(DR) bit to '1b' 
+; in both the PORT2 PORTSC and PORT6 PORTSC. The uPD720202 forces the DR bit to
+; '1b' in both the PORT2 PORTSC and PORT4 PORTSC. Default value is '0'
+
+[EnableDeviceNonRemovalPort3]
+0
+; When set to '1', the uPD720201 forces the Device Removal(DR) bit to '1b' 
+; in both the PORT3 PORTSC and PORT7 PORTSC. Default value is '0'
+
+[EnableDeviceNonRemovalPort4]
+0
+; When set to '1', the uPD720201 forces the Device Removal(DR) bit to '1b' 
+; in both the PORT4 PORTSC and PORT8 PORTSC. Default value is '0'
+
+[UsePPON]
+1
+; When set to '0', the uPD720201 and uPD720202 force the Port Power Control (PPC)
+; bit to '0b' in the HCCPARAMS register. When VBUS is not controlled by the PPON
+; pin, this bit should be set to '0b'. Default value is '1'
+
+[DisablePortCount]
+0
+;uPD720201
+;0 : All ports are enabled.
+;1 : Port 4 and Port 8 are disabled
+;2 : Port 3,4,7 and 8 are disabled.
+;3 : Port 2,3,4,6,7 and 8 are disabled.
+;uPD720202
+;0 : All ports are enabled.
+;1 : Port 2 and 4 are disabled,
+
+[PSEL]
+1
+;When set to '1', the default value of the Active State Power Management Control
+;fields in the PCI Express Link Control Register is 00b. 
+;When this bit is '0', the default value is 11b.
+
+[AUXDET]
+1
+;Auxiliary Power Detect. When the system supports remote wakeup from D3cold, 
+;this bit should be set to '1'.
+
+[EnableClockRequest]
+1
+; Set to '0', if you want to disable the CLKREQ#(ClockRequest). 
+; There exist PCs which has problem in its CLKREQ# function for ExpressCard slot.
+; It is recommended to disable CLKREQ# function, if the product is ExpressCard.
+; Default value is "1". 
+
+[SerialNumCapEnable]
+0
+;When set to '1b', Serial Number Capability area is enabled.
+
+[FWUpdateProperty]
+0
+;This flag is checked by the "FW Updater" that is the executable file for
+;Windows OS and can update old firmware in the external rom to new firmware.
+;When the "FWUpdateProperty" is set to '1', the FW Updater updates the firmware
+;only when the SSID and SVID of the PCI Configuration Register of the 
+;uPD720201/202 match the SSID and SVID in the vendor specific FW Updater file. 
+;Vendors can generate the vendor specific FW Updater including thier SSID and 
+;SVID for their products with the FW Updater Generator. 
+;When it is set to '0', the firmware is updated by "FW Updater" that is included
+;the SSID & SVID and isn't included the SSID & SVID updates the firmware.
+
+[BatteryChargeModePort1]
+0
+;Battery charging port type for PORT1. Can be set to one of the following:.
+;0 : SDP only
+;1 : CDP only
+;2 : SDP - DCP
+;3 : CDP - DCP
+
+[BatteryChargeModePort2]
+0
+;Battery charging port type for PORT2. Can be set to one of the following:.
+;0 : SDP only
+;1 : CDP only
+;2 : SDP - DCP
+;3 : CDP - DCP
+
+[BatteryChargeModePort3]
+0
+;Battery charging port type for PORT3(Only uPD720201). Can be set to one 
+;of the following:.
+;0 : SDP only
+;1 : CDP only
+;2 : SDP - DCP
+;3 : CDP - DCP
+
+[BatteryChargeModePort4]
+0
+;Battery charging port type for PORT4(Only uPD720201). Can be set to one 
+;of the following:.
+;0 : SDP only
+;1 : CDP only
+;2 : SDP - DCP
+;3 : CDP - DCP
+
+[TRTFCTLU2Dx1]
+1
+;High Speed Eye Tr/Tf fine control for PORT1.
+;0 : -1 (make low pitch)
+;1 : 0 (default)
+;2 : +1
+;3 : +2 (make steep pitch)?
+
+[TRTFCTLU2Dx2]
+1
+;High Speed Eye Tr/Tf fine control for PORT2.
+;0 : -1 (make low pitch)
+;1 : 0 (default)
+;2 : +1
+;3 : +2 (make steep pitch)?
+
+[TRTFCTLU2Dx3]
+1
+;High Speed Eye Tr/Tf fine control for PORT3(Only uPD720201).
+;0 : -1 (make low pitch)
+;1 : 0 (default)
+;2 : +1
+;3 : +2 (make steep pitch)?
+
+[TRTFCTLU2Dx4]
+1
+;High Speed Eye Tr/Tf fine control for PORT4(Only uPD720201).
+;0 : -1 (make low pitch)
+;1 : 0 (default)
+;2 : +1
+;3 : +2 (make steep pitch)?
+[DisableCompletionTimeout]
+0
+; When a system requires default value of "Completion Timeout Disable" bit in
+;PCI Configuration Space is '1b', this value should be set to '1'.
+; ##Note##
+;To use this section, you should write the firmware(v2.0.1.8 or later).
+
+----------------------------------------------------------------------------------------

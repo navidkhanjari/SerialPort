@@ -1,0 +1,80 @@
+; N602DRV.INF
+; Driver for PCI-E chip(N602)(It supports dual setial ports,one parallel port)
+; For Windows 2000/XP/VISTA/7/8/8.1/SERVER 2003/SERVER 2008/SERVER 2012
+; For 64-bit Windows XP/VISTA/7/8/8.1/SERVER 2003/SERVER 2008/SERVER 2012
+; Copyright (C) WCH 2014
+; Ver V1.0
+
+[Version]
+Signature=$CHICAGO$
+Class=MultiFunction
+ClassGUID={4d36e971-e325-11ce-bfc1-08002be10318}
+Provider=%NETNOW%
+DriverVer=05/11/2014,1.0.2014.5
+CatalogFile.NT = N602DRV.CAT
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%NETNOW%=NETNOW,NT,NTamd64
+
+[NETNOW.NT]
+%NETNOW_PORTE_1P%=NETNOW1P_instE, PCI\VEN_DC00&DEV_6231
+%NETNOW_PORTE_1P%=NETNOW1P_instE, PCI\VEN_DC00&DEV_6231&SUBSYS_6231DC00
+;%NETNOW_PORTE_2S%=NETNOW2S_instE, PCI\VEN_DC00&DEV_6332
+;%NETNOW_PORTE_2S%=NETNOW2S_instE, PCI\VEN_DC00&DEV_6332&SUBSYS_6332DC00
+
+[NETNOW.NTAMD64]
+%NETNOW_PORTE_1P%=NETNOW1P_instE, PCI\VEN_DC00&DEV_6231
+%NETNOW_PORTE_1P%=NETNOW1P_instE, PCI\VEN_DC00&DEV_6231&SUBSYS_6231DC00
+;%NETNOW_PORTE_2S%=NETNOW2S_instE, PCI\VEN_DC00&DEV_6332
+;%NETNOW_PORTE_2S%=NETNOW2S_instE, PCI\VEN_DC00&DEV_6332&SUBSYS_6332DC00
+
+;;1P
+; WIN2000,XP and later
+[NETNOW1P_instE.NT]
+Include = mf.inf
+Needs = MFINSTALL.mf
+
+[NETNOW1P_instE.NT.HW]
+AddReg=NETNOW1P_instE.NT.RegHW
+
+[NETNOW1P_instE.NT.Services]
+Include = mf.inf
+Needs = MFINSTALL.mf.Services
+
+[NETNOW1P_instE.NT.RegHW]
+HKR,Child0000,HardwareID,,MF\DHPE6231_LPT_0
+HKR,Child0000,VaryingResourceMap,1,04,00,00,00,00,04,00,00,00
+HKR,Child0000,ResourceMap,1,06
+
+;;2S
+; WIN2000,XP and later
+[NETNOW2S_instE.NT]
+Include = mf.inf
+Needs = MFINSTALL.mf
+
+[NETNOW2S_instE.NT.HW]
+AddReg=NETNOW2S_instE.NT.RegHW
+
+[NETNOW2S_instE.NT.Services]
+Include = mf.inf
+Needs = MFINSTALL.mf.Services
+
+[NETNOW2S_instE.NT.RegHW]
+HKR,Child0001,HardwareID,,MF\DHPE6332_COM_0
+HKR,Child0001,VaryingResourceMap,1,00,C0,00,00,00,08,00,00,00
+HKR,Child0001,ResourceMap,1,06
+HKR,Child0000,HardwareID,,MF\DHPE6332_COM_1
+HKR,Child0000,VaryingResourceMap,1,00,C8,00,00,00,08,00,00,00
+HKR,Child0000,ResourceMap,1,06
+
+[SourceDisksNames]
+
+[SourceDisksFiles]
+
+[Strings]
+NETNOW= "NETNOW"
+NETNOW_PORTE_1P = "PCIE TO PARALLEL PORT"
+NETNOW_PORTE_2S = "PCIE TO DUAL SERIAL PORT"

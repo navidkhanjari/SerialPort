@@ -1,0 +1,56 @@
+[Disks]
+
+d1 = "Maxtor SATA/150 PCI Card Driver Diskette", \ulsata, \
+d2 = "Maxtor SATA/150 PCI Card Driver Diskette", \ulsata, \wnet
+d3 = "Maxtor SATA/150 PCI Card Driver Diskette", \ulsata, \Win2000
+d4 = "Maxtor SATA/150 PCI Card Driver Diskette", \ulsata, \WinXP
+d5 = "Maxtor SATA/150 PCI Card Driver Diskette", \ulsata, \wnnt
+
+[Defaults]
+
+scsi = Ulsata_xp
+
+[scsi]
+UlSata_net  = "WinServer 2003: Maxtor SATA/150 PCI Card", UlSata
+UlSata_W2k  = "Windows 2000: Maxtor SATA/150 PCI Card", UlSata
+UlSata_xp   = "Windows XP: Maxtor SATA/150 PCI Card", UlSata
+UlSata_nt   = "Windows NT4.0: Maxtor SATA/150 PCI Card", UlSata
+
+[Files.scsi.UlSata_net]
+driver = d2, ulsata.sys, UlSata
+dll    = d2, ptipbm.dll
+inf    = d2, ulsata.inf
+catalog = d2, Ulsata.cat
+
+[HardwareIds.scsi.UlSata_net]
+id = "PCI\VEN_105A&DEV_3375","UlSata"
+
+[Files.scsi.UlSata_W2K]
+driver = d3, UlSata.sys, UlSata
+dll    = d3, ptipbm.dll
+inf    = d3, UlSata.inf
+catalog = d3, Ulsata.cat
+
+[HardwareIds.scsi.UlSata_w2k]
+id = "PCI\VEN_105A&DEV_3375","UlSata"
+
+[Files.scsi.UlSata_xp]
+driver = d4, UlSata.sys, UlSata
+dll    = d4, ptipbm.dll
+inf    = d4, UlSata.inf
+catalog = d4, Ulsata.cat
+
+[HardwareIds.scsi.UlSata_xp]
+id = "PCI\VEN_105A&DEV_3375","UlSata"
+
+[Files.scsi.UlSata_nt]
+driver = d5, UlSata.sys, UlSata
+dll    = d5, ptipbm.dll
+inf    = d5, UlSata.inf
+
+[HardwareIds.scsi.UlSata_nt]
+id = "PCI\VEN_105A&DEV_3375","UlSata"
+
+
+[Config.UlSata]
+value = "", Tag, REG_DWORD, 1

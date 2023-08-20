@@ -1,0 +1,267 @@
+; PORTS.INF
+; Driver for communication port(serial and parallel)
+; For windows 98/ME
+; Copyright (C) WCH  2012
+; Ver V1.3
+
+[Version]
+signature="$CHICAGO$"
+Class=Ports
+ClassGUID={4d36e978-e325-11ce-bfc1-08002be10318}
+Provider=%WinChipHead%
+DriverVer=07/09/2012,1.2.2012.7
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%WinChipHead%=WinChipHead
+
+[WinChipHead]
+%WinChipHead.ComPort0Name%=PCICom0,MF\PCI5334_COM_0
+%WinChipHead.ComPort1Name%=PCICom0,MF\PCI5334_COM_1
+%WinChipHead.ComPort2Name%=PCICom0,MF\PCI5334_COM_2
+%WinChipHead.ComPort3Name%=PCICom0,MF\PCI5334_COM_3
+%WinChipHead.LPTPort0Name%=LPTPort,MF\PCI5334_LPT_0
+%WinChipHead.ComPort0Name%=PCICom0,MF\PCI3873_COM_0
+%WinChipHead.ComPort1Name%=PCICom1,MF\PCI3873_COM_1
+%WinChipHead.ComPort2Name%=PCICom2,MF\PCI3873_COM_2
+%WinChipHead.ComPort3Name%=PCICom3,MF\PCI3873_COM_3
+%WinChipHead.ComPort4Name%=PCICom4,MF\PCI3873_COM_4
+%WinChipHead.ComPort5Name%=PCICom5,MF\PCI3873_COM_5
+%WinChipHead.ComPort0Name%=PCICom0,MF\PCI3853_COM_0
+%WinChipHead.ComPort1Name%=PCICom1,MF\PCI3853_COM_1
+%WinChipHead.ComPort2Name%=PCICom2,MF\PCI3853_COM_2
+%WinChipHead.ComPort3Name%=PCICom3,MF\PCI3853_COM_3
+%WinChipHead.ComPort4Name%=PCICom4,MF\PCI3853_COM_4
+%WinChipHead.ComPort5Name%=PCICom5,MF\PCI3853_COM_5
+%WinChipHead.ComPort6Name%=PCICom6,MF\PCI3853_COM_6
+%WinChipHead.ComPort7Name%=PCICom7,MF\PCI3853_COM_7
+%WinChipHead.ComPort0Name%=PCICom0,MF\PCI5338_COM_0
+%WinChipHead.ComPort1Name%=PCICom1,MF\PCI5338_COM_1
+%WinChipHead.ComPort2Name%=PCICom2,MF\PCI5338_COM_2
+%WinChipHead.ComPort3Name%=PCICom3,MF\PCI5338_COM_3
+%WinChipHead.ComPort4Name%=PCICom4,MF\PCI5338_COM_4
+%WinChipHead.ComPort5Name%=PCICom5,MF\PCI5338_COM_5
+%WinChipHead.ComPort6Name%=PCICom6,MF\PCI5338_COM_6
+%WinChipHead.ComPort7Name%=PCICom7,MF\PCI5338_COM_7
+%WinChipHead.ComPort0Name%=PCICom0,MF\PCI5838_COM_0
+%WinChipHead.ComPort1Name%=PCICom1,MF\PCI5838_COM_1
+%WinChipHead.ComPort2Name%=PCICom2,MF\PCI5838_COM_2
+%WinChipHead.ComPort3Name%=PCICom3,MF\PCI5838_COM_3
+%WinChipHead.ComPort4Name%=PCICom4,MF\PCI5838_COM_4
+%WinChipHead.ComPort5Name%=PCICom5,MF\PCI5838_COM_5
+%WinChipHead.ComPort6Name%=PCICom6,MF\PCI5838_COM_6
+%WinChipHead.ComPort7Name%=PCICom7,MF\PCI5838_COM_7
+%WinChipHead.ComPort8Name%=PCICom8,MF\PCI5838_COM_8
+%WinChipHead.ComPort9Name%=PCICom9,MF\PCI5838_COM_9
+%WinChipHead.ComPort10Name%=PCICom10,MF\PCI5838_COM_10
+%WinChipHead.ComPort11Name%=PCICom11,MF\PCI5838_COM_11
+%WinChipHead.ComPort12Name%=PCICom12,MF\PCI5838_COM_12
+%WinChipHead.ComPort13Name%=PCICom13,MF\PCI5838_COM_13
+%WinChipHead.ComPort14Name%=PCICom14,MF\PCI5838_COM_14
+%WinChipHead.ComPort15Name%=PCICom15,MF\PCI5838_COM_15
+
+;public section
+[caa]
+ConfigPriority=HARDRECONFIG
+IOConfig=8@100-ffff%fff8(3ff::)
+IRQConfig=S:3,4,5,7,9,10,11,12,14,15
+
+[laan]
+ConfigPriority=HARDRECONFIG
+IOConfig=8@100-3ff%fff8(3ff::)
+IRQConfig=3,4,5,6,7,8,9,10,11,12,13,14,15
+
+;;ComPortA WIN98/ME
+[ComPort]
+AddReg=ComPort.AddReg
+LogConfig=caa
+
+[ComPort.AddReg]
+HKR,,DevLoader,,*vcomm
+HKR,,Enumerator,,serenum.vxd
+HKR,,PortDriver,2,serial.vxd
+HKR,,Contention,,*vcd
+HKR,,ConfigDialog,,serialui.dll
+HKR,,DCB,3,1C,00,00,00, 80,25,00,00, 11,33,00,00, 00,00, 0a,00, 0a,00, 08, 00, 00, 11, 13, 00, 00, 00
+HKR,,PortSubClass,1,01
+HKR,,EnumPropPages,,"serialui.dll,EnumPropPages"
+
+;;PARALLEL INSTALL
+;LptPortA WIN98/ME
+[LptPort]
+AddReg=LptPort.AddReg
+LogConfig=laan
+
+[LptPort.AddReg]
+HKR,,DevLoader,,*vcomm
+HKR,,Enumerator,,lptenum.vxd
+HKR,,Contention,,*vpd
+HKR,,PortDriver,,lpt.vxd
+HKR,,PortSubClass,1,00
+HKR,,ECPDevice,1,00
+
+;**ComPortB**
+; WIN98/ME
+;Port0 install
+[PCICom0]
+CopyFiles=PCICom_inst.CopyFiles.VXD,PCICom_inst.CopyFiles.DLL
+AddReg=PCICom.AddReg
+LogConfig=caa
+
+;Port1 install
+[PCICom1]
+CopyFiles=PCICom_inst.CopyFiles.VXD,PCICom_inst.CopyFiles.DLL
+AddReg=PCICom.AddReg
+LogConfig=caa
+
+;Port2 install
+[PCICom2]
+CopyFiles=PCICom_inst.CopyFiles.VXD,PCICom_inst.CopyFiles.DLL
+AddReg=PCICom.AddReg
+LogConfig=caa
+
+;Port3 install
+[PCICom3]
+CopyFiles=PCICom_inst.CopyFiles.VXD,PCICom_inst.CopyFiles.DLL
+AddReg=PCICom.AddReg
+LogConfig=caa
+
+;Port4 install
+[PCICom4]
+CopyFiles=PCICom_inst.CopyFiles.VXD,PCICom_inst.CopyFiles.DLL
+AddReg=PCICom.AddReg
+LogConfig=caa
+
+;Port5 install
+[PCICom5]
+CopyFiles=PCICom_inst.CopyFiles.VXD,PCICom_inst.CopyFiles.DLL
+AddReg=PCICom.AddReg
+LogConfig=caa
+
+;Port6 install
+[PCICom6]
+CopyFiles=PCICom_inst.CopyFiles.VXD,PCICom_inst.CopyFiles.DLL
+AddReg=PCICom.AddReg
+LogConfig=caa
+
+;Port7 install
+[PCICom7]
+CopyFiles=PCICom_inst.CopyFiles.VXD,PCICom_inst.CopyFiles.DLL
+AddReg=PCICom.AddReg
+LogConfig=caa
+
+;Port8 install
+[PCICom8]
+CopyFiles=PCICom_inst.CopyFiles.VXD,PCICom_inst.CopyFiles.DLL
+AddReg=PCICom.AddReg
+LogConfig=caa
+
+;Port9 install
+[PCICom9]
+CopyFiles=PCICom_inst.CopyFiles.VXD,PCICom_inst.CopyFiles.DLL
+AddReg=PCICom.AddReg
+LogConfig=caa
+
+;Port10 install
+[PCICom10]
+CopyFiles=PCICom_inst.CopyFiles.VXD,PCICom_inst.CopyFiles.DLL
+AddReg=PCICom.AddReg
+LogConfig=caa
+
+;Port11 install
+[PCICom11]
+CopyFiles=PCICom_inst.CopyFiles.VXD,PCICom_inst.CopyFiles.DLL
+AddReg=PCICom.AddReg
+LogConfig=caa
+
+;Port12 install
+[PCICom12]
+CopyFiles=PCICom_inst.CopyFiles.VXD,PCICom_inst.CopyFiles.DLL
+AddReg=PCICom.AddReg
+LogConfig=caa
+
+;Port13 install
+[PCICom13]
+CopyFiles=PCICom_inst.CopyFiles.VXD,PCICom_inst.CopyFiles.DLL
+AddReg=PCICom.AddReg
+LogConfig=caa
+
+;Port14 install
+[PCICom14]
+CopyFiles=PCICom_inst.CopyFiles.VXD,PCICom_inst.CopyFiles.DLL
+AddReg=PCICom.AddReg
+LogConfig=caa
+
+;Port15 install
+[PCICom15]
+CopyFiles=PCICom_inst.CopyFiles.VXD,PCICom_inst.CopyFiles.DLL
+AddReg=PCICom.AddReg
+LogConfig=caa
+
+[PCICom.AddReg]
+HKR,,DevLoader,,*vcomm
+HKR,,Enumerator,,serenum.vxd
+HKR,,PortDriver,2,PCISER.VXD
+HKR,,Contention,,*vcd
+HKR,,ConfigDialog,,PCIPORTS.DLL
+HKR,,DCB,3,1C,00,00,00, 80,25,00,00, 11,33,00,00, 00,00, 0a,00, 0a,00, 08, 00, 00, 11, 13, 00, 00, 00
+HKR,,PortSubClass,1,01
+HKR,,EnumPropPages,,"comui.dll,EnumPropPages"
+
+[PCICom_inst.CopyFiles.VXD]
+PCISER.VXD
+
+[PCICom_inst.CopyFiles.DLL]
+PCIPORTS.DLL
+
+;;PARALLEL INSTALL B
+; WIN98/ME
+[PCILpt]
+AddReg=PCILpt.AddReg
+LogConfig=laan
+
+[PCILpt.AddReg]
+HKR,,DevLoader,,*vcomm
+HKR,,Enumerator,,lptenum.vxd
+HKR,,Contention,,*vpd
+HKR,,PortDriver,,lpt.vxd
+HKR,,PortSubClass,1,00
+HKR,,ECPDevice,1,00
+
+[SourceDisksFiles]
+PCISER.VXD = 1
+PCIPORTS.DLL = 1
+
+[DestinationDirs]
+PCICom_inst.CopyFiles.VXD = 11
+PCICom_inst.CopyFiles.DLL = 11
+
+[SourceDisksNames]
+1 = %DISK_NAME%, , ,
+
+[Strings]
+WinChipHead= "WinChipHead"
+WinChipHead.ComPort0Name = "PCI-SERIAL"
+WinChipHead.ComPort1Name = "PCI-SERIAL"
+WinChipHead.ComPort2Name = "PCI-SERIAL"
+WinChipHead.ComPort3Name = "PCI-SERIAL"
+WinChipHead.ComPort4Name = "PCI-SERIAL"
+WinChipHead.ComPort5Name = "PCI-SERIAL"
+WinChipHead.ComPort6Name = "PCI-SERIAL"
+WinChipHead.ComPort7Name = "PCI-SERIAL"
+WinChipHead.ComPort8Name = "PCI-SERIAL"
+WinChipHead.ComPort9Name = "PCI-SERIAL"
+WinChipHead.ComPort10Name = "PCI-SERIAL"
+WinChipHead.ComPort11Name = "PCI-SERIAL"
+WinChipHead.ComPort12Name = "PCI-SERIAL"
+WinChipHead.ComPort13Name = "PCI-SERIAL"
+WinChipHead.ComPort14Name = "PCI-SERIAL"
+WinChipHead.ComPort15Name = "PCI-SERIAL"
+WinChipHead.LPTPort0Name = "PCI-PARALLEL"
+Serial.SVCDESC   = "PCISER port driver"
+Serenum.SVCDESC = "Serenum Filter Driver"
+PCIPar.SVCDESC = "PCIPAR port driver"
+Parport.SVCDESC = "parport port driver"
+DISK_NAME = "PCI card driver Installation Disk"

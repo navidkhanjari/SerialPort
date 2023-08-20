@@ -1,0 +1,52 @@
+
+;Copyright (c) 2009, Moschip Semiconductor Private Limited. All Rights Reserved. 
+
+
+
+ 	;$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+	;$serial and parallel support of MCS9900$
+	;$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+	;Registry values for the MCS99xx PCI to Multi Serial Driver
+
+
+	[$(PCI_BUS_ROOT)\Template\MCS9900Ser1]
+	;PCI device related information
+	"Prefix" = "MOS"  
+	"Dll" = "MCS9900Ce50.dll"	   
+	"Class"=dword:07
+    "SubClass"=dword:0
+    "ProgIF"=dword:02
+	"VendorID"=multi_sz:"9710"
+    "DeviceID"=multi_sz:"9900"
+
+	 ;Isr related
+	"IsrDll"="mosiisr99x.dll" 
+	"IsrHandler"="MosISRHandler99x"	  
+
+	[$(PCI_BUS_ROOT)\Template\MCS9900Ser2]
+    ;PCI device related information
+	"Prefix" = "MOS"  
+	"Dll" = "MCS9900Ce50.dll"	   
+	"Class"=dword:07
+    "SubClass"=dword:01
+    "ProgIF"=dword:03
+	"VendorID"=multi_sz:"9710"
+    "DeviceID"=multi_sz:"9900"
+
+	 ;Isr related
+	"IsrDll"="mosiisr99x.dll" 
+	"IsrHandler"="MosISRHandler99x"	  
+
+
+	  ;MCS9900 Parallel port
+
+	  [HKEY_LOCAL_MACHINE\Drivers\BuiltIn\PCI\Template\MCS9900Par]
+	  ;PCI device related information
+	  "Prefix" = "MOS"  
+	  "Dll" = "MCS9900Ce50.dll"	        
+	  "Class"=dword:07 ;Simple Communications Controllers
+	  "SubClass"=dword:01 ;Other commonications device
+      "ProgIF"=dword:03    ;Other commonications device
+      "VendorID"=multi_sz:"9710"
+      "DeviceID"=multi_sz:"9900"
+	 

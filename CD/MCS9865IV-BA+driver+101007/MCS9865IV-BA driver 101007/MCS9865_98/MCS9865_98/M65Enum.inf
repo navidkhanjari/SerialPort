@@ -1,0 +1,108 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;  NetMos Technology, inc.
+;;
+;;  FILE : M65Enum.inf
+;;  OS SUPPORTED : WIN98 ONLY.
+;;
+;;  See M65Enum.Hw.AddReg section to enable/disable
+;;  re-mapping serial/parallel port iobase to legacy ports
+;;  like 3F8, 2F8, etc.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[Version]
+LayoutFile = layout.inf
+Signature  = $CHICAGO$
+Class      = M65MultiFunction
+Provider   = %ProviderName%
+DriverVer  = 12/23/2008,1.0.0.2
+
+[DestinationDirs]
+DefaultDestDir  = 11    ;LDID_SYS
+Inf.Copy = 17       	;DIRID_INF
+
+[SourceDiskFiles]
+M65Enum.inf=1
+M65Ports.inf=1
+M65Enum.vxd=1
+M65unst.exe=1
+
+[SourceDisksNames]
+1=%DiskName%,,
+
+;------------------------
+; Install CLass 
+;------------------------
+[ClassInstall]
+CopyFiles=Inf.Copy,Uninstall.Copy
+AddReg=Class.AddReg
+
+[Class.AddReg]
+HKR,,Icon,,-23
+
+[Manufacturer]
+%ProviderName%=PCIMultifunctionCards
+
+;------------------------
+; Install Drivers
+;------------------------
+[PCIMultifunctionCards]
+%PCIMultifunctionName%=M65Enum,PCI\VEN_9710&DEV_9865&SUBSYS_3004A000&REV_00 
+%PCIMultifunctionName%=M65Enum,PCI\VEN_9710&DEV_9865&SUBSYS_3003A000&REV_00 
+%PCIMultifunctionName%=M65Enum,PCI\VEN_9710&DEV_9865&SUBSYS_3002A000&REV_00 
+%PCIMultifunctionName%=M65Enum,PCI\VEN_9710&DEV_9865&SUBSYS_3001A000&REV_00 
+%PCIMultifunctionName%=M65Enum,PCI\VEN_9710&DEV_9865&SUBSYS_3011A000&REV_00 
+%PCIMultifunctionName%=M65Enum,PCI\VEN_9710&DEV_9865&SUBSYS_3012A000&REV_00 
+%PCIMultifunctionName%=M65Enum,PCI\VEN_9710&DEV_9865&SUBSYS_3020A000&REV_00 
+
+
+
+[M65Enum]
+CopyFiles=Inf.Copy,M65Enum.Copy,Uninstall.Copy
+AddReg=M65Enum.AddReg,Uninstall.AddReg
+;UpdateAutoBat=NmDosIn.AutoBat
+
+[M65Enum.Hw]
+AddReg=M65Enum.Hw.AddReg
+
+[M65Enum.AddReg]
+HKR,,DevLoader,0,M65ENUM.vxd
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; M65Enum.Hw.AddReg Section
+;
+; Remap To Legacy I/O Ports
+;
+; HKR,,RemapToLegacyPort,1,1
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+[M65Enum.Hw.AddReg]
+HKR,,RemapToLegacyPort,1,0
+
+[Uninstall.AddReg]
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%ProviderName%,DisplayName,0,%UninstallName%
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%ProviderName%,UninstallString,0,M65unst.exe
+
+[Inf.Copy]
+M65Enum.inf
+M65Ports.inf
+
+
+[M65Enum.Copy]
+M65ENUM.vxd
+
+[Uninstall.Copy]
+M65unst.exe
+
+
+[Strings]
+ProviderName="MosChip Semiconductor Tech Ltd"
+DiskName="PCI Multi I/O Driver Disk"
+UninstallName="M65-PCI Multi-IO Controller"
+PCIMultifunctionName="M65-PCI Multi-I/O Controller"
+
+
+
+; END OF FILE
+

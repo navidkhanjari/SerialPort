@@ -1,0 +1,1342 @@
+; EMPORTS.INF
+; Driver for communication port(serial and parallel)
+; For windows 2003/XP/VISTA/2008/7
+; Copyright (C) WCH  2011
+; Ver V1.1
+
+[Version]
+signature="$CHICAGO$"
+Class=Ports
+ClassGUID={4d36e978-e325-11ce-bfc1-08002be10318}
+Provider=%WinChipHead%
+DriverVer=12/08/2011,1.1.2011.12
+CatalogFile.NT = CH38XDRV.CAT
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%WinChipHead%=WinChipHead,NT,NTamd64
+
+[WinChipHead.NT]
+%WinChipHead.ComPortEName%=PCIEComA0,MF\PCIE3253_COM_0
+%WinChipHead.ComPortEName%=PCIEComA1,MF\PCIE3253_COM_1
+%WinChipHead.ComPortEName%=PCIEComA0,MF\PCIE3250_COM_0
+%WinChipHead.ComPortEName%=PCIEComA1,MF\PCIE3250_COM_1
+%WinChipHead.LPTPortEName%=LPTPort,MF\PCIE3250_LPT_0
+%WinChipHead.LPTPortEName%=LPTPort,MF\PCIE3050_LPT_0
+%WinChipHead.ComPortEName%=PCIEComA0,MF\PCIE3470_COM_0
+%WinChipHead.ComPortEName%=PCIEComA1,MF\PCIE3470_COM_1
+%WinChipHead.ComPortEName%=PCIEComA2,MF\PCIE3470_COM_2
+%WinChipHead.ComPortEName%=PCIEComA3,MF\PCIE3470_COM_3
+%WinChipHead.ComPortEName%=PCIEComA0,MF\PCIE3450_COM_0
+%WinChipHead.ComPortEName%=PCIEComA1,MF\PCIE3450_COM_1
+%WinChipHead.ComPortEName%=PCIEComA2,MF\PCIE3450_COM_2
+%WinChipHead.ComPortEName%=PCIEComA3,MF\PCIE3450_COM_3
+%WinChipHead.LPTPortEName%=LPTPort,MF\PCIE3450_LPT_0
+%WinChipHead.ComPortEName%=PCIECom0,MF\PCIE3853_COM_0
+%WinChipHead.ComPortEName%=PCIECom1,MF\PCIE3853_COM_1
+%WinChipHead.ComPortEName%=PCIECom2,MF\PCIE3853_COM_2
+%WinChipHead.ComPortEName%=PCIECom3,MF\PCIE3853_COM_3
+%WinChipHead.ComPortEName%=PCIECom4,MF\PCIE3853_COM_4
+%WinChipHead.ComPortEName%=PCIECom5,MF\PCIE3853_COM_5
+%WinChipHead.ComPortEName%=PCIECom6,MF\PCIE3853_COM_6
+%WinChipHead.ComPortEName%=PCIECom7,MF\PCIE3853_COM_7
+%WinChipHead.ComPortEName%=PCIECom0,MF\PCIE3258_COM_0
+%WinChipHead.ComPortEName%=PCIECom1,MF\PCIE3258_COM_1
+%WinChipHead.ComPortEName%=PCIECom2,MF\PCIE3258_COM_2
+%WinChipHead.ComPortEName%=PCIECom3,MF\PCIE3258_COM_3
+%WinChipHead.ComPortEName%=PCIECom4,MF\PCIE3258_COM_4
+%WinChipHead.ComPortEName%=PCIECom5,MF\PCIE3258_COM_5
+%WinChipHead.ComPortEName%=PCIECom6,MF\PCIE3258_COM_6
+%WinChipHead.ComPortEName%=PCIECom7,MF\PCIE3258_COM_7
+%WinChipHead.ComPortEName%=PCIECom0,MF\PCIE4353_COM_0
+%WinChipHead.ComPortEName%=PCIECom1,MF\PCIE4353_COM_1
+%WinChipHead.ComPortEName%=PCIECom2,MF\PCIE4353_COM_2
+%WinChipHead.ComPortEName%=PCIECom3,MF\PCIE4353_COM_3
+%WinChipHead.ComPortEName%=PCIECom4,MF\PCIE4353_COM_4
+%WinChipHead.ComPortEName%=PCIECom5,MF\PCIE4353_COM_5
+%WinChipHead.ComPortEName%=PCIECom6,MF\PCIE4353_COM_6
+%WinChipHead.ComPortEName%=PCIECom7,MF\PCIE4353_COM_7
+%WinChipHead.ComPortEName%=PCIECom8,MF\PCIE4353_COM_8
+%WinChipHead.ComPortEName%=PCIECom9,MF\PCIE4353_COM_9
+%WinChipHead.ComPortEName%=PCIECom10,MF\PCIE4353_COM_10
+%WinChipHead.ComPortEName%=PCIECom11,MF\PCIE4353_COM_11
+%WinChipHead.ComPortEName%=PCIECom12,MF\PCIE4353_COM_12
+%WinChipHead.ComPortEName%=PCIECom13,MF\PCIE4353_COM_13
+%WinChipHead.ComPortEName%=PCIECom14,MF\PCIE4353_COM_14
+%WinChipHead.ComPortEName%=PCIECom15,MF\PCIE4353_COM_15
+%WinChipHead.ComPortEName%=PCIECom16,MF\PCIE4353_COM_16
+%WinChipHead.ComPortEName%=PCIECom17,MF\PCIE4353_COM_17
+%WinChipHead.ComPortEName%=PCIECom18,MF\PCIE4353_COM_18
+%WinChipHead.ComPortEName%=PCIECom19,MF\PCIE4353_COM_19
+%WinChipHead.ComPortEName%=PCIECom20,MF\PCIE4353_COM_20
+%WinChipHead.ComPortEName%=PCIECom21,MF\PCIE4353_COM_21
+%WinChipHead.ComPortEName%=PCIECom22,MF\PCIE4353_COM_22
+%WinChipHead.ComPortEName%=PCIECom23,MF\PCIE4353_COM_23
+%WinChipHead.ComPortEName%=PCIECom24,MF\PCIE4353_COM_24
+%WinChipHead.ComPortEName%=PCIECom25,MF\PCIE4353_COM_25
+%WinChipHead.ComPortEName%=PCIECom26,MF\PCIE4353_COM_26
+%WinChipHead.ComPortEName%=PCIECom27,MF\PCIE4353_COM_27
+
+[WinChipHead.NTamd64]
+%WinChipHead.ComPortEName%=PCIEComA0,MF\PCIE3253_COM_0
+%WinChipHead.ComPortEName%=PCIEComA1,MF\PCIE3253_COM_1
+%WinChipHead.ComPortEName%=PCIEComA0,MF\PCIE3250_COM_0
+%WinChipHead.ComPortEName%=PCIEComA1,MF\PCIE3250_COM_1
+%WinChipHead.LPTPortEName%=LPTPort,MF\PCIE3250_LPT_0
+%WinChipHead.LPTPortEName%=LPTPort,MF\PCIE3050_LPT_0
+%WinChipHead.ComPortEName%=PCIEComA0,MF\PCIE3470_COM_0
+%WinChipHead.ComPortEName%=PCIEComA1,MF\PCIE3470_COM_1
+%WinChipHead.ComPortEName%=PCIEComA2,MF\PCIE3470_COM_2
+%WinChipHead.ComPortEName%=PCIEComA3,MF\PCIE3470_COM_3
+%WinChipHead.ComPortEName%=PCIEComA0,MF\PCIE3450_COM_0
+%WinChipHead.ComPortEName%=PCIEComA1,MF\PCIE3450_COM_1
+%WinChipHead.ComPortEName%=PCIEComA2,MF\PCIE3450_COM_2
+%WinChipHead.ComPortEName%=PCIEComA3,MF\PCIE3450_COM_3
+%WinChipHead.LPTPortEName%=LPTPort,MF\PCIE3450_LPT_0
+%WinChipHead.ComPortEName%=PCIECom0,MF\PCIE3853_COM_0
+%WinChipHead.ComPortEName%=PCIECom1,MF\PCIE3853_COM_1
+%WinChipHead.ComPortEName%=PCIECom2,MF\PCIE3853_COM_2
+%WinChipHead.ComPortEName%=PCIECom3,MF\PCIE3853_COM_3
+%WinChipHead.ComPortEName%=PCIECom4,MF\PCIE3853_COM_4
+%WinChipHead.ComPortEName%=PCIECom5,MF\PCIE3853_COM_5
+%WinChipHead.ComPortEName%=PCIECom6,MF\PCIE3853_COM_6
+%WinChipHead.ComPortEName%=PCIECom7,MF\PCIE3853_COM_7
+%WinChipHead.ComPortEName%=PCIECom0,MF\PCIE3258_COM_0
+%WinChipHead.ComPortEName%=PCIECom1,MF\PCIE3258_COM_1
+%WinChipHead.ComPortEName%=PCIECom2,MF\PCIE3258_COM_2
+%WinChipHead.ComPortEName%=PCIECom3,MF\PCIE3258_COM_3
+%WinChipHead.ComPortEName%=PCIECom4,MF\PCIE3258_COM_4
+%WinChipHead.ComPortEName%=PCIECom5,MF\PCIE3258_COM_5
+%WinChipHead.ComPortEName%=PCIECom6,MF\PCIE3258_COM_6
+%WinChipHead.ComPortEName%=PCIECom7,MF\PCIE3258_COM_7
+%WinChipHead.ComPortEName%=PCIECom0,MF\PCIE4353_COM_0
+%WinChipHead.ComPortEName%=PCIECom1,MF\PCIE4353_COM_1
+%WinChipHead.ComPortEName%=PCIECom2,MF\PCIE4353_COM_2
+%WinChipHead.ComPortEName%=PCIECom3,MF\PCIE4353_COM_3
+%WinChipHead.ComPortEName%=PCIECom4,MF\PCIE4353_COM_4
+%WinChipHead.ComPortEName%=PCIECom5,MF\PCIE4353_COM_5
+%WinChipHead.ComPortEName%=PCIECom6,MF\PCIE4353_COM_6
+%WinChipHead.ComPortEName%=PCIECom7,MF\PCIE4353_COM_7
+%WinChipHead.ComPortEName%=PCIECom8,MF\PCIE4353_COM_8
+%WinChipHead.ComPortEName%=PCIECom9,MF\PCIE4353_COM_9
+%WinChipHead.ComPortEName%=PCIECom10,MF\PCIE4353_COM_10
+%WinChipHead.ComPortEName%=PCIECom11,MF\PCIE4353_COM_11
+%WinChipHead.ComPortEName%=PCIECom12,MF\PCIE4353_COM_12
+%WinChipHead.ComPortEName%=PCIECom13,MF\PCIE4353_COM_13
+%WinChipHead.ComPortEName%=PCIECom14,MF\PCIE4353_COM_14
+%WinChipHead.ComPortEName%=PCIECom15,MF\PCIE4353_COM_15
+%WinChipHead.ComPortEName%=PCIECom16,MF\PCIE4353_COM_16
+%WinChipHead.ComPortEName%=PCIECom17,MF\PCIE4353_COM_17
+%WinChipHead.ComPortEName%=PCIECom18,MF\PCIE4353_COM_18
+%WinChipHead.ComPortEName%=PCIECom19,MF\PCIE4353_COM_19
+%WinChipHead.ComPortEName%=PCIECom20,MF\PCIE4353_COM_20
+%WinChipHead.ComPortEName%=PCIECom21,MF\PCIE4353_COM_21
+%WinChipHead.ComPortEName%=PCIECom22,MF\PCIE4353_COM_22
+%WinChipHead.ComPortEName%=PCIECom23,MF\PCIE4353_COM_23
+%WinChipHead.ComPortEName%=PCIECom24,MF\PCIE4353_COM_24
+%WinChipHead.ComPortEName%=PCIECom25,MF\PCIE4353_COM_25
+%WinChipHead.ComPortEName%=PCIECom26,MF\PCIE4353_COM_26
+%WinChipHead.ComPortEName%=PCIECom27,MF\PCIE4353_COM_27
+
+;**ComPortA**
+;WINXP and later
+[ComPort.NT]
+;Include = msports.inf
+;Needs = ComPort.NT
+
+[ComPort.NT.HW]
+;Include = msports.inf
+;Needs = ComPort.NT.HW.AddReg
+
+[ComPort.NT.Services]
+;Include = msports.inf
+;Needs = ComPort.NT.Services
+
+;;PARALLEL INSTALL
+;WINXP and later
+[LptPort.NT]
+AddReg=LptPort.AddReg,LptPort.NT.AddReg
+LogConfig=laan
+
+[LptPort.NT.Services]
+AddService = Parport, 0x00000002, Parport_Service_Inst, Parport_EventLog_Inst ; Port Driver (function driver for this device)
+
+[LptPort.AddReg]
+HKR,,PortSubClass,1,00
+HKR,,ECPDevice,1,00
+
+[LptPort.NT.AddReg]
+HKR,,EnumPropPages32,,"MsPorts.dll,ParallelPortPropPageProvider"
+
+[Parport_Service_Inst]
+DisplayName    = %Parport.SVCDESC%
+ServiceType    = 1                ; SERVICE_KERNEL_DRIVER
+StartType      = 3                ; SERVICE_DEMAND_START
+ErrorControl   = 1                ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\parport.sys
+LoadOrderGroup = Parallel arbitrator
+
+[Parport_EventLog_Inst]
+AddReg = Parport_EventLog_AddReg
+
+[Parport_EventLog_AddReg]
+HKR,,EventMessageFile,0x00020000,"%%SystemRoot%%\System32\IoLogMsg.dll;%%SystemRoot%%\System32\drivers\parport.sys"
+HKR,,TypesSupported,0x00010001,7
+
+;**ComPortB**
+;WINXP and later
+; X86
+;PortA0 install
+[PCIEComA0.NT]
+CopyFiles=PCIECom.NT.CopyFiles.SYS,PCIECom.NT.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NT.AddReg
+SyssetupPnPFlags = 1
+
+[PCIEComA0.NT.HW]
+AddReg=MultiComPortA0.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIEComA0.NT.Services]
+AddService = PCIESER, 0x00000002, Serial_Service_Inst_NT, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;PortA1 install
+[PCIEComA1.NT]
+CopyFiles=PCIECom.NT.CopyFiles.SYS,PCIECom.NT.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NT.AddReg
+SyssetupPnPFlags = 1
+
+[PCIEComA1.NT.HW]
+AddReg=MultiComPortA1.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIEComA1.NT.Services]
+AddService = PCIESER, 0x00000002, Serial_Service_Inst_NT, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;PortA2 install
+[PCIEComA2.NT]
+CopyFiles=PCIECom.NT.CopyFiles.SYS,PCIECom.NT.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NT.AddReg
+SyssetupPnPFlags = 1
+
+[PCIEComA2.NT.HW]
+AddReg=MultiComPortA2.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIEComA2.NT.Services]
+AddService = PCIESER, 0x00000002, Serial_Service_Inst_NT, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;PortA3 install
+[PCIEComA3.NT]
+CopyFiles=PCIECom.NT.CopyFiles.SYS,PCIECom.NT.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NT.AddReg
+SyssetupPnPFlags = 1
+
+[PCIEComA3.NT.HW]
+AddReg=MultiComPortA3.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIEComA3.NT.Services]
+AddService = PCIESER, 0x00000002, Serial_Service_Inst_NT, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port0 install
+[PCIECom0.NT]
+CopyFiles=PCIECom.NT.CopyFiles.SYS,PCIECom.NT.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NT.AddReg
+SyssetupPnPFlags = 1
+
+[PCIECom0.NT.HW]
+AddReg=MultiComPort0.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom0.NT.Services]
+AddService = PCIESER, 0x00000002, Serial_Service_Inst_NT, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port1 install
+[PCIECom1.NT]
+CopyFiles=PCIECom.NT.CopyFiles.SYS,PCIECom.NT.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NT.AddReg
+SyssetupPnPFlags = 1
+
+[PCIECom1.NT.HW]
+AddReg=MultiComPort1.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom1.NT.Services]
+AddService = PCIESER, 0x00000002, Serial_Service_Inst_NT, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port2 install
+[PCIECom2.NT]
+CopyFiles=PCIECom.NT.CopyFiles.SYS,PCIECom.NT.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NT.AddReg
+SyssetupPnPFlags = 1
+
+[PCIECom2.NT.HW]
+AddReg=MultiComPort2.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom2.NT.Services]
+AddService = PCIESER, 0x00000002, Serial_Service_Inst_NT, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port3 install
+[PCIECom3.NT]
+CopyFiles=PCIECom.NT.CopyFiles.SYS,PCIECom.NT.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NT.AddReg
+SyssetupPnPFlags = 1
+
+[PCIECom3.NT.HW]
+AddReg=MultiComPort3.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom3.NT.Services]
+AddService = PCIESER, 0x00000002, Serial_Service_Inst_NT, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port4 install
+[PCIECom4.NT]
+CopyFiles=PCIECom.NT.CopyFiles.SYS,PCIECom.NT.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NT.AddReg
+SyssetupPnPFlags = 1
+
+[PCIECom4.NT.HW]
+AddReg=MultiComPort4.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom4.NT.Services]
+AddService = PCIESER, 0x00000002, Serial_Service_Inst_NT, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port5 install
+[PCIECom5.NT]
+CopyFiles=PCIECom.NT.CopyFiles.SYS,PCIECom.NT.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NT.AddReg
+SyssetupPnPFlags = 1
+
+[PCIECom5.NT.HW]
+AddReg=MultiComPort5.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom5.NT.Services]
+AddService = PCIESER, 0x00000002, Serial_Service_Inst_NT, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port6 install
+[PCIECom6.NT]
+CopyFiles=PCIECom.NT.CopyFiles.SYS,PCIECom.NT.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NT.AddReg
+SyssetupPnPFlags = 1
+
+[PCIECom6.NT.HW]
+AddReg=MultiComPort6.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom6.NT.Services]
+AddService = PCIESER, 0x00000002, Serial_Service_Inst_NT, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port7 install
+[PCIECom7.NT]
+CopyFiles=PCIECom.NT.CopyFiles.SYS,PCIECom.NT.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NT.AddReg
+SyssetupPnPFlags = 1
+
+[PCIECom7.NT.HW]
+AddReg=MultiComPort7.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom7.NT.Services]
+AddService = PCIESER, 0x00000002, Serial_Service_Inst_NT, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port8 install
+[PCIECom8.NT]
+CopyFiles=PCIECom.NT.CopyFiles.SYS,PCIECom.NT.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NT.AddReg
+SyssetupPnPFlags = 1
+
+[PCIECom8.NT.HW]
+AddReg=MultiComPort8.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom8.NT.Services]
+AddService = PCIESER, 0x00000002, Serial_Service_Inst_NT, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port9 install
+[PCIECom9.NT]
+CopyFiles=PCIECom.NT.CopyFiles.SYS,PCIECom.NT.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NT.AddReg
+SyssetupPnPFlags = 1
+
+[PCIECom9.NT.HW]
+AddReg=MultiComPort9.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom9.NT.Services]
+AddService = PCIESER, 0x00000002, Serial_Service_Inst_NT, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port10 install
+[PCIECom10.NT]
+CopyFiles=PCIECom.NT.CopyFiles.SYS,PCIECom.NT.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NT.AddReg
+SyssetupPnPFlags = 1
+
+[PCIECom10.NT.HW]
+AddReg=MultiComPort10.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom10.NT.Services]
+AddService = PCIESER, 0x00000002, Serial_Service_Inst_NT, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port11 install
+[PCIECom11.NT]
+CopyFiles=PCIECom.NT.CopyFiles.SYS,PCIECom.NT.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NT.AddReg
+SyssetupPnPFlags = 1
+
+[PCIECom11.NT.HW]
+AddReg=MultiComPort11.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom11.NT.Services]
+AddService = PCIESER, 0x00000002, Serial_Service_Inst_NT, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port12 install
+[PCIECom12.NT]
+CopyFiles=PCIECom.NT.CopyFiles.SYS,PCIECom.NT.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NT.AddReg
+SyssetupPnPFlags = 1
+
+[PCIECom12.NT.HW]
+AddReg=MultiComPort12.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom12.NT.Services]
+AddService = PCIESER, 0x00000002, Serial_Service_Inst_NT, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port13 install
+[PCIECom13.NT]
+CopyFiles=PCIECom.NT.CopyFiles.SYS,PCIECom.NT.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NT.AddReg
+SyssetupPnPFlags = 1
+
+[PCIECom13.NT.HW]
+AddReg=MultiComPort13.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom13.NT.Services]
+AddService = PCIESER, 0x00000002, Serial_Service_Inst_NT, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port14 install
+[PCIECom14.NT]
+CopyFiles=PCIECom.NT.CopyFiles.SYS,PCIECom.NT.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NT.AddReg
+SyssetupPnPFlags = 1
+
+[PCIECom14.NT.HW]
+AddReg=MultiComPort14.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom14.NT.Services]
+AddService = PCIESER, 0x00000002, Serial_Service_Inst_NT, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port15 install
+[PCIECom15.NT]
+CopyFiles=PCIECom.NT.CopyFiles.SYS,PCIECom.NT.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NT.AddReg
+SyssetupPnPFlags = 1
+
+[PCIECom15.NT.HW]
+AddReg=MultiComPort15.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom15.NT.Services]
+AddService = PCIESER, 0x00000002, Serial_Service_Inst_NT, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port16 install
+[PCIECom16.NT]
+CopyFiles=PCIECom.NT.CopyFiles.SYS,PCIECom.NT.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NT.AddReg
+SyssetupPnPFlags = 1
+
+[PCIECom16.NT.HW]
+AddReg=MultiComPort16.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom16.NT.Services]
+AddService = PCIESER, 0x00000002, Serial_Service_Inst_NT, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port17 install
+[PCIECom17.NT]
+CopyFiles=PCIECom.NT.CopyFiles.SYS,PCIECom.NT.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NT.AddReg
+SyssetupPnPFlags = 1
+
+[PCIECom17.NT.HW]
+AddReg=MultiComPort17.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom17.NT.Services]
+AddService = PCIESER, 0x00000002, Serial_Service_Inst_NT, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port18 install
+[PCIECom18.NT]
+CopyFiles=PCIECom.NT.CopyFiles.SYS,PCIECom.NT.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NT.AddReg
+SyssetupPnPFlags = 1
+
+[PCIECom18.NT.HW]
+AddReg=MultiComPort18.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom18.NT.Services]
+AddService = PCIESER, 0x00000002, Serial_Service_Inst_NT, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port19 install
+[PCIECom19.NT]
+CopyFiles=PCIECom.NT.CopyFiles.SYS,PCIECom.NT.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NT.AddReg
+SyssetupPnPFlags = 1
+
+[PCIECom19.NT.HW]
+AddReg=MultiComPort19.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom19.NT.Services]
+AddService = PCIESER, 0x00000002, Serial_Service_Inst_NT, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port20 install
+[PCIECom20.NT]
+CopyFiles=PCIECom.NT.CopyFiles.SYS,PCIECom.NT.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NT.AddReg
+SyssetupPnPFlags = 1
+
+[PCIECom20.NT.HW]
+AddReg=MultiComPort20.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom20.NT.Services]
+AddService = PCIESER, 0x00000002, Serial_Service_Inst_NT, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port21 install
+[PCIECom21.NT]
+CopyFiles=PCIECom.NT.CopyFiles.SYS,PCIECom.NT.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NT.AddReg
+SyssetupPnPFlags = 1
+
+[PCIECom21.NT.HW]
+AddReg=MultiComPort21.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom21.NT.Services]
+AddService = PCIESER, 0x00000002, Serial_Service_Inst_NT, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port22 install
+[PCIECom22.NT]
+CopyFiles=PCIECom.NT.CopyFiles.SYS,PCIECom.NT.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NT.AddReg
+SyssetupPnPFlags = 1
+
+[PCIECom22.NT.HW]
+AddReg=MultiComPort22.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom22.NT.Services]
+AddService = PCIESER, 0x00000002, Serial_Service_Inst_NT, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port23 install
+[PCIECom23.NT]
+CopyFiles=PCIECom.NT.CopyFiles.SYS,PCIECom.NT.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NT.AddReg
+SyssetupPnPFlags = 1
+
+[PCIECom23.NT.HW]
+AddReg=MultiComPort23.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom23.NT.Services]
+AddService = PCIESER, 0x00000002, Serial_Service_Inst_NT, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port24 install
+[PCIECom24.NT]
+CopyFiles=PCIECom.NT.CopyFiles.SYS,PCIECom.NT.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NT.AddReg
+SyssetupPnPFlags = 1
+
+[PCIECom24.NT.HW]
+AddReg=MultiComPort24.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom24.NT.Services]
+AddService = PCIESER, 0x00000002, Serial_Service_Inst_NT, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port25 install
+[PCIECom25.NT]
+CopyFiles=PCIECom.NT.CopyFiles.SYS,PCIECom.NT.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NT.AddReg
+SyssetupPnPFlags = 1
+
+[PCIECom25.NT.HW]
+AddReg=MultiComPort25.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom25.NT.Services]
+AddService = PCIESER, 0x00000002, Serial_Service_Inst_NT, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port26 install
+[PCIECom26.NT]
+CopyFiles=PCIECom.NT.CopyFiles.SYS,PCIECom.NT.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NT.AddReg
+SyssetupPnPFlags = 1
+
+[PCIECom26.NT.HW]
+AddReg=MultiComPort26.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom26.NT.Services]
+AddService = PCIESER, 0x00000002, Serial_Service_Inst_NT, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port27 install
+[PCIECom27.NT]
+CopyFiles=PCIECom.NT.CopyFiles.SYS,PCIECom.NT.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NT.AddReg
+SyssetupPnPFlags = 1
+
+[PCIECom27.NT.HW]
+AddReg=MultiComPort27.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom27.NT.Services]
+AddService = PCIESER, 0x00000002, Serial_Service_Inst_NT, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+[PCIECom.NT.CopyFiles.sys]
+PCIESER.SYS
+
+[PCIECom.NT.CopyFiles.DLL]
+WCHEPORTS.DLL
+
+; AMD64
+;PortA0 install
+[PCIEComA0.NTamd64]
+CopyFiles=PCIECom.NTamd64.CopyFiles.SYS,PCIECom.NTamd64.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NTamd64.AddReg
+
+[PCIEComA0.NTamd64.HW]
+AddReg=MultiComPortA0.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIEComA0.NTamd64.Services]
+AddService = PCIESA64, 0x00000002, Serial_Service_Inst_A64, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;PortA1 install
+[PCIEComA1.NTamd64]
+CopyFiles=PCIECom.NTamd64.CopyFiles.SYS,PCIECom.NTamd64.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NTamd64.AddReg
+
+[PCIEComA1.NTamd64.HW]
+AddReg=MultiComPortA1.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIEComA1.NTamd64.Services]
+AddService = PCIESA64, 0x00000002, Serial_Service_Inst_A64, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;PortA2 install
+[PCIEComA2.NTamd64]
+CopyFiles=PCIECom.NTamd64.CopyFiles.SYS,PCIECom.NTamd64.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NTamd64.AddReg
+
+[PCIEComA2.NTamd64.HW]
+AddReg=MultiComPortA2.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIEComA2.NTamd64.Services]
+AddService = PCIESA64, 0x00000002, Serial_Service_Inst_A64, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;PortA3 install
+[PCIEComA3.NTamd64]
+CopyFiles=PCIECom.NTamd64.CopyFiles.SYS,PCIECom.NTamd64.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NTamd64.AddReg
+
+[PCIEComA3.NTamd64.HW]
+AddReg=MultiComPortA3.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIEComA3.NTamd64.Services]
+AddService = PCIESA64, 0x00000002, Serial_Service_Inst_A64, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port0 install
+[PCIECom0.NTamd64]
+CopyFiles=PCIECom.NTamd64.CopyFiles.SYS,PCIECom.NTamd64.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NTamd64.AddReg
+
+[PCIECom0.NTamd64.HW]
+AddReg=MultiComPort0.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom0.NTamd64.Services]
+AddService = PCIESA64, 0x00000002, Serial_Service_Inst_A64, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port1 install
+[PCIECom1.NTamd64]
+CopyFiles=PCIECom.NTamd64.CopyFiles.SYS,PCIECom.NTamd64.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NTamd64.AddReg
+
+[PCIECom1.NTamd64.HW]
+AddReg=MultiComPort1.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom1.NTamd64.Services]
+AddService = PCIESA64, 0x00000002, Serial_Service_Inst_A64, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port2 install
+[PCIECom2.NTamd64]
+CopyFiles=PCIECom.NTamd64.CopyFiles.SYS,PCIECom.NTamd64.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NTamd64.AddReg
+
+[PCIECom2.NTamd64.HW]
+AddReg=MultiComPort2.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom2.NTamd64.Services]
+AddService = PCIESA64, 0x00000002, Serial_Service_Inst_A64, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port3 install
+[PCIECom3.NTamd64]
+CopyFiles=PCIECom.NTamd64.CopyFiles.SYS,PCIECom.NTamd64.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NTamd64.AddReg
+
+[PCIECom3.NTamd64.HW]
+AddReg=MultiComPort3.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom3.NTamd64.Services]
+AddService = PCIESA64, 0x00000002, Serial_Service_Inst_A64, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port4 install
+[PCIECom4.NTamd64]
+CopyFiles=PCIECom.NTamd64.CopyFiles.SYS,PCIECom.NTamd64.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NTamd64.AddReg
+
+[PCIECom4.NTamd64.HW]
+AddReg=MultiComPort4.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom4.NTamd64.Services]
+AddService = PCIESA64, 0x00000002, Serial_Service_Inst_A64, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port5 install
+[PCIECom5.NTamd64]
+CopyFiles=PCIECom.NTamd64.CopyFiles.SYS,PCIECom.NTamd64.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NTamd64.AddReg
+
+[PCIECom5.NTamd64.HW]
+AddReg=MultiComPort5.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom5.NTamd64.Services]
+AddService = PCIESA64, 0x00000002, Serial_Service_Inst_A64, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port6 install
+[PCIECom6.NTamd64]
+CopyFiles=PCIECom.NTamd64.CopyFiles.SYS,PCIECom.NTamd64.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NTamd64.AddReg
+
+[PCIECom6.NTamd64.HW]
+AddReg=MultiComPort6.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom6.NTamd64.Services]
+AddService = PCIESA64, 0x00000002, Serial_Service_Inst_A64, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port7 install
+[PCIECom7.NTamd64]
+CopyFiles=PCIECom.NTamd64.CopyFiles.SYS,PCIECom.NTamd64.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NTamd64.AddReg
+
+[PCIECom7.NTamd64.HW]
+AddReg=MultiComPort7.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom7.NTamd64.Services]
+AddService = PCIESA64, 0x00000002, Serial_Service_Inst_A64, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port8 install
+[PCIECom8.NTamd64]
+CopyFiles=PCIECom.NTamd64.CopyFiles.SYS,PCIECom.NTamd64.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NTamd64.AddReg
+
+[PCIECom8.NTamd64.HW]
+AddReg=MultiComPort8.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom8.NTamd64.Services]
+AddService = PCIESA64, 0x00000002, Serial_Service_Inst_A64, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port9 install
+[PCIECom9.NTamd64]
+CopyFiles=PCIECom.NTamd64.CopyFiles.SYS,PCIECom.NTamd64.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NTamd64.AddReg
+
+[PCIECom9.NTamd64.HW]
+AddReg=MultiComPort9.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom9.NTamd64.Services]
+AddService = PCIESA64, 0x00000002, Serial_Service_Inst_A64, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port10 install
+[PCIECom10.NTamd64]
+CopyFiles=PCIECom.NTamd64.CopyFiles.SYS,PCIECom.NTamd64.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NTamd64.AddReg
+
+[PCIECom10.NTamd64.HW]
+AddReg=MultiComPort10.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom10.NTamd64.Services]
+AddService = PCIESA64, 0x00000002, Serial_Service_Inst_A64, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port11 install
+[PCIECom11.NTamd64]
+CopyFiles=PCIECom.NTamd64.CopyFiles.SYS,PCIECom.NTamd64.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NTamd64.AddReg
+
+[PCIECom11.NTamd64.HW]
+AddReg=MultiComPort11.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom11.NTamd64.Services]
+AddService = PCIESA64, 0x00000002, Serial_Service_Inst_A64, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port12 install
+[PCIECom12.NTamd64]
+CopyFiles=PCIECom.NTamd64.CopyFiles.SYS,PCIECom.NTamd64.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NTamd64.AddReg
+
+[PCIECom12.NTamd64.HW]
+AddReg=MultiComPort12.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom12.NTamd64.Services]
+AddService = PCIESA64, 0x00000002, Serial_Service_Inst_A64, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port13 install
+[PCIECom13.NTamd64]
+CopyFiles=PCIECom.NTamd64.CopyFiles.SYS,PCIECom.NTamd64.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NTamd64.AddReg
+
+[PCIECom13.NTamd64.HW]
+AddReg=MultiComPort13.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom13.NTamd64.Services]
+AddService = PCIESA64, 0x00000002, Serial_Service_Inst_A64, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port14 install
+[PCIECom14.NTamd64]
+CopyFiles=PCIECom.NTamd64.CopyFiles.SYS,PCIECom.NTamd64.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NTamd64.AddReg
+
+[PCIECom14.NTamd64.HW]
+AddReg=MultiComPort14.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom14.NTamd64.Services]
+AddService = PCIESA64, 0x00000002, Serial_Service_Inst_A64, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port15 install
+[PCIECom15.NTamd64]
+CopyFiles=PCIECom.NTamd64.CopyFiles.SYS,PCIECom.NTamd64.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NTamd64.AddReg
+
+[PCIECom15.NTamd64.HW]
+AddReg=MultiComPort15.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom15.NTamd64.Services]
+AddService = PCIESA64, 0x00000002, Serial_Service_Inst_A64, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port16 install
+[PCIECom16.NTamd64]
+CopyFiles=PCIECom.NTamd64.CopyFiles.SYS,PCIECom.NTamd64.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NTamd64.AddReg
+
+[PCIECom16.NTamd64.HW]
+AddReg=MultiComPort16.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom16.NTamd64.Services]
+AddService = PCIESA64, 0x00000002, Serial_Service_Inst_A64, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port17 install
+[PCIECom17.NTamd64]
+CopyFiles=PCIECom.NTamd64.CopyFiles.SYS,PCIECom.NTamd64.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NTamd64.AddReg
+
+[PCIECom17.NTamd64.HW]
+AddReg=MultiComPort17.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom17.NTamd64.Services]
+AddService = PCIESA64, 0x00000002, Serial_Service_Inst_A64, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port18 install
+[PCIECom18.NTamd64]
+CopyFiles=PCIECom.NTamd64.CopyFiles.SYS,PCIECom.NTamd64.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NTamd64.AddReg
+
+[PCIECom18.NTamd64.HW]
+AddReg=MultiComPort18.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom18.NTamd64.Services]
+AddService = PCIESA64, 0x00000002, Serial_Service_Inst_A64, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port19 install
+[PCIECom19.NTamd64]
+CopyFiles=PCIECom.NTamd64.CopyFiles.SYS,PCIECom.NTamd64.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NTamd64.AddReg
+
+[PCIECom19.NTamd64.HW]
+AddReg=MultiComPort19.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom19.NTamd64.Services]
+AddService = PCIESA64, 0x00000002, Serial_Service_Inst_A64, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port20 install
+[PCIECom20.NTamd64]
+CopyFiles=PCIECom.NTamd64.CopyFiles.SYS,PCIECom.NTamd64.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NTamd64.AddReg
+
+[PCIECom20.NTamd64.HW]
+AddReg=MultiComPort20.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom20.NTamd64.Services]
+AddService = PCIESA64, 0x00000002, Serial_Service_Inst_A64, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port21 install
+[PCIECom21.NTamd64]
+CopyFiles=PCIECom.NTamd64.CopyFiles.SYS,PCIECom.NTamd64.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NTamd64.AddReg
+
+[PCIECom21.NTamd64.HW]
+AddReg=MultiComPort21.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom21.NTamd64.Services]
+AddService = PCIESA64, 0x00000002, Serial_Service_Inst_A64, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port22 install
+[PCIECom22.NTamd64]
+CopyFiles=PCIECom.NTamd64.CopyFiles.SYS,PCIECom.NTamd64.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NTamd64.AddReg
+
+[PCIECom22.NTamd64.HW]
+AddReg=MultiComPort22.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom22.NTamd64.Services]
+AddService = PCIESA64, 0x00000002, Serial_Service_Inst_A64, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port23 install
+[PCIECom23.NTamd64]
+CopyFiles=PCIECom.NTamd64.CopyFiles.SYS,PCIECom.NTamd64.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NTamd64.AddReg
+
+[PCIECom23.NTamd64.HW]
+AddReg=MultiComPort23.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom23.NTamd64.Services]
+AddService = PCIESA64, 0x00000002, Serial_Service_Inst_A64, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port24 install
+[PCIECom24.NTamd64]
+CopyFiles=PCIECom.NTamd64.CopyFiles.SYS,PCIECom.NTamd64.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NTamd64.AddReg
+
+[PCIECom24.NTamd64.HW]
+AddReg=MultiComPort24.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom24.NTamd64.Services]
+AddService = PCIESA64, 0x00000002, Serial_Service_Inst_A64, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port25 install
+[PCIECom25.NTamd64]
+CopyFiles=PCIECom.NTamd64.CopyFiles.SYS,PCIECom.NTamd64.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NTamd64.AddReg
+
+[PCIECom25.NTamd64.HW]
+AddReg=MultiComPort25.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom25.NTamd64.Services]
+AddService = PCIESA64, 0x00000002, Serial_Service_Inst_A64, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port26 install
+[PCIECom26.NTamd64]
+CopyFiles=PCIECom.NTamd64.CopyFiles.SYS,PCIECom.NTamd64.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NTamd64.AddReg
+
+[PCIECom26.NTamd64.HW]
+AddReg=MultiComPort26.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom26.NTamd64.Services]
+AddService = PCIESA64, 0x00000002, Serial_Service_Inst_A64, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port27 install
+[PCIECom27.NTamd64]
+CopyFiles=PCIECom.NTamd64.CopyFiles.SYS,PCIECom.NTamd64.CopyFiles.DLL
+AddReg=PCIEComNT.AddReg, PCIECom.NTamd64.AddReg
+
+[PCIECom27.NTamd64.HW]
+AddReg=MultiComPort27.NT.HW.AddReg,PCIECom.NT.HW.AddReg
+
+[PCIECom27.NTamd64.Services]
+AddService = PCIESA64, 0x00000002, Serial_Service_Inst_A64, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+[PCIECom.NTamd64.CopyFiles.sys]
+PCIESA64.SYS
+
+[PCIECom.NTamd64.CopyFiles.DLL]
+WCHEPORTS64.DLL
+
+[PCIEComNT.AddReg]
+HKR,,PortSubClass,1,01
+
+[PCIECom.NT.AddReg]
+HKR,,EnumPropPages32,,"wcheports.dll,SerialPortPropPageProvider"
+
+[PCIECom.NTamd64.AddReg]
+HKR,,EnumPropPages32,,"wcheports64.dll,SerialPortPropPageProvider"
+
+[PCIECom.NT.HW.AddReg]
+HKR,,"UpperFilters",0x00010000,"serenum"
+
+[MultiComPortA0.NT.HW.AddReg]
+HKR,,MultiportDevice,0x00010001,1
+HKR,,PortIndex,0x00010001,1
+HKR,,RxFIFO,0x00010001,128
+HKR,,TxFIFO,0x00010001,256
+HKR,,NoCysta,0x00010001,1  ;1:启用内部晶振
+
+[MultiComPortA1.NT.HW.AddReg]
+HKR,,MultiportDevice,0x00010001,1
+HKR,,PortIndex,0x00010001,2
+HKR,,RxFIFO,0x00010001,128
+HKR,,TxFIFO,0x00010001,256
+HKR,,NoCysta,0x00010001,1  ;1:启用内部晶振
+
+[MultiComPortA2.NT.HW.AddReg]
+HKR,,MultiportDevice,0x00010001,1
+HKR,,PortIndex,0x00010001,3
+HKR,,RxFIFO,0x00010001,128
+HKR,,TxFIFO,0x00010001,256
+HKR,,NoCysta,0x00010001,1  ;1:启用内部晶振
+
+[MultiComPortA3.NT.HW.AddReg]
+HKR,,MultiportDevice,0x00010001,1
+HKR,,PortIndex,0x00010001,4
+HKR,,RxFIFO,0x00010001,128
+HKR,,TxFIFO,0x00010001,256
+HKR,,NoCysta,0x00010001,1  ;1:启用内部晶振
+
+[MultiComPort0.NT.HW.AddReg]
+HKR,,MultiportDevice,0x00010001,1
+HKR,,PortIndex,0x00010001,1
+HKR,,RxFIFO,0x00010001,64
+HKR,,TxFIFO,0x00010001,128
+
+[MultiComPort1.NT.HW.AddReg]
+HKR,,MultiportDevice,0x00010001,1
+HKR,,PortIndex,0x00010001,2
+HKR,,RxFIFO,0x00010001,64
+HKR,,TxFIFO,0x00010001,128
+
+[MultiComPort2.NT.HW.AddReg]
+HKR,,MultiportDevice,0x00010001,1
+HKR,,PortIndex,0x00010001,3
+HKR,,RxFIFO,0x00010001,64
+HKR,,TxFIFO,0x00010001,128
+
+[MultiComPort3.NT.HW.AddReg]
+HKR,,MultiportDevice,0x00010001,1
+HKR,,PortIndex,0x00010001,4
+HKR,,RxFIFO,0x00010001,64
+HKR,,TxFIFO,0x00010001,128
+
+[MultiComPort4.NT.HW.AddReg]
+HKR,,MultiportDevice,0x00010001,1
+HKR,,PortIndex,0x00010001,5
+HKR,,RxFIFO,0x00010001,64
+HKR,,TxFIFO,0x00010001,128
+
+[MultiComPort5.NT.HW.AddReg]
+HKR,,MultiportDevice,0x00010001,1
+HKR,,PortIndex,0x00010001,6
+HKR,,RxFIFO,0x00010001,64
+HKR,,TxFIFO,0x00010001,128
+
+[MultiComPort6.NT.HW.AddReg]
+HKR,,MultiportDevice,0x00010001,1
+HKR,,PortIndex,0x00010001,7
+HKR,,RxFIFO,0x00010001,64
+HKR,,TxFIFO,0x00010001,128
+
+[MultiComPort7.NT.HW.AddReg]
+HKR,,MultiportDevice,0x00010001,1
+HKR,,PortIndex,0x00010001,8
+HKR,,RxFIFO,0x00010001,64
+HKR,,TxFIFO,0x00010001,128
+
+[MultiComPort8.NT.HW.AddReg]
+HKR,,MultiportDevice,0x00010001,1
+HKR,,PortIndex,0x00010001,9
+HKR,,RxFIFO,0x00010001,64
+HKR,,TxFIFO,0x00010001,128
+
+[MultiComPort9.NT.HW.AddReg]
+HKR,,MultiportDevice,0x00010001,1
+HKR,,PortIndex,0x00010001,10
+HKR,,RxFIFO,0x00010001,64
+HKR,,TxFIFO,0x00010001,128
+
+[MultiComPort10.NT.HW.AddReg]
+HKR,,MultiportDevice,0x00010001,1
+HKR,,PortIndex,0x00010001,11
+HKR,,RxFIFO,0x00010001,64
+HKR,,TxFIFO,0x00010001,128
+
+[MultiComPort11.NT.HW.AddReg]
+HKR,,MultiportDevice,0x00010001,1
+HKR,,PortIndex,0x00010001,12
+HKR,,RxFIFO,0x00010001,64
+HKR,,TxFIFO,0x00010001,128
+
+[MultiComPort12.NT.HW.AddReg]
+HKR,,MultiportDevice,0x00010001,1
+HKR,,PortIndex,0x00010001,13
+HKR,,RxFIFO,0x00010001,64
+HKR,,TxFIFO,0x00010001,128
+
+[MultiComPort13.NT.HW.AddReg]
+HKR,,MultiportDevice,0x00010001,1
+HKR,,PortIndex,0x00010001,14
+HKR,,RxFIFO,0x00010001,64
+HKR,,TxFIFO,0x00010001,128
+
+[MultiComPort14.NT.HW.AddReg]
+HKR,,MultiportDevice,0x00010001,1
+HKR,,PortIndex,0x00010001,15
+HKR,,RxFIFO,0x00010001,64
+HKR,,TxFIFO,0x00010001,128
+
+[MultiComPort15.NT.HW.AddReg]
+HKR,,MultiportDevice,0x00010001,1
+HKR,,PortIndex,0x00010001,16
+HKR,,RxFIFO,0x00010001,64
+HKR,,TxFIFO,0x00010001,128
+
+[MultiComPort16.NT.HW.AddReg]
+HKR,,MultiportDevice,0x00010001,1
+HKR,,PortIndex,0x00010001,17
+HKR,,RxFIFO,0x00010001,64
+HKR,,TxFIFO,0x00010001,128
+
+[MultiComPort17.NT.HW.AddReg]
+HKR,,MultiportDevice,0x00010001,1
+HKR,,PortIndex,0x00010001,18
+HKR,,RxFIFO,0x00010001,64
+HKR,,TxFIFO,0x00010001,128
+
+[MultiComPort18.NT.HW.AddReg]
+HKR,,MultiportDevice,0x00010001,1
+HKR,,PortIndex,0x00010001,19
+HKR,,RxFIFO,0x00010001,64
+HKR,,TxFIFO,0x00010001,128
+
+[MultiComPort19.NT.HW.AddReg]
+HKR,,MultiportDevice,0x00010001,1
+HKR,,PortIndex,0x00010001,20
+HKR,,RxFIFO,0x00010001,64
+HKR,,TxFIFO,0x00010001,128
+
+[MultiComPort20.NT.HW.AddReg]
+HKR,,MultiportDevice,0x00010001,1
+HKR,,PortIndex,0x00010001,21
+HKR,,RxFIFO,0x00010001,64
+HKR,,TxFIFO,0x00010001,128
+
+[MultiComPort21.NT.HW.AddReg]
+HKR,,MultiportDevice,0x00010001,1
+HKR,,PortIndex,0x00010001,22
+HKR,,RxFIFO,0x00010001,64
+HKR,,TxFIFO,0x00010001,128
+
+[MultiComPort22.NT.HW.AddReg]
+HKR,,MultiportDevice,0x00010001,1
+HKR,,PortIndex,0x00010001,23
+HKR,,RxFIFO,0x00010001,64
+HKR,,TxFIFO,0x00010001,128
+
+[MultiComPort23.NT.HW.AddReg]
+HKR,,MultiportDevice,0x00010001,1
+HKR,,PortIndex,0x00010001,24
+HKR,,RxFIFO,0x00010001,64
+HKR,,TxFIFO,0x00010001,128
+
+[MultiComPort24.NT.HW.AddReg]
+HKR,,MultiportDevice,0x00010001,1
+HKR,,PortIndex,0x00010001,25
+HKR,,RxFIFO,0x00010001,128
+HKR,,TxFIFO,0x00010001,256
+
+[MultiComPort25.NT.HW.AddReg]
+HKR,,MultiportDevice,0x00010001,1
+HKR,,PortIndex,0x00010001,26
+HKR,,RxFIFO,0x00010001,128
+HKR,,TxFIFO,0x00010001,256
+
+[MultiComPort26.NT.HW.AddReg]
+HKR,,MultiportDevice,0x00010001,1
+HKR,,PortIndex,0x00010001,27
+HKR,,RxFIFO,0x00010001,128
+HKR,,TxFIFO,0x00010001,256
+
+[MultiComPort27.NT.HW.AddReg]
+HKR,,MultiportDevice,0x00010001,1
+HKR,,PortIndex,0x00010001,28
+HKR,,RxFIFO,0x00010001,128
+HKR,,TxFIFO,0x00010001,256
+
+[Serial_Service_Inst_NT]
+DisplayName    = %Serial.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 1               ; SERVICE_SYSTEM_START (this driver may do detection)
+ErrorControl   = 0               ; SERVICE_ERROR_IGNORE
+ServiceBinary  = %10%\system32\drivers\PCIESER.sys
+LoadOrderGroup = Extended base
+
+[Serial_Service_Inst_A64]
+DisplayName    = %Serial.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 1               ; SERVICE_SYSTEM_START (this driver may do detection)
+ErrorControl   = 0               ; SERVICE_ERROR_IGNORE
+ServiceBinary  = %10%\system32\drivers\PCIESA64.sys
+LoadOrderGroup = Extended base
+
+[Serial_EventLog_Inst]
+AddReg = Serial_EventLog_AddReg
+
+; -------------- Serenum Driver install section
+[Serenum_Service_Inst]
+DisplayName    = %Serenum.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\serenum.sys
+LoadOrderGroup = PNP Filter
+
+;;PARALLEL INSTALL B
+; WIN2K
+[PCIELpt.NT]
+CopyFiles=PCIELpt.NT.CopyFiles.SYS
+AddReg=PCILptNT.AddReg,PCILpt.NT.AddReg
+LogConfig=laan
+
+[PCIELpt.NT.Services]
+AddService = PCIEPAR, 0x00000002, PCIEPar_Service_Inst, PCIEPar_EventLog_Inst ; Port Driver (function driver for this device)
+
+[PCIELpt.NT.CopyFiles.SYS]
+PCIEPAR.sys
+
+; AMD64
+[PCIELpt.NTamd64]
+CopyFiles=PCIELpt.NTamd64.CopyFiles.SYS
+AddReg=PCILptNT.AddReg,PCILpt.NT.AddReg
+LogConfig=laan
+
+[PCIELpt.NTamd64.Services]
+AddService = PCIEPA64, 0x00000002, PCIEPar_Service_Inst_A64, PCIEPar_EventLog_Inst_A64 ; Port Driver (function driver for this device)
+
+[PCIELpt.NTamd64.CopyFiles.SYS]
+PCIEPA64.sys
+
+[PCILptNT.AddReg]
+HKR,,PortSubClass,1,00
+HKR,,ECPDevice,1,00
+
+[PCILpt.NT.AddReg]
+HKR,,EnumPropPages32,,"MsPorts.dll,ParallelPortPropPageProvider"
+
+[PCIEPar_Service_Inst]
+DisplayName    = %PCIEPar.SVCDESC%
+ServiceType    = 1                ; SERVICE_KERNEL_DRIVER
+StartType      = 3                ; SERVICE_DEMAND_START
+ErrorControl   = 1                ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\PCIEPAR.sys
+LoadOrderGroup = Parallel arbitrator
+
+[PCIEPar_Service_Inst_A64]
+DisplayName    = %PCIEPar.SVCDESC%
+ServiceType    = 1                ; SERVICE_KERNEL_DRIVER
+StartType      = 3                ; SERVICE_DEMAND_START
+ErrorControl   = 1                ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\PCIEPA64.sys
+LoadOrderGroup = Parallel arbitrator
+
+[PCIEPar_EventLog_Inst]
+AddReg = PCIEPar_EventLog_AddReg
+
+[PCIEPar_EventLog_Inst_A64]
+AddReg = PCIEPar_EventLog_AddRegA64
+
+[PCIEPar_EventLog_AddReg]
+HKR,,EventMessageFile,0x00020000,"%%SystemRoot%%\System32\IoLogMsg.dll;%%SystemRoot%%\System32\drivers\PCIEPAR.sys"
+HKR,,TypesSupported,0x00010001,7
+
+[PCIEPar_EventLog_AddRegA64]
+HKR,,EventMessageFile,0x00020000,"%%SystemRoot%%\System32\IoLogMsg.dll;%%SystemRoot%%\System32\drivers\PCIEPA64.sys"
+HKR,,TypesSupported,0x00010001,7
+
+[Serial_EventLog_AddReg]
+HKR,,EventMessageFile,0x00020000,"%%SystemRoot%%\System32\IoLogMsg.dll;%%SystemRoot%%\System32\drivers\serial.sys"
+HKR,,TypesSupported,0x00010001,7
+
+[laan]
+ConfigPriority=HARDRECONFIG
+IOConfig=8@100-3ff%fff8(3ff::)
+IRQConfig=3,4,5,6,7,8,9,10,11,12,13,14,15
+
+;X86/AMD64/IA64 SHARE
+[SourceDisksFiles]
+PCIESER.SYS = 1
+PCIESA64.SYS = 1
+WCHEPORTS.DLL = 1
+WCHEPORTS64.DLL = 1
+PCIEPAR.sys = 1
+PCIEPA64.sys = 1
+
+[DestinationDirs]
+PCIECom.NT.CopyFiles.SYS = 12        ;DIRID_DRIVERS
+PCIECom.NT.CopyFiles.DLL = 11        ;SYS_DRIVERS
+PCIECom.NTamd64.CopyFiles.SYS = 12   ;DIRID_DRIVERS
+PCIECom.NTamd64.CopyFiles.DLL = 11
+PCIELpt.NT.CopyFiles.SYS = 12        ;DIRID_DRIVERS
+PCIELpt.NTamd64.CopyFiles.SYS = 12   ;DIRID_DRIVERS
+
+[SourceDisksNames]
+1 = %DISK_NAME%, , ,
+
+[SourceDisksNames.amd64]
+1 = %DISK_NAME%, , ,
+
+[Strings]
+WinChipHead= "WinChipHead"
+WinChipHead.ComPortEName = "PCI Express-SERIAL"
+WinChipHead.LPTPortEName = "PCI Express-PARALLEL"
+Serial.SVCDESC   = "PCIESER port driver"
+Serenum.SVCDESC = "Serenum filter driver"
+PCIEPar.SVCDESC = "PCIEPAR port driver"
+Parport.SVCDESC = "parport port driver"
+DISK_NAME = "PCIe card driver Installation Disk"

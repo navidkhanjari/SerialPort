@@ -1,0 +1,12 @@
+Support OS:
+SuSE Linux Professional 10.1 i386
+SuSE Linux Professional 10.1 x86_64
+
+Setup Process:
+
+Step 1: Use dd(Linux) or Rawritewin.exe(Windows) to write driver disk.
+Step 2: Make sure your JMB361/3/5/6 is set in Multi-AHCI or Multi-RAID.
+Step 3: CD/DVD boot form OS installation disc.
+Step 4: Insert driver disk to floppy drive.
+Step 5: Select "Installation" and fill in "Boot Options" with "manual=1".
+Step 6: SUT will load driver automatically.

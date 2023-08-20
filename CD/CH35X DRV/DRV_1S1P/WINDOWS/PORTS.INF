@@ -1,0 +1,172 @@
+; PORTS.INF
+; Driver for communication port(serial and parallel)
+; For windows 98/ME/XP/VISTA/7/2000/SERVER 2003/SERVER 2008/64bit XP/64bit VISTA/64bit WIN7
+; Copyright (C) WCH 2012
+; Ver V1.2
+
+[Version]
+signature="$CHICAGO$"
+Class=Ports
+ClassGUID={4d36e978-e325-11ce-bfc1-08002be10318}
+Provider=%WinChipHead%
+DriverVer=03/12/2010,1.2.2010.12
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%WinChipHead%=WinChipHead,NT,NTamd64
+
+[WinChipHead]
+%WinChipHead.ComPort0Name%=ComPort,MF\PCI3253_COM_0
+%WinChipHead.ComPort1Name%=ComPort,MF\PCI3253_COM_1
+%WinChipHead.ComPort0Name%=ComPort,MF\PCI5053_COM_0
+%WinChipHead.LPTPort0Name%=LPTPort,MF\PCI5053_LPT_0
+%WinChipHead.ComPort0Name%=ComPort,MF\PCI7053_COM_0
+%WinChipHead.ComPort1Name%=ComPort,MF\PCI7053_COM_1
+%WinChipHead.LPTPort0Name%=LPTPort,MF\PCI7053_LPT_0
+%WinChipHead.ComPort0Name%=ComPort,MF\PCI5046_COM_0
+%WinChipHead.ComPort1Name%=ComPort,MF\PCI5046_COM_1
+%WinChipHead.LPTPort0Name%=LPTPort,MF\PCI5046_LPT_0
+%WinChipHead.ComPort0Name%=ComPort,MF\PCI3453_COM_0
+%WinChipHead.ComPort1Name%=ComPort,MF\PCI3453_COM_1
+%WinChipHead.ComPort2Name%=ComPort,MF\PCI3453_COM_2
+%WinChipHead.ComPort3Name%=ComPort,MF\PCI3453_COM_3
+%WinChipHead.ComPort0Name%=ComPort,MF\PCI7173_COM_0
+%WinChipHead.ComPort1Name%=ComPort,MF\PCI7173_COM_1
+%WinChipHead.ComPort2Name%=ComPort,MF\PCI7173_COM_2
+%WinChipHead.ComPort3Name%=ComPort,MF\PCI7173_COM_3
+
+[WinChipHead.NT]
+%WinChipHead.ComPort0Name%=ComPort,MF\PCI3253_COM_0
+%WinChipHead.ComPort1Name%=ComPort,MF\PCI3253_COM_1
+%WinChipHead.ComPort0Name%=ComPort,MF\PCI5053_COM_0
+%WinChipHead.LPTPort0Name%=LPTPort,MF\PCI5053_LPT_0
+%WinChipHead.ComPort0Name%=ComPort,MF\PCI7053_COM_0
+%WinChipHead.ComPort1Name%=ComPort,MF\PCI7053_COM_1
+%WinChipHead.LPTPort0Name%=LPTPort,MF\PCI7053_LPT_0
+%WinChipHead.ComPort0Name%=ComPort,MF\PCI5046_COM_0
+%WinChipHead.ComPort1Name%=ComPort,MF\PCI5046_COM_1
+%WinChipHead.LPTPort0Name%=LPTPort,MF\PCI5046_LPT_0
+%WinChipHead.ComPort0Name%=ComPort,MF\PCI3453_COM_0
+%WinChipHead.ComPort1Name%=ComPort,MF\PCI3453_COM_1
+%WinChipHead.ComPort2Name%=ComPort,MF\PCI3453_COM_2
+%WinChipHead.ComPort3Name%=ComPort,MF\PCI3453_COM_3
+%WinChipHead.ComPort0Name%=ComPort,MF\PCI7173_COM_0
+%WinChipHead.ComPort1Name%=ComPort,MF\PCI7173_COM_1
+%WinChipHead.ComPort2Name%=ComPort,MF\PCI7173_COM_2
+%WinChipHead.ComPort3Name%=ComPort,MF\PCI7173_COM_3
+
+[WinChipHead.NTAMD64]
+%WinChipHead.ComPort0Name%=ComPort,MF\PCI3253_COM_0
+%WinChipHead.ComPort1Name%=ComPort,MF\PCI3253_COM_1
+%WinChipHead.ComPort0Name%=ComPort,MF\PCI5053_COM_0
+%WinChipHead.LPTPort0Name%=LPTPort,MF\PCI5053_LPT_0
+%WinChipHead.ComPort0Name%=ComPort,MF\PCI7053_COM_0
+%WinChipHead.ComPort1Name%=ComPort,MF\PCI7053_COM_1
+%WinChipHead.LPTPort0Name%=LPTPort,MF\PCI7053_LPT_0
+%WinChipHead.ComPort0Name%=ComPort,MF\PCI5046_COM_0
+%WinChipHead.ComPort1Name%=ComPort,MF\PCI5046_COM_1
+%WinChipHead.LPTPort0Name%=LPTPort,MF\PCI5046_LPT_0
+%WinChipHead.ComPort0Name%=ComPort,MF\PCI3453_COM_0
+%WinChipHead.ComPort1Name%=ComPort,MF\PCI3453_COM_1
+%WinChipHead.ComPort2Name%=ComPort,MF\PCI3453_COM_2
+%WinChipHead.ComPort3Name%=ComPort,MF\PCI3453_COM_3
+%WinChipHead.ComPort0Name%=ComPort,MF\PCI7173_COM_0
+%WinChipHead.ComPort1Name%=ComPort,MF\PCI7173_COM_1
+%WinChipHead.ComPort2Name%=ComPort,MF\PCI7173_COM_2
+%WinChipHead.ComPort3Name%=ComPort,MF\PCI7173_COM_3
+
+;;SERIAL INSTALL
+; WIN98/ME
+[ComPort]
+AddReg=ComPort.AddReg
+LogConfig=caa
+
+[ComPort.AddReg]
+HKR,,DevLoader,,*vcomm
+HKR,,Enumerator,,serenum.vxd
+HKR,,PortDriver,2,serial.vxd
+HKR,,Contention,,*vcd
+HKR,,ConfigDialog,,serialui.dll
+HKR,,DCB,3,1C,00,00,00, 80,25,00,00, 11,33,00,00, 00,00, 0a,00, 0a,00, 08, 00, 00, 11, 13, 00, 00, 00
+HKR,,PortSubClass,1,01
+HKR,,EnumPropPages,,"serialui.dll,EnumPropPages"
+
+; WIN2K
+[ComPort.NT]
+Include = msports.inf
+Needs = ComPort.NT
+
+[ComPort.NT.HW]
+Include = msports.inf
+Needs = ComPort.NT.HW.AddReg
+
+[ComPort.NT.Services]
+Include = msports.inf
+Needs = ComPort.NT.Services
+
+;;PARALLEL INSTALL
+; WIN98/ME
+[LptPort]
+AddReg=LptPort.AddReg
+LogConfig=laan
+
+[LptPort.AddReg]
+HKR,,DevLoader,,*vcomm
+HKR,,Enumerator,,lptenum.vxd
+HKR,,Contention,,*vpd
+HKR,,PortDriver,,lpt.vxd
+HKR,,PortSubClass,1,00
+HKR,,ECPDevice,1,00
+
+; WIN2K
+[LptPort.NT]
+AddReg=LptPort.AddReg,LptPort.NT.AddReg
+LogConfig=laan
+
+[LptPort.NT.Services]
+AddService = Parport, 0x00000002, Parport_Service_Inst, Parport_EventLog_Inst ; Port Driver (function driver for this device)
+
+[LptPort.AddReg]
+HKR,,PortSubClass,1,00
+HKR,,ECPDevice,1,00
+
+[LptPort.NT.AddReg]
+HKR,,EnumPropPages32,,"MsPorts.dll,ParallelPortPropPageProvider"
+
+[Parport_Service_Inst]
+DisplayName    = %Parport.SVCDESC%
+ServiceType    = 1                ; SERVICE_KERNEL_DRIVER
+StartType      = 3                ; SERVICE_DEMAND_START
+ErrorControl   = 1                ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\parport.sys
+LoadOrderGroup = Parallel arbitrator
+
+[Parport_EventLog_Inst]
+AddReg = Parport_EventLog_AddReg
+
+[Parport_EventLog_AddReg]
+HKR,,EventMessageFile,0x00020000,"%%SystemRoot%%\System32\IoLogMsg.dll;%%SystemRoot%%\System32\drivers\parport.sys"
+HKR,,TypesSupported,0x00010001,7
+
+[caa]
+ConfigPriority=HARDRECONFIG
+IOConfig=8@100-ffff%fff8(3ff::)
+;IRQConfig=S:3,4,5,7,9,10,11,12,14,15
+
+[laan]
+ConfigPriority=HARDRECONFIG
+IOConfig=8@100-3ff%fff8(3ff::)
+;IRQConfig=3,4,5,6,7,8,9,10,11,12,13,14,15
+
+[SourceDisksFiles]
+
+[Strings]
+WinChipHead= "wch.cn"
+WinChipHead.ComPort0Name = "PCI-SERIAL"
+WinChipHead.ComPort1Name = "PCI-SERIAL"
+WinChipHead.ComPort2Name = "PCI-SERIAL"
+WinChipHead.ComPort3Name = "PCI-SERIAL"
+WinChipHead.LPTPort0Name = "PCI-PARALLEL"
+Parport.SVCDESC = "parport port driver"

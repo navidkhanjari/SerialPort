@@ -1,0 +1,64 @@
+[Disks]
+d1 = "Promise FastTrak 376/378 Driver Diskette", \fasttx2k, \
+d2 = "Promise FastTrak 376/378 Driver Diskette", \fasttx2k, \nt4
+d3 = "Promise FastTrak 376/378 Driver Diskette", \fasttx2k, \Win2000
+d4 = "Promise FastTrak 376/378 Driver Diskette", \fasttx2k, \WinXP
+d5 = "Promise FastTrak 376/378 Driver Diskette", \fasttx2k, \Win2003
+
+[Defaults]
+scsi = FastTrak_TX2K_net
+
+[scsi]
+FastTrak_TX2K_net  = "Win Server 2003 Promise FastTrak 376/378 (tm) Controller", fasttx2k
+FastTrak_TX2K_xp = "WinXP Promise FastTrak 376/378 (tm) Controller", fasttx2k
+FastTrak_TX2K_nt51 = "Win2000 Promise FastTrak 376 (tm) Controller", fasttx2k
+FastTrak_TX2K_nt52 = "Win2000 Promise FastTrak 378 (tm) Controller", fasttx2k
+FastTrak_TX2K_nt4 = "WinNT Promise FastTrak 376/378 (tm) Controller", fasttx2k
+
+[Files.scsi.FastTrak_TX2K_net]
+driver = d5, fasttx2k.sys, fasttx2k
+dll    = d5, ptipbmf.dll
+inf    = d5, fasttx2k.inf
+catalog= d5, fasttx2k.cat
+
+[HardwareIds.scsi.FastTrak_TX2K_net]
+id="PCI\VEN_105A&DEV_3376", "fasttx2k"
+id="PCI\VEN_105A&DEV_3373", "fasttx2k"
+
+[Files.scsi.FastTrak_TX2K_xp]
+driver = d4, fasttx2k.sys, fasttx2k
+dll    = d4, ptipbmf.dll
+inf    = d4, fasttx2k.inf
+catalog= d4, fasttx2k.cat
+
+[HardwareIds.scsi.FastTrak_TX2K_xp]
+id="PCI\VEN_105A&DEV_3376", "fasttx2k"
+id="PCI\VEN_105A&DEV_3373", "fasttx2k"
+
+[Files.scsi.FastTrak_TX2K_nt51]
+driver = d3, fasttx2k.sys, fasttx2k
+dll    = d3, ptipbmf.dll
+inf    = d3, fasttx2k.inf
+catalog= d3, fasttx2k.cat
+
+[HardwareIds.scsi.FastTrak_TX2K_nt51]
+id="PCI\VEN_105A&DEV_3376", "fasttx2k"
+
+[Files.scsi.FastTrak_TX2K_nt52]
+driver = d3, fasttx2k.sys, fasttx2k
+dll    = d3, ptipbmf.dll
+inf    = d3, fasttx2k.inf
+catalog= d3, fasttx2k.cat
+
+[HardwareIds.scsi.FastTrak_TX2K_nt52]
+id="PCI\VEN_105A&DEV_3373", "fasttx2k"
+
+
+[Files.scsi.FastTrak_TX2K_nt4]
+driver = d2, fasttx2k.sys, fasttx2k
+dll    = d2, ptipbmf.dll
+inf    = d2, fasttx2k.inf
+
+[Config.fasttx2k]
+value = "", Tag, REG_DWORD, 1
+

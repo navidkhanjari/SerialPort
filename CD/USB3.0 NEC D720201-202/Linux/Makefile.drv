@@ -1,0 +1,23 @@
+#############################################################
+
+
+KERNEL_VERSION	 =`uname -a | cut -f3 -d" "`
+KERNEL_DIR		 =/usr/src/linux-$(KERNEL_VERSION)
+BUILD_DIR		:=$(shell pwd)/xhc201w/xhc201w_driver
+VERBOSE 		 = 0
+
+#############################################################
+
+all: modules
+
+clean:
+	rm -f $(BUILD_DIR)/*.o
+	rm -f $(BUILD_DIR)/*.ko
+	rm -f $(BUILD_DIR)/*.mod.c
+	rm -f $(BUILD_DIR)/*~
+	rm -f ./*.ko
+
+modules:
+	$(MAKE) -C $(KERNEL_DIR) M=$(BUILD_DIR) KBUILD_VERBOSE=$(VERBOSE) modules
+	cp $(BUILD_DIR)/*.ko ./
+

@@ -1,0 +1,23 @@
+#*
+#*                                                                                      	
+#*                        WCH Device Node Build Script
+#*
+#*                    Copyright 2010 WCH GROUP all right reserved
+#*
+#*                                                              Version: 1.0.0.2
+#*                                                              Date: 2011/12/21
+#*
+#!/bin/bash
+echo "Build tty file node (ttyWCH0 ~ ttyWCH255)"
+
+port=0
+
+while [ $port -lt 256 ]
+do
+	rm -f /dev/ttyWCH$port
+
+	echo /dev/ttyWCH$port
+	mknod /dev/ttyWCH$port c 245 $port
+	chmod a+w /dev/ttyWCH$port
+	port=`expr $port + 1`
+done

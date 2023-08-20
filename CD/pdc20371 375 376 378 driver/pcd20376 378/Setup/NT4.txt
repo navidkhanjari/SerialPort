@@ -1,0 +1,23 @@
+Install WinNT Promise FastTrak 378 Controller Driver manually (For Deluxe Version MainBoard).
+
+1. Please check BIOS setting was RAID mode or IDE mode (default was RAID mode).
+
+2. Press "Start" button.
+
+3. Move highlight bar to "Settings" and select "Control Panel".
+
+4. Double click on "SCSI Adapters" icon.
+
+5. Select "Driver" page.
+
+6. Press "Add..." button.
+
+7. Select item "Have Disk..".
+
+8. Specify path RAID mode:{CD-ROM Drive}:\Drivers\Promise\378RAID\NT4 to the driver 
+   or IDE mode:{CD-ROM Drive}:\Drivers\Promise\378ATA\NT4.
+
+9. When dialog appears, select "WinNT Promise FastTrak (tm) Lite Controller" 
+   item from the list and press "OK" button.
+
+10. Please restart Windows NT system.

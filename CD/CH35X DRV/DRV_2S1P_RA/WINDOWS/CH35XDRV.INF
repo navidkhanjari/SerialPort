@@ -1,0 +1,258 @@
+; CH35XDRV.INF
+; Driver for CH35X (It supports multi-setial ports,parallel port)
+; For windows 98/ME/XP/VISTA/7/8/2000/SERVER 2003/SERVER 2008/64bit XP/64bit VISTA/64bit WIN7/8
+; Copyright (C) WCH 2012
+; Ver V1.3
+
+[Version]
+Signature=$CHICAGO$
+Class=MultiFunction
+ClassGUID={4d36e971-e325-11ce-bfc1-08002be10318}
+Provider=%WinChipHead%
+DriverVer=07/09/2012,1.3.2012.7
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%WinChipHead%=WinChipHead,NT,NTamd64
+
+[WinChipHead]
+%WinChipHead_PORT_SS%=WinChipHeadSS_inst, PCI\VEN_4348&DEV_3253
+%WinChipHead_PORT_SS%=WinChipHeadSS_inst, PCI\VEN_4348&DEV_3253&SUBSYS_32534348
+%WinChipHead_PORT_SP%=WinChipHeadSP_inst, PCI\VEN_4348&DEV_5053
+%WinChipHead_PORT_SP%=WinChipHeadSP_inst, PCI\VEN_4348&DEV_5053&SUBSYS_50534348
+%WinChipHead_PORT_SSP%=WinChipHeadSSP_inst, PCI\VEN_4348&DEV_7053
+%WinChipHead_PORT_SSP%=WinChipHeadSSP_inst, PCI\VEN_4348&DEV_7053&SUBSYS_32534348
+%WinChipHead_PORT_SSP_RA%=WinChipHeadSPR_inst, PCI\VEN_4348&DEV_5046
+%WinChipHead_PORT_SSP_RA%=WinChipHeadSPR_inst, PCI\VEN_4348&DEV_5046&SUBSYS_50464348
+%WinChipHead_PORT_4SA%=WCH4SB_inst, PCI\VEN_4348&DEV_7173
+%WinChipHead_PORT_4SA%=WCH4SB_inst, PCI\VEN_4348&DEV_7173&SUBSYS_34734348
+%WinChipHead_PORT_4SB%=WCH4SA_inst, PCI\VEN_4348&DEV_3453
+%WinChipHead_PORT_4SB%=WCH4SA_inst, PCI\VEN_4348&DEV_3453&SUBSYS_34534348
+
+[WinChipHead.NT]
+%WinChipHead_PORT_SS%=WinChipHeadSS_inst, PCI\VEN_4348&DEV_3253
+%WinChipHead_PORT_SS%=WinChipHeadSS_inst, PCI\VEN_4348&DEV_3253&SUBSYS_32534348
+%WinChipHead_PORT_SP%=WinChipHeadSP_inst, PCI\VEN_4348&DEV_5053
+%WinChipHead_PORT_SP%=WinChipHeadSP_inst, PCI\VEN_4348&DEV_5053&SUBSYS_50534348
+%WinChipHead_PORT_SSP%=WinChipHeadSSP_inst, PCI\VEN_4348&DEV_7053
+%WinChipHead_PORT_SSP%=WinChipHeadSSP_inst, PCI\VEN_4348&DEV_7053&SUBSYS_32534348
+%WinChipHead_PORT_SSP_RA%=WinChipHeadSPR_inst, PCI\VEN_4348&DEV_5046
+%WinChipHead_PORT_SSP_RA%=WinChipHeadSPR_inst, PCI\VEN_4348&DEV_5046&SUBSYS_50464348
+%WinChipHead_PORT_4SA%=WCH4SB_inst, PCI\VEN_4348&DEV_7173
+%WinChipHead_PORT_4SA%=WCH4SB_inst, PCI\VEN_4348&DEV_7173&SUBSYS_34734348
+%WinChipHead_PORT_4SB%=WCH4SA_inst, PCI\VEN_4348&DEV_3453
+%WinChipHead_PORT_4SB%=WCH4SA_inst, PCI\VEN_4348&DEV_3453&SUBSYS_34534348
+
+[WinChipHead.NTAMD64]
+%WinChipHead_PORT_SS%=WinChipHeadSS_inst, PCI\VEN_4348&DEV_3253
+%WinChipHead_PORT_SS%=WinChipHeadSS_inst, PCI\VEN_4348&DEV_3253&SUBSYS_32534348
+%WinChipHead_PORT_SP%=WinChipHeadSP_inst, PCI\VEN_4348&DEV_5053
+%WinChipHead_PORT_SP%=WinChipHeadSP_inst, PCI\VEN_4348&DEV_5053&SUBSYS_50534348
+%WinChipHead_PORT_SSP%=WinChipHeadSSP_inst, PCI\VEN_4348&DEV_7053
+%WinChipHead_PORT_SSP%=WinChipHeadSSP_inst, PCI\VEN_4348&DEV_7053&SUBSYS_32534348
+%WinChipHead_PORT_SSP_RA%=WinChipHeadSPR_inst, PCI\VEN_4348&DEV_5046
+%WinChipHead_PORT_SSP_RA%=WinChipHeadSPR_inst, PCI\VEN_4348&DEV_5046&SUBSYS_50464348
+%WinChipHead_PORT_4SA%=WCH4SB_inst, PCI\VEN_4348&DEV_7173
+%WinChipHead_PORT_4SA%=WCH4SB_inst, PCI\VEN_4348&DEV_7173&SUBSYS_34734348
+%WinChipHead_PORT_4SB%=WCH4SA_inst, PCI\VEN_4348&DEV_3453
+%WinChipHead_PORT_4SB%=WCH4SA_inst, PCI\VEN_4348&DEV_3453&SUBSYS_34534348
+
+[StandardMF.Reg]
+HKR,,DevLoader,,*CONFIGMG
+HKR,,Enumerator,,*CONFIGMG
+HKR,,CMDrivFlags,1,03,00,00,00
+
+;;2S
+; WIN98/ME
+[WinChipHeadSS_inst]
+AddReg=StandardMF.Reg
+
+[WinChipHeadSS_inst.HW]
+AddReg=WinChipHeadSS_inst.RegHW
+
+[WinChipHeadSS_inst.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI3253_COM_0
+HKR,Child0000,ResourceMap,1,00,01
+HKR,Child0001,HardwareID,,MF\PCI3253_COM_1
+HKR,Child0001,ResourceMap,1,00,02
+
+; WIN2K
+[WinChipHeadSS_inst.NT]
+Include = mf.inf
+Needs = MFINSTALL.mf
+
+[WinChipHeadSS_inst.NT.HW]
+AddReg=WinChipHeadSS_inst.NT.RegHW
+
+[WinChipHeadSS_inst.NT.Services]
+Include = mf.inf
+Needs = MFINSTALL.mf.Services
+       
+[WinChipHeadSS_inst.NT.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI3253_COM_0
+HKR,Child0000,ResourceMap,1,00,04
+HKR,Child0001,HardwareID,,MF\PCI3253_COM_1
+HKR,Child0001,ResourceMap,1,02,04
+
+;;1S1P
+; WIN98/ME
+[WinChipHeadSP_inst]
+AddReg=StandardMF.Reg
+
+[WinChipHeadSP_inst.HW]
+AddReg=WinChipHeadSP_inst.RegHW
+
+[WinChipHeadSP_inst.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI5053_COM_0
+HKR,Child0000,ResourceMap,1,00,01
+HKR,Child0001,HardwareID,,MF\PCI5053_LPT_0
+HKR,Child0001,ResourceMap,1,00,02
+
+; WIN2K
+[WinChipHeadSP_inst.NT]
+Include = mf.inf
+Needs = MFINSTALL.mf
+
+[WinChipHeadSP_inst.NT.HW]
+AddReg=WinChipHeadSP_inst.NT.RegHW
+
+[WinChipHeadSP_inst.NT.Services]
+Include = mf.inf
+Needs = MFINSTALL.mf.Services
+
+[WinChipHeadSP_inst.NT.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI5053_COM_0
+HKR,Child0000,ResourceMap,1,00,04
+HKR,Child0001,HardwareID,,MF\PCI5053_LPT_0
+HKR,Child0001,ResourceMap,1,02,04
+
+;;2S1P
+; WIN98/ME
+[WinChipHeadSSP_inst]
+AddReg=StandardMF.Reg
+
+[WinChipHeadSSP_inst.HW]
+AddReg=WinChipHeadSSP_inst.RegHW
+
+[WinChipHeadSSP_inst.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI7053_COM_0
+HKR,Child0000,ResourceMap,1,00,01
+HKR,Child0001,HardwareID,,MF\PCI7053_COM_1
+HKR,Child0001,ResourceMap,1,00,02
+HKR,Child0002,HardwareID,,MF\PCI7053_LPT_0
+HKR,Child0002,ResourceMap,1,00,03
+
+; WIN2K
+[WinChipHeadSSP_inst.NT]
+Include = mf.inf
+Needs = MFINSTALL.mf
+
+[WinChipHeadSSP_inst.NT.HW]
+AddReg=WinChipHeadSSP_inst.NT.RegHW
+
+[WinChipHeadSSP_inst.NT.Services]
+Include = mf.inf
+Needs = MFINSTALL.mf.Services
+
+[WinChipHeadSSP_inst.NT.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI7053_COM_0
+HKR,Child0000,ResourceMap,1,00,08
+HKR,Child0001,HardwareID,,MF\PCI7053_COM_1
+HKR,Child0001,ResourceMap,1,02,08
+HKR,Child0002,HardwareID,,MF\PCI7053_LPT_0
+HKR,Child0002,ResourceMap,1,04,08
+
+;;2S1P_ReserveAddress
+; WIN98/ME
+[WinChipHeadSPR_inst]
+AddReg=StandardMF.Reg
+
+[WinChipHeadSPR_inst.HW]
+AddReg=WinChipHeadSPR_inst.RegHW
+
+[WinChipHeadSPR_inst.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI5046_COM_0
+HKR,Child0000,ResourceMap,1,00,01
+HKR,Child0001,HardwareID,,MF\PCI5046_COM_1
+HKR,Child0001,ResourceMap,1,00,02
+HKR,Child0002,HardwareID,,MF\PCI5046_LPT_0
+HKR,Child0002,ResourceMap,1,00,03
+
+; WIN2K
+[WinChipHeadSPR_inst.NT]
+Include = mf.inf
+Needs = MFINSTALL.mf
+
+[WinChipHeadSPR_inst.NT.HW]
+AddReg=WinChipHeadSPR_inst.NT.RegHW
+
+[WinChipHeadSPR_inst.NT.Services]
+Include = mf.inf
+Needs = MFINSTALL.mf.Services
+
+[WinChipHeadSPR_inst.NT.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI5046_COM_0
+HKR,Child0000,ResourceMap,1,00,08
+HKR,Child0001,HardwareID,,MF\PCI5046_COM_1
+HKR,Child0001,ResourceMap,1,02,08
+HKR,Child0002,HardwareID,,MF\PCI5046_LPT_0
+HKR,Child0002,ResourceMap,1,04,08
+
+;;4SA
+; WIN2K
+[WCH4SA_inst.NT]
+Include = mf.inf
+Needs = MFINSTALL.mf
+
+[WCH4SA_inst.NT.HW]
+AddReg=WCH4SA_inst.NT.RegHW
+
+[WCH4SA_inst.NT.Services]
+Include = mf.inf
+Needs = MFINSTALL.mf.Services
+
+[WCH4SA_inst.NT.RegHW]
+HKR,Child0003,HardwareID,,MF\PCI3453_COM_0
+HKR,Child0003,ResourceMap,1,00,08
+HKR,Child0002,HardwareID,,MF\PCI3453_COM_1
+HKR,Child0002,ResourceMap,1,02,08
+HKR,Child0001,HardwareID,,MF\PCI3453_COM_2
+HKR,Child0001,ResourceMap,1,04,08
+HKR,Child0000,HardwareID,,MF\PCI3453_COM_3
+HKR,Child0000,ResourceMap,1,06,08
+
+;;4SB
+; WIN2K
+[WCH4SB_inst.NT]
+Include = mf.inf
+Needs = MFINSTALL.mf
+
+[WCH4SB_inst.NT.HW]
+AddReg=WCH4SB_inst.NT.RegHW
+
+[WCH4SB_inst.NT.Services]
+Include = mf.inf
+Needs = MFINSTALL.mf.Services
+
+[WCH4SB_inst.NT.RegHW]
+HKR,Child0003,HardwareID,,MF\PCI7173_COM_0
+HKR,Child0003,ResourceMap,1,00,0a
+HKR,Child0002,HardwareID,,MF\PCI7173_COM_1
+HKR,Child0002,ResourceMap,1,02,0a
+HKR,Child0001,HardwareID,,MF\PCI7173_COM_2
+HKR,Child0001,ResourceMap,1,04,0a
+HKR,Child0000,HardwareID,,MF\PCI7173_COM_3
+HKR,Child0000,ResourceMap,1,06,0a
+
+[SourceDisksFiles]
+
+[Strings]
+WinChipHead= "wch.cn"
+WinChipHead_PORT_SS = "CH352 PCI=>DUAL SERIAL"
+WinChipHead_PORT_SP = "CH352 PCI=>SERIAL&&PARALLEL"
+WinChipHead_PORT_SSP = "CH353 PCI=>DUAL SERIAL&&PARALLEL"
+WinChipHead_PORT_SSP_RA = "CH353 PCI=>DUAL SERIALS&&PARALLEL_RA"
+WinChipHead_PORT_4SA = "WCH PCI=>QUAD SERIAL"
+WinChipHead_PORT_4SB = "WCH PCI=>QUAD SERIAL"

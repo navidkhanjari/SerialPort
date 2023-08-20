@@ -1,0 +1,153 @@
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;  NetMos Technology, inc.
+;;
+;;  FILE : NmPorts.inf
+;;  This file nneds to be loaded on all OS.
+;;  OS SUPPORTED : WIN95, WIN98, WIN2000, WinMe ONLY.
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[Version]
+LayoutFile = layout.inf
+Signature  = $CHICAGO$
+Class      = Ports
+ClassGuid  = {4D36E978-E325-11CE-BFC1-08002BE10318}
+Provider   = %ProviderName%
+
+
+[DestinationDirs]
+DefaultDestDir  = 11    ;LDID_SYS
+Inf.Copy = 17       	;DIRID_INF
+
+[SourceDiskFiles]
+; 1 = Disk Number
+NmPorts.inf=1
+NmEnum.vxd=1
+NmUninst.exe=1
+
+[SourceDisksNames]
+1=%DiskName%,,
+
+;------------------------
+; Install class "Ports"
+;------------------------
+[ClassInstall]
+CopyFiles=Inf.Copy,Uninstall.Copy
+AddReg=PortsClass.AddReg
+
+[PortsClass.AddReg]
+HKR,,,,"Ports (COM & LPT)"
+HKR,,Icon,,-23
+
+;----------------------
+; Install Drivers
+;----------------------
+[Manufacturer]
+%MfgName%=NetMosPorts
+
+[NetMosPorts]
+%Nm9705Name%=LptCard,PCI\VEN_9710&DEV_9705
+%ComPortName%=ComPort,MF\PCI9710_COM
+%LptPortName%=LptPort,MF\PCI9710_LPT
+%EcpPortName%=EcpPort,MF\PCI9710_ECP
+%ComPortName%=ComPort,NMENUM\PCI9710_COM
+%LptPortName%=LptPort,NMENUM\PCI9710_LPT
+%EcpPortName%=EcpPort,NMENUM\PCI9710_ECP
+%ComPortName%=ComPort,NMMFENUM\PCI9710_COM
+%LptPortName%=LptPort,NMMFENUM\PCI9710_LPT
+%EcpPortName%=EcpPort,NMMFENUM\PCI9710_ECP
+
+;
+; Install Sections
+;
+[ComCard]
+AddReg=ComPort.AddReg,Uninstall.AddReg
+CopyFiles=Inf.Copy,UnInstall.Copy
+Reboot
+
+[LptCard]
+AddReg=LptPort.AddReg,Uninstall.AddReg
+CopyFiles=Inf.Copy,UnInstall.Copy
+Reboot
+
+[EcpCard]
+AddReg=EcpPort.AddReg,Uninstall.AddReg
+CopyFiles=Inf.Copy,UnInstall.Copy
+Reboot
+
+[ComPort]
+AddReg=ComPort.AddReg
+
+[LptPort]
+AddReg=LptPort.AddReg
+Reboot
+
+[EcpPort]
+AddReg=EcpPort.AddReg
+Reboot
+
+[ComPort.AddReg]
+HKR,,DevLoader,,*vcomm
+HKR,,Contention,0,*vcd
+HKR,,Enumerator,0,serenum.vxd
+HKR,,PortDriver,,serial.vxd
+HKR,,ConfigDialog,,serialui.dll
+HKR,,DCB,3,1c,00,00,00,80,25,00,00,15,20,00,00,00,00,0a,00,0a,00,08,00,00,11,13,00,00,00
+HKR,,PortSubClass,1,01
+HKR,,EnumPropPages,,"serialui.dll,EnumPropPages"
+
+[LptPort.AddReg]
+HKR,,DevLoader,0,*vcomm
+HKR,,Contention,0,*vpd
+HKR,,Enumerator,0,lptenum.vxd
+HKR,,PortDriver,0,lpt.vxd
+HKR,,ECPDevice,1,00
+HKR,,PortSubClass,1,00
+
+[EcpPort.AddReg]
+HKR,,DevLoader,0,*vcomm
+HKR,,Contention,0,*vpd
+HKR,,Enumerator,0,lptenum.vxd
+HKR,,PortDriver,0,lpt.vxd
+HKR,,ECPDevice,1,01
+HKR,,PortSubClass,1,00
+
+[Uninstall.AddReg]
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%MfgName%,DisplayName,0,%UninstallName%
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%MfgName%,UninstallString,0,NmUninst.exe
+
+[Inf.Copy]
+NmPorts.inf
+
+[Uninstall.Copy]
+NmUninst.exe
+
+[Strings]
+ProviderName="NetMos Technology"
+MfgName="NetMos Technology"
+DiskName="NetMos Multi I/O Driver Disk"
+UninstallName="NetMos Multi-IO Controller"
+ComPortName="NetMos PCI Serial Port"
+LptPortName="NetMos PCI Parallel Port"
+EcpPortName="NetMos PCI SPP/BPP/ECP/EPP Port"
+NullPortName="NetMos Bridge"
+Nm9705Name="NetMos PCI 9705 Parallel Port"
+Nm9735Name="NetMos PCI 9735 Multi I/O Controller"
+Nm9745Name="NetMos PCI 9745 Multi I/O Controller"
+NmS9705Name="NetMos PCI 9705 Parallel Port"
+NmS9735Name="NetMos PCI 9735 Serial Port"
+NmS9745Name="NetMos PCI 9745 Serial Port"
+Nm9805Name="NetMos PCI 9805 Parallel Port"
+Nm9715Name="NetMos PCI 9715 Multi-I/O Controller"
+Nm9820Name="NetMos PCI 9820 Serial Port"
+Nm9825Name="NetMos PCI 9825 Serial Port"
+Nm9835Name="NetMos PCI 9835 Multi-I/O Controller"
+Nm9845Name="NetMos PCI 9845 Multi-I/O Controller"
+Nm9755Name="NetMos PCI 9755 Multi-I/O Controller"
+
+;-----------------------
+; END OF FILE
+;-----------------------
+

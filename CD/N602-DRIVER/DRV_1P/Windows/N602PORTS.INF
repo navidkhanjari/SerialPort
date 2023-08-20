@@ -1,0 +1,227 @@
+; N602PORTS.INF
+; Driver for NETNOW communication port(serial and parallel)
+; For Windows 2000/XP/VISTA/7/8/8.1/SERVER 2003/SERVER 2008/SERVER 2012
+; For 64-bit Windows XP/VISTA/7/8/8.1/SERVER 2003/SERVER 2008/SERVER 2012
+; Copyright (C) NETNOW 2014
+; Ver V1.0
+
+[Version]
+signature="$CHICAGO$"
+Class=Ports
+ClassGUID={4d36e978-e325-11ce-bfc1-08002be10318}
+Provider=%NETNOW%
+DriverVer=05/11/2014,1.0.2014.5
+CatalogFile.NT = N602DRV.CAT
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%NETNOW%=NETNOW,NT,NTamd64
+
+[NETNOW.NT]
+%NETNOW.DHLPTPortEName%=DHLPTPort,MF\DHPE6231_LPT_0
+;%NETNOW.ComPortEName%=DHPECom0,MF\DHPE6332_COM_0
+;%NETNOW.ComPortEName%=DHPECom1,MF\DHPE6332_COM_1
+
+
+[NETNOW.NTamd64]
+%NETNOW.DHLPTPortEName%=DHLPTPort,MF\DHPE6231_LPT_0
+;%NETNOW.ComPortEName%=DHPECom0,MF\DHPE6332_COM_0
+;%NETNOW.ComPortEName%=DHPECom1,MF\DHPE6332_COM_1
+
+
+;**ComPort**
+; X86
+;Port0 install
+[DHPECom0.NT]
+CopyFiles=DHPECom.NT.CopyFiles.SYS,DHPECom.NT.CopyFiles.DLL
+AddReg=DHPEComNT.AddReg, DHPECom.NT.AddReg
+;SyssetupPnPFlags = 1
+
+[DHPECom0.NT.HW]
+AddReg=MultiComPort0.NT.HW.AddReg,DHPECom.NT.HW.AddReg
+
+[DHPECom0.NT.Services]
+AddService = DHPESerial, 0x00000002, Serial_Service_Inst_NT, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port1 install
+[DHPECom1.NT]
+CopyFiles=DHPECom.NT.CopyFiles.SYS,DHPECom.NT.CopyFiles.DLL
+AddReg=DHPEComNT.AddReg, DHPECom.NT.AddReg
+;SyssetupPnPFlags = 1
+
+[DHPECom1.NT.HW]
+AddReg=MultiComPort1.NT.HW.AddReg,DHPECom.NT.HW.AddReg
+
+[DHPECom1.NT.Services]
+AddService = DHPESerial, 0x00000002, Serial_Service_Inst_NT, Serial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+[DHPECom.NT.CopyFiles.sys]
+N602ERT.SYS
+
+[DHPECom.NT.CopyFiles.DLL]
+N602EPS.DLL
+
+; AMD64
+;Port0 install
+[DHPECom0.NTamd64]
+CopyFiles=DHPECom.NTamd64.CopyFiles.SYS,DHPECom.NTamd64.CopyFiles.DLL
+AddReg=DHPEComNT.AddReg, DHPECom.NTamd64.AddReg
+
+[DHPECom0.NTamd64.HW]
+AddReg=MultiComPort0.NT.HW.AddReg,DHPECom.NT.HW.AddReg
+
+[DHPECom0.NTamd64.Services]
+AddService = DHPESerialA64, 0x00000002, Serial_Service_Inst_A64, Serial_EventLog_InstA64
+AddService = Serenum,,Serenum_Service_Inst
+
+;Port1 install
+[DHPECom1.NTamd64]
+CopyFiles=DHPECom.NTamd64.CopyFiles.SYS,DHPECom.NTamd64.CopyFiles.DLL
+AddReg=DHPEComNT.AddReg, DHPECom.NTamd64.AddReg
+
+[DHPECom1.NTamd64.HW]
+AddReg=MultiComPort1.NT.HW.AddReg,DHPECom.NT.HW.AddReg
+
+[DHPECom1.NTamd64.Services]
+AddService = DHPESerialA64, 0x00000002, Serial_Service_Inst_A64, Serial_EventLog_InstA64
+AddService = Serenum,,Serenum_Service_Inst
+
+[DHPECom.NTamd64.CopyFiles.sys]
+N602ERTA64.SYS
+
+[DHPECom.NTamd64.CopyFiles.DLL]
+N602EPS64.DLL
+
+[DHPEComNT.AddReg]
+HKR,,PortSubClass,1,01
+
+[DHPECom.NT.AddReg]
+HKR,,EnumPropPages32,,"N602EPS.DLL,SerialPortPropPageProvider"
+
+[DHPECom.NTamd64.AddReg]
+HKR,,EnumPropPages32,,"N602EPS64.DLL,SerialPortPropPageProvider"
+
+[DHPECom.NT.HW.AddReg]
+HKR,,"UpperFilters",0x00010000,"serenum"
+
+[Serial_Service_Inst_NT]
+DisplayName    = %Serial.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 1               ; SERVICE_SYSTEM_START (this driver may do detection)
+ErrorControl   = 0               ; SERVICE_ERROR_IGNORE
+ServiceBinary  = %10%\system32\drivers\N602ERT.SYS
+LoadOrderGroup = Extended base
+
+[Serial_Service_Inst_A64]
+DisplayName    = %Serial.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 1               ; SERVICE_SYSTEM_START (this driver may do detection)
+ErrorControl   = 0               ; SERVICE_ERROR_IGNORE
+ServiceBinary  = %10%\system32\drivers\N602ERTA64.SYS
+LoadOrderGroup = Extended base
+
+[Serial_EventLog_Inst]
+AddReg = Serial_EventLog_AddReg
+
+[Serial_EventLog_InstA64]
+AddReg = SerialA64_EventLog_AddReg
+
+[MultiComPort0.NT.HW.AddReg]
+HKR,,MultiportDevice,0x00010001,1
+HKR,,PortIndex,0x00010001,1
+HKR,,RxFIFO,0x00010001,128
+HKR,,TxFIFO,0x00010001,256
+
+[MultiComPort1.NT.HW.AddReg]
+HKR,,MultiportDevice,0x00010001,1
+HKR,,PortIndex,0x00010001,2
+HKR,,RxFIFO,0x00010001,128
+HKR,,TxFIFO,0x00010001,256
+
+; -------------- Serenum Driver install section
+[Serenum_Service_Inst]
+DisplayName    = %Serenum.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\serenum.sys
+LoadOrderGroup = PNP Filter
+
+;;PARALLEL INSTALL
+[DHLPTPort.NT]
+AddReg=DHLPTPort.AddReg,DHLPTPort.NT.AddReg
+LogConfig=laan
+
+[DHLPTPort.NT.Services]
+AddService = Parport, 0x00000002, Parport_Service_Inst, Parport_EventLog_Inst ; Port Driver (function driver for this device)
+
+[DHLPTPort.AddReg]
+HKR,,PortSubClass,1,00
+HKR,,ECPDevice,1,00
+
+[DHLPTPort.NT.AddReg]
+HKR,,EnumPropPages32,,"MsPorts.dll,ParallelPortPropPageProvider"
+
+[Parport_Service_Inst]
+DisplayName    = %Parport.SVCDESC%
+ServiceType    = 1                ; SERVICE_KERNEL_DRIVER
+StartType      = 3                ; SERVICE_DEMAND_START
+ErrorControl   = 1                ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\parport.sys
+LoadOrderGroup = Parallel arbitrator
+
+[Parport_EventLog_Inst]
+AddReg = Parport_EventLog_AddReg
+
+[Parport_EventLog_AddReg]
+HKR,,EventMessageFile,0x00020000,"%%SystemRoot%%\System32\IoLogMsg.dll;%%SystemRoot%%\System32\drivers\parport.sys"
+HKR,,TypesSupported,0x00010001,7
+
+[Serial_EventLog_AddReg]
+HKR,,EventMessageFile,0x00020000,"%%SystemRoot%%\System32\IoLogMsg.dll;%%SystemRoot%%\System32\drivers\N602ERT.SYS"
+HKR,,TypesSupported,0x00010001,7
+
+[SerialA64_EventLog_AddReg]
+HKR,,EventMessageFile,0x00020000,"%%SystemRoot%%\System32\IoLogMsg.dll;%%SystemRoot%%\System32\drivers\N602ERTA64.SYS"
+HKR,,TypesSupported,0x00010001,7
+
+[laan]
+ConfigPriority=HARDRECONFIG
+IOConfig=8@100-3ff%fff8(3ff::)
+IRQConfig=3,4,5,6,7,8,9,10,11,12,13,14,15
+
+;X86/AMD64/IA64 SHARE
+[SourceDisksFiles]
+;N602ERT.SYS = 1
+;N602EPS.DLL = 1
+
+[SourceDisksFiles.amd64]
+;N602ERTA64.SYS = 1
+;N602EPS64.DLL = 1
+
+
+[DestinationDirs]
+;DHPECom.NT.CopyFiles.SYS = 12
+;DHPECom.NT.CopyFiles.DLL = 11
+;DHPECom.NTamd64.CopyFiles.SYS = 12
+;DHPECom.NTamd64.CopyFiles.DLL = 11
+
+[SourceDisksNames]
+1 = %DISK_NAME%, , ,
+
+[SourceDisksNames.amd64]
+1 = %DISK_NAME%, , ,
+
+[Strings]
+NETNOW= "NETNOW"
+NETNOW.ComPortEName = "PCIE Serail port"
+NETNOW.DHLPTPortEName = "PCIE parallel port"
+Serial.SVCDESC   = "DHPESerial port driver"
+Serenum.SVCDESC = "Serenum filter driver"
+PCIEPar.SVCDESC = "DHPEParallel port driver"
+Parport.SVCDESC = "DHPEParport port driver"
+DISK_NAME = "NETNOW card driver Installation Disk"

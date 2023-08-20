@@ -1,0 +1,73 @@
+; CH35X_1S.INF
+; Driver for CH35X (It supports multi-setial ports,parallel port)
+; For windows 98/ME/XP/VISTA/7/2000/SERVER 2003/SERVER 2008/64bit XP/64bit VISTA/64bit WIN7
+; Copyright (C) WCH 2012
+; VER V1.2
+
+[Version]
+Signature=$CHICAGO$
+Class=MultiFunction
+ClassGUID={4d36e971-e325-11ce-bfc1-08002be10318}
+Provider=%WinChipHead%
+DriverVer=03/12/2010,1.2.2010.12
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%WinChipHead%=WinChipHead,NT,NTamd64,NTia64
+
+[WinChipHead]
+%WinChipHead_PORT_1S%=WinChipHead1S_inst, PCI\VEN_4348&DEV_3253
+%WinChipHead_PORT_1S%=WinChipHead1S_inst, PCI\VEN_4348&DEV_3253&SUBSYS_32534348
+
+[WinChipHead.NT]
+%WinChipHead_PORT_1S%=WinChipHead1S_inst, PCI\VEN_4348&DEV_3253
+%WinChipHead_PORT_1S%=WinChipHead1S_inst, PCI\VEN_4348&DEV_3253&SUBSYS_32534348
+
+[WinChipHead.NTAMD64]
+%WinChipHead_PORT_1S%=WinChipHead1S_inst, PCI\VEN_4348&DEV_3253
+%WinChipHead_PORT_1S%=WinChipHead1S_inst, PCI\VEN_4348&DEV_3253&SUBSYS_32534348
+
+[WinChipHead.NTIA64]
+%WinChipHead_PORT_1S%=WinChipHead1S_inst, PCI\VEN_4348&DEV_3253
+%WinChipHead_PORT_1S%=WinChipHead1S_inst, PCI\VEN_4348&DEV_3253&SUBSYS_32534348
+
+[StandardMF.Reg]
+HKR,,DevLoader,,*CONFIGMG
+HKR,,Enumerator,,*CONFIGMG
+HKR,,CMDrivFlags,1,03,00,00,00
+
+;;1S
+; WIN98/ME
+[WinChipHead1S_inst]
+AddReg=StandardMF.Reg
+
+[WinChipHead1S_inst.HW]
+AddReg=WinChipHead1S_inst.RegHW
+
+[WinChipHead1S_inst.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI3253_COM_0
+HKR,Child0000,ResourceMap,1,00,01
+
+; WIN2K
+[WinChipHead1S_inst.NT]
+Include = mf.inf
+Needs = MFINSTALL.mf
+
+[WinChipHead1S_inst.NT.HW]
+AddReg=WinChipHead1S_inst.NT.RegHW
+
+[WinChipHead1S_inst.NT.Services]
+Include = mf.inf
+Needs = MFINSTALL.mf.Services
+       
+[WinChipHead1S_inst.NT.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI3253_COM_0
+HKR,Child0000,ResourceMap,1,00,04
+
+[SourceDisksFiles]
+
+[Strings]
+WinChipHead= "wch.cn"
+WinChipHead_PORT_1S = "CH352 PCI=>SERIAL"

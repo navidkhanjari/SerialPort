@@ -1,0 +1,79 @@
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;  FILE : Nm2kNull.inf
+;;  OS SUPPORTED : Vista-32Bit. 
+;;  This inf file configures one BRIDGE device
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[Version]
+LayoutFile=layout.inf
+Signature="$WINDOWS NT$"
+Class=System
+ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%ProviderName%
+LayoutFile=layout.inf
+DriverVer=12/18/2006,2.0.0.6
+
+
+[DestinationDirs]
+DefaultDestDir  = 11        ;LDID_SYS
+IOBridge.NT.Copy = 12        ;DIRID_DRIVERS
+
+[SourceDisksNames]
+;Nothing
+
+[SourceDisksFiles]
+;Nothing
+
+;===============================
+; Class Installation
+;===============================
+[ClassInstall32]
+AddReg=system_class_addreg
+
+[system_class_addreg]
+HKR,,,,%SystemClassName%
+HKR,,Icon,,"-27"
+
+[ControlFlags]
+
+;===============================
+; Driver Installation
+;===============================
+[Manufacturer]
+%ProviderName%=Multi_IO_Cards
+
+;
+; Manufacturer Name Section
+;
+[Multi_IO_Cards]
+%IOBridgeName%=IO_BRIDGE,MF\PCI9710_BRIDGE
+
+;----------------------------------------
+; BRIDGE Port Install
+;----------------------------------------
+[IO_BRIDGE]
+CopyFiles=IOBridge.NT.Copy
+
+
+[IO_BRIDGE.Services]
+AddService = , %SPSVCINST_ASSOCSERVICE%   ; null service install
+
+[IOBridge.NT.Copy]
+;Nothing
+
+
+; User readable strings
+;----------------------------------------------------------
+[Strings]
+SystemClassName = "System devices"
+SPSVCINST_ASSOCSERVICE = 0x00000002
+ProviderName="MosChip Technology"
+IOBridgeName="MosChip Bridge"
+
+;-----------------------
+; END OF FILE
+;-----------------------
+

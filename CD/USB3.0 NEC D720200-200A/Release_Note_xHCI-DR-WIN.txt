@@ -1,0 +1,854 @@
+***************************************************************************
+**************** D720200 & D720200A Design Resources Release **************
+***** All of the Software are under NDA or Software license agreement *****
+***************************************************************************
+ Release Note                                              December.17.2010
+ 
+ Renesas Electronics uPD720200 & uPD720200A
+ USB 3.0 Host Controller Driver Kit (x86 and x64)
+ for Windows XP, VISTA, 7 and Server 2008 Release 2
+ 
+ Kit Version : 2.0.32.0 : November 17th, 2010
+ Copyright (C) Renesas Electronics Corporation 2010 All Rights Reserved
+***************************************************************************
+
+NOTE1:
+ This installer package is generated with the InstallShield2010 SP1.
+ If the previous driver package(v0.X.X.X , v1.0.1.0 or v1.0.7.0) is installed,
+ Please uninstall the previous driver package and install new package.
+
+---------------------------------------------------------------------------
+Table of Contents
+---------------------------------------------------------------------------
+1. Release Files
+2. Command Line Options
+3. History
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------
+1. Release Files
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------
+Date        Time         Size   File Name                Version
+--EXE(Installer Package)
+ 2010/12/15 10:08      9062KB   RENESAS-USB3-Host-Driver-20320-setup.exe    2.0.32.0
+ 2010/04/27 13:49         1KB   setup.iss
+ 2010/12/15 10:19       924KB   InstallShield 2010 SP1 Projects-101217.zip
+
+--ZIP
+ 2010/12/15 10:21      6961KB   RENESAS-USB3-Host-Driver-20320-Setup-x86-x64-Binary.zip 2.0.32.0
+---contents
+ 2009/09/11  9:10        21KB   0x0C04.ini
+ 2009/09/11 14:50        21KB   0x2C0a.ini
+ 2009/05/20 16:30        24KB   0x040a.ini
+ 2009/03/18 15:05        22KB   0x040b.ini
+ 2009/05/20 17:27        25KB   0x040c.ini
+ 2009/03/16 14:23        18KB   0x040d.ini
+ 2009/03/18 15:07        22KB   0x040e.ini
+ 2009/05/20 16:46        22KB   0x041b.ini
+ 2009/05/20 16:46        22KB   0x041d.ini
+ 2009/03/18 15:15        22KB   0x041e.ini
+ 2009/05/20 16:58        22KB   0x041f.ini
+ 2009/05/20 16:55        19KB   0x0401.ini
+ 2009/05/21 17:44        11KB   0x0404.ini
+ 2009/05/20 17:03        22KB   0x0405.ini
+ 2009/05/20 17:03        23KB   0x0406.ini
+ 2009/05/20 17:22        25KB   0x0407.ini
+ 2009/03/18 15:26        26KB   0x0408.ini
+ 2009/05/21 15:53        21KB   0x0409.ini
+ 2009/05/20 17:06        24KB   0x0410.ini
+ 2009/06/08 16:45        15KB   0x0411.ini
+ 2009/03/16 14:28        14KB   0x0412.ini
+ 2009/05/20 17:07        24KB   0x0413.ini
+ 2009/05/20 17:08        23KB   0x0414.ini
+ 2009/05/20 17:09        23KB   0x0415.ini
+ 2009/05/20 17:09        23KB   0x0416.ini
+ 2009/05/20 17:12        22KB   0x0419.ini
+ 2009/05/20 17:13        23KB   0x0424.ini
+ 2009/05/21 17:44        11KB   0x0804.ini
+ 2009/05/20 17:14        24KB   0x0816.ini
+ 2010/12/15 10:02        92KB   1025.mst
+ 2010/12/15 10:02        82KB   1028.mst
+ 2010/12/15 10:02       101KB   1029.mst
+ 2010/12/15 10:02       101KB   1030.mst
+ 2010/12/15 10:02       111KB   1031.mst
+ 2010/12/15 10:02       111KB   1032.mst
+ 2010/12/15 10:02        37KB   1033.mst
+ 2010/12/15 10:02       109KB   1034.mst
+ 2010/12/15 10:02       101KB   1035.mst
+ 2010/12/15 10:02       109KB   1036.mst
+ 2010/12/15 10:02        59KB   1037.mst
+ 2010/12/15 10:02       106KB   1038.mst
+ 2010/12/15 10:02       110KB   1040.mst
+ 2010/12/15 10:02       105KB   1041.mst
+ 2010/12/15 10:02        98KB   1042.mst
+ 2010/12/15 10:02       106KB   1043.mst
+ 2010/12/15 10:02        98KB   1044.mst
+ 2010/12/15 10:02       104KB   1045.mst
+ 2010/12/15 10:02       103KB   1046.mst
+ 2010/12/15 10:02       100KB   1049.mst
+ 2010/12/15 10:02       102KB   1051.mst
+ 2010/12/15 10:02        98KB   1053.mst
+ 2010/12/15 10:02        97KB   1054.mst
+ 2010/12/15 10:02        99KB   1055.mst
+ 2010/12/15 10:02       102KB   1060.mst
+ 2010/12/15 10:02        81KB   2052.mst
+ 2010/12/15 10:02       104KB   2070.mst
+ 2010/12/15 10:02        37KB   3076.mst
+ 2010/12/15 10:02        37KB   11274.mst
+ 2010/12/15 10:01      4857KB   ISSetup.dll
+ 2010/12/15 10:02       776KB   nusb3drv.msi
+ 2010/12/15 10:07       972KB   setup.exe
+ 2010/12/15 10:02         3KB   Setup.ini
+ 2010/04/27 13:49         1KB   setup.iss
+
+ ----Files
+ 2010/11/17 09:52        95KB   nusb3mon.dll             2.0.28.0
+ 2010/11/17 09:53       111KB   nusb3mon.exe             2.0.28.0
+ 2010/11/17 09:51       307KB   nusb3utl.exe             2.0.28.0
+ 2010/12/13 13:14        48KB   nusb3ver.dll             2.0.32.0
+ -----0C0A
+ 2010/11/12 20:20         4KB   nusb3mon.exe.mui
+ 2010/11/16 12:13         3KB   nusb3utl.exe.mui
+ -----0C04
+ 2010/11/12 20:20         2KB   nusb3mon.exe.mui
+ 2010/11/16 12:13         2KB   nusb3utl.exe.mui
+ -----2C0A
+ 2010/11/12 20:20         4KB   nusb3mon.exe.mui
+ 2010/11/16 12:13         3KB   nusb3utl.exe.mui
+ -----040A
+ 2010/11/12 20:20         4KB   nusb3mon.exe.mui
+ 2010/11/16 12:13         3KB   nusb3utl.exe.mui
+ -----040B
+ 2010/11/12 20:20         4KB   nusb3mon.exe.mui
+ 2010/11/16 12:13         3KB   nusb3utl.exe.mui
+ -----040C
+ 2010/11/12 20:20         4KB   nusb3mon.exe.mui
+ 2010/11/16 12:13         3KB   nusb3utl.exe.mui
+ -----040D
+ 2010/11/12 20:20         3KB   nusb3mon.exe.mui
+ 2010/11/16 12:13         3KB   nusb3utl.exe.mui
+ -----040E
+ 2010/11/12 20:20         4KB   nusb3mon.exe.mui
+ 2010/11/16 12:13         3KB   nusb3utl.exe.mui
+ -----041B
+ 2010/11/12 20:20         4KB   nusb3mon.exe.mui
+ 2010/11/16 12:13         3KB   nusb3utl.exe.mui
+ -----041D
+ 2010/11/12 20:20         4KB   nusb3mon.exe.mui
+ 2010/11/16 12:13         3KB   nusb3utl.exe.mui
+ -----041E
+ 2010/11/12 20:20         3KB   nusb3mon.exe.mui
+ 2010/11/16 12:13         3KB   nusb3utl.exe.mui
+ -----041F
+ 2010/11/12 20:20         4KB   nusb3mon.exe.mui
+ 2010/11/16 12:13         3KB   nusb3utl.exe.mui
+ -----0401
+ 2010/11/12 20:20         3KB   nusb3mon.exe.mui
+ 2010/11/16 12:13         3KB   nusb3utl.exe.mui
+ -----0404
+ 2010/11/12 20:20         3KB   nusb3mon.exe.mui
+ 2010/11/16 12:13         2KB   nusb3utl.exe.mui
+ -----0405
+ 2010/11/12 20:20         3KB   nusb3mon.exe.mui
+ 2010/11/16 12:13         3KB   nusb3utl.exe.mui
+ -----0406
+ 2010/11/12 20:20         4KB   nusb3mon.exe.mui
+ 2010/11/16 12:13         3KB   nusb3utl.exe.mui
+ -----0407
+ 2010/11/12 20:20         4KB   nusb3mon.exe.mui
+ 2010/11/16 12:13         3KB   nusb3utl.exe.mui
+ -----0408
+ 2010/11/12 20:20         4KB   nusb3mon.exe.mui
+ 2010/11/16 12:13         3KB   nusb3utl.exe.mui
+ -----0409
+ 2010/11/12 20:20         4KB   nusb3mon.exe.mui
+ 2010/09/30 12:56         3KB   nusb3utl.exe.mui
+ -----0410
+ 2010/11/12 20:20         4KB   nusb3mon.exe.mui
+ 2010/11/16 12:13         3KB   nusb3utl.exe.mui
+ -----0411
+ 2010/11/12 20:20         3KB   nusb3mon.exe.mui
+ 2010/11/16 12:13         2KB   nusb3utl.exe.mui
+ -----0412
+ 2010/11/12 20:20         3KB   nusb3mon.exe.mui
+ 2010/11/16 12:13         2KB   nusb3utl.exe.mui
+ -----0413
+ 2010/11/12 20:20         4KB   nusb3mon.exe.mui
+ 2010/11/16 12:13         3KB   nusb3utl.exe.mui
+ -----0414
+ 2010/11/12 20:20         4KB   nusb3mon.exe.mui
+ 2010/11/16 12:13         3KB   nusb3utl.exe.mui
+ -----0415
+ 2010/11/12 20:20         4KB   nusb3mon.exe.mui
+ 2010/11/16 12:13         3KB   nusb3utl.exe.mui
+ -----0416
+ 2010/04/14 09:31         4KB   nusb3mon.exe.mui
+ 2010/11/16 12:13         3KB   nusb3utl.exe.mui
+ -----0419
+ 2010/11/12 20:20         4KB   nusb3mon.exe.mui
+ 2010/11/16 12:13         3KB   nusb3utl.exe.mui
+ -----0424
+ 2010/11/12 20:20         3KB   nusb3mon.exe.mui
+ 2010/11/16 12:13         3KB   nusb3utl.exe.mui
+ -----0804
+ 2010/11/12 20:20         3KB   nusb3mon.exe.mui
+ 2010/11/16 12:13         2KB   nusb3utl.exe.mui
+ -----0816
+ 2010/11/12 20:20         4KB   nusb3mon.exe.mui
+ 2010/11/16 12:13         3KB   nusb3utl.exe.mui
+ -----x64
+ 2010/12/14 15:30         9KB   nusb3hub.cat
+ 2010/12/10 13:54         3KB   nusb3hub.inf
+ 2010/12/10 13:50        79KB   nusb3hub.sys             2.0.32.0
+ 2010/12/14 15:30         9KB   nusb3xhc.cat
+ 2010/12/10 13:54         2KB   nusb3xhc.inf
+ 2010/12/10 13:50       177KB   nusb3xhc.sys             2.0.32.0
+ -----x86
+ 2010/12/14 15:30         8KB   nusb3hub.cat
+ 2010/12/10 13:54         3KB   nusb3hub.inf
+ 2010/12/10 13:50        61KB   nusb3hub.sys             2.0.32.0
+ 2010/12/14 15:30         8KB   nusb3xhc.cat
+ 2010/12/10 13:54         2KB   nusb3xhc.inf
+ 2010/12/10 13:50       139KB   nusb3xhc.sys             2.0.32.0
+
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------
+2. Command Line Options
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------
+1)Silent install
+ 
+	Ex.) setup.exe /s
+
+ -To install this driver package silently, "setup.iss" file is needed.
+  This package includes the "setup.iss" in which the following folder 
+  path is set.
+  "C:\Program Files\Renesas Electronics\USB 3.0 Host Controller Driver".
+
+  If you want to change install path, you need to generate setup.iss as
+  follows: setup /r /f1".\setup.iss"
+
+
+2)Check existence of USB3.0 Host Controller
+
+	Ex.) setup.exe /v"CHECK_HW_EXIST=1"
+
+ -When this command line option is set, the installer checks existence of 
+  the USB3.0 Host Controller(uPD720200/uPD720200A). If the uPD720200/uPD720200A
+  is not in the PC, this installer does not install the device drivers.
+
+ ##Caution##
+  To install the device drivers with this command line option after 
+  uninstalling the device drivers, it is necessary to restart the PC.
+
+
+3) Not install the USB3.0 Monitor application (nusb3mon.exe/dll)
+
+	/v"NO_MONITOR=1"
+
+ -When this command line option is set, the USB3.0 Monitor Application
+  (nusb3mon.exe/dll) is not installed.
+
+ ##Caution##
+  If the USB3.0 Monitor Application is already installed, it is necessary to
+  uninstall the USB3 driver package of previous version before installing the 
+  new USB3 driver package (v1.0.19.0 or later).
+
+
+4) Not install the USB3.0 Utility application (nusb3utl.exe)
+
+	/v"NO_UTILITY=1"
+
+ -When this command line option is set, the USB3.0 Utility Application
+  (nusb3utl.exe) is not installed.
+
+ ##Caution##
+  If the USB3.0 Utility Application is already installed, it is necessary to
+  uninstall the USB3 driver package of previous version before installing the 
+  new USB3 driver package (v2.0.4.0 or later).
+
+
+5) Disable the Selective Suspend function
+
+	Ex.) setup.exe /v"SET_SELSUS_MODE1=1"
+
+ -Selective Suspend function is enabled by default starting with Ver2.0.20.0. 
+  This option disables the Selective Suspend function. The Selective Suspend 
+  function is described in section 1.4 & 2.8 of "USB 3.0 Host Controller Driver 
+  Application Note (ISG-NC1-200030)". Please see that document for more detail.
+
+ ##Note##
+  This option is supported from Ver.2.0.20.0.
+  The Selective Suspend function for External Hubs is supported from Ver.2.0.20.0.
+
+
+6) Hide the pop-up message
+
+	Ex.) setup.exe /v"CHECK_HW_EXIST=1 NO_MESSAGE=1"
+
+ -This option suppresses the pop-up message when it is used with the "CHECK_HW_EXIST"
+  option. If you want to hide the pop-up message on the "CHECK_HW_EXIST" option,
+  you should use this option on the command line.
+ -This option is described in section 2.5 & 2.9 of "USB 3.0 Host Controller Driver 
+  Application Note(ISG-NC1-200030)". Please see that document for more detail.
+  
+ ##Note##
+  This option is supported from Ver.2.0.20.0.
+  This option must be used only with the "CHECK_HW_EXIST" option. If this option is used
+  by itself, it has no effect.
+
+
+7) Disable the Dynamic U1/U2 state control function
+
+	Ex.) setup.exe /v"U1U2_DISABLE=1"
+
+ -The Dynamic U1/U2 state control function is enabled by default starting with 
+  Ver2.0.4.0. If you want to disable the Dynamic U1/U2 state control function,
+  you should use this option on the command prompt. 
+
+ ##Note##
+  This option is supported from Ver.2.0.26.0.
+
+
+8) Disable the check box to disable the Dynamic U1/U2 state control function
+   on "nusb3utl.exe"
+
+	Ex.) setup.exe /v"U1U2_UTL_DISABLE=1"
+
+ -From ver2.0.26.0, the USB 3.0 Host controller Utility supported the check-box
+  to disable the Dynamic U1/U2 state control function. This check-box is appeared
+  in default setting.
+  If you don't want to display this checkbox on USB3.0 Host controller Utility, 
+  you should use this option on the command prompt. 
+
+ ##Note##
+  This option is supported from Ver.2.0.26.0.
+
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------
+3. History
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------
+ Version 2.0.32.0 : December 17th, 2010
+---------------------------------------------------------------------------
+- Windows Logo Information
+  Submission ID: 1435933
+  Product Name: Renesas Electronics USB3.0 Host Controller
+  Category: Device
+  Subcategory: Bus Controllers and Ports > USB Controller
+               Unclassiified
+  Qualification Level:  Logo - Designed for Microsoft Windows XP family, x86 - DFW
+                        Logo - Designed for Microsoft Windows XP family, x64 - DFW
+                        Logo - Microsoft Windows Vista family, x86 Basic - Basic
+                        Logo - Microsoft Windows Vista family, x64 Basic - Basic
+                        Logo - Device - Compatible with Windows 7
+                        Logo - Device - Compatible with Windows 7 x64
+                        Logo - Certified for Microsoft Windows Server 2008 Release 2 family, x64
+
+-  The following issues depending on the specific device were fixed.
+
+    1. D-Link DWA160(USB-WLAN Module) can not find access points.
+
+    2. USB 2.0 Gigabit Ethernet Adapter(WS-NWU220G) does not work after S3/S4-Resume.
+
+    3. After ISDN-USB device(AVM FRITZ! Card USB V2.1) is disconnected during the S3 state,
+       the PC can not resume from the S3 state.
+    
+-  The following issues were fixed.
+
+    1. When a USB3.0 ExpressCard is reconnected while the USB3.0 Host Controller Utility
+       (nusb3utl.exe) is opened, it shows the error message( USB3.0 Host Controller not found!).
+    
+    2. After S3/S4-resume, the USB 3.0 Host Controller driver can not detect the USB 2.0 device
+       into which a Low Speed device is changed during the S3/S4 state.
+
+       #Note# This issue occurs only when the Remote WakeUp function function is enabled in
+              the function driver.
+
+---------------------------------------------------------------------------
+ Version 2.0.30.0 : November 30th, 2010
+---------------------------------------------------------------------------
+- Windows Logo Information
+  Submission ID: 1433396
+  Product Name: Renesas Electronics USB3.0 Host Controller
+  Category: Device
+  Subcategory: Bus Controllers and Ports > USB Controller
+               Unclassiified
+  Qualification Level:  Logo - Designed for Microsoft Windows XP family, x86 - DFW
+                        Logo - Designed for Microsoft Windows XP family, x64 - DFW
+                        Logo - Microsoft Windows Vista family, x86 Basic - Basic
+                        Logo - Microsoft Windows Vista family, x64 Basic - Basic
+                        Logo - Device - Compatible with Windows 7
+                        Logo - Device - Compatible with Windows 7 x64
+                        Logo - Certified for Microsoft Windows Server 2008 Release 2 family, x64
+
+- Tuned the host driver to improve performance.
+
+- Added the process to clear USBLEGCTLSTS register after the host driver obtained 
+  Ownership. This process prevents BIOS and OS PCI driver from violating accessing
+  the Ownership when the host driver hands off it.
+
+- The USB3.0-SATA Bridge LSI used by "Goodway NU6120", "Fujitsu HLMD001C" and
+  "Mach Xtreme MXUB3MFX" freeze when they received the Hot-Reset from the host. 
+  From V2.0.30.0, we added recovery processes.
+
+- The following issues were fixed.
+    1. There is a possibility that the bluescreen occurs when S3/S4 & resume
+       is running.
+
+    2. When Users are using the USB 3.0 Host Controller Utility(nusb3utl.exe) and
+       pushed [F1]key of the keyboard, the blank pop-up is shown.
+
+    3. When Users are using USB 3.0 Host Controller Utility(nusb3utl.exe) and 
+       pushed [F4]key ,[BackSpace]key or [Enter]key of the keyboard, 
+       the error message is shown.
+
+---------------------------------------------------------------------------
+ Version 2.0.26.0 : October 7th, 2010
+---------------------------------------------------------------------------
+- Windows Logo Information
+  Submission ID: 1426595
+  Product Name: Renesas Electronics USB3.0 Host Controller
+  Category: Device
+  Subcategory: Bus Controllers and Ports > USB Controller
+  Qualification Level: 	Logo - Designed for Microsoft Windows XP family, x86 - DFW
+						Logo - Designed for Microsoft Windows XP family, x64 - DFW
+						Logo - Microsoft Windows Vista family, x86 Basic - Basic
+						Logo - Microsoft Windows Vista family, x64 Basic - Basic
+						Logo - Device - Compatible with Windows 7
+						Logo - Device - Compatible with Windows 7 x64
+						Logo - Certified for Microsoft Windows Server 2008 Release 2 family, x64
+
+- Added the new function in "nusb3utl.exe" which can disable/enable
+  "Dynamic U1/U2 state control function".
+
+- The following issues were fixed.
+	1. Bluescreen occurred when 3G modem card (TD-SCDMA RX-310) is connected to the PC through 
+	   USB3 Host Controller.
+	
+	2. Yellow bang issues occurred when the following USB devices are connected 
+	   to the PC through USB3 Host Controller.
+	     a)Pinnacle Systems PCTV MCE IR Transceiver (Receiver)
+	     b)Philips OVU4003/00 (Remote Receiver)
+	     c)Philips RC1534501/00 (Remote controller)
+
+---------------------------------------------------------------------------
+ Version 2.0.20.0 : August 13th, 2010
+---------------------------------------------------------------------------
+- Windows Logo Information
+  Submission ID: 1417969
+  Product Name: Renesas Electronics USB3.0 Host Controller
+  Category: Device
+  Subcategory: Bus Controllers and Ports > USB Controller
+  Qualification Level: 	Logo - Designed for Microsoft Windows XP family, x86 - DFW
+						Logo - Designed for Microsoft Windows XP family, x64 - DFW
+						Logo - Microsoft Windows Vista family, x86 Basic - Basic
+						Logo - Microsoft Windows Vista family, x64 Basic - Basic
+						Logo - Device - Compatible with Windows 7
+						Logo - Device - Compatible with Windows 7 x64
+						Logo - Certified for Microsoft Windows Server 2008 Release 2 family, x64
+
+- Supported the Windows Server 2008 Release 2 (x64)
+
+- Supported the Selective Suspend function for an External Hub. 
+  Please see section 1.4 & 2.8 of "USB 3.0 Host Controller Driver Application
+  Note" for more detail.
+
+- The following issues were fixed.
+	1. On "Devices and Printers" of Windows 7, Bus reported device description
+   of device's Property was not shown when USB devices were connected to the 
+   computer through USB 3.0 Host Controller.
+
+	2. USB3 Driver didn't support the Dynamic U1/U2 state control function for
+   USB3 Devices which support the Periodic Endpoint.
+	   
+	3. There was an issue with the Control transfer. This issue occurred in the 
+   following cases.
+
+    Case1. Yellow bang issues occurred when USB devices is connected
+          to the PC through USB3 Host Controller.
+   	Case2. USB3 Host Controller cannot receive the Vendor Requests.
+	   
+	   ##Caution##
+   This issue occurs in Ver2.0.4.0 only. This does not occur with
+   Ver1.0.20.0 or earlier.
+
+	4. After suspend & resume with Microsoft's Zune HD connected through the
+   USB 3.0 Host Controller, Device manager showed the yellow bang for this
+   device.
+
+- Hardware Ids of device's Property were designed as mixed-case on all Windows OS.
+  From Ver2.0.20.0, Hardware Ids of device's Property are designed as follows.
+         Windows XP      :  Vid_XXXX (Designated by mixed-case)
+         Windows 7/Vista :  VID_XXXX (Designated by capital letters only)
+
+
+---------------------------------------------------------------------------
+ Version 2.0.4.0 : May 14th, 2010
+---------------------------------------------------------------------------
+- Windows Logo Information
+  Submission ID: 1403710
+
+- Dynamic U1/U2 state control function was enabled.
+
+- Driver Provider Name in the INF file was changed from NEC Electronics
+  to Renesas Electronics.
+ 
+- "Discontine storage access" issue was fixed.
+  (Although we fixed "Discontinue storage access" issue in V1.0.19.0,
+   we found some cases where this issue was reproduced.)
+
+---------------------------------------------------------------------------
+ Version 1.0.20.0 : March 31th, 2010
+---------------------------------------------------------------------------
+- Windows Logo Information
+  Submission ID: 1397746
+
+ ##Note##
+ The Drivers in this package are certified with WLK1.5. 
+ From the WLK1.5, categories for which USB3.0 xHCI drivers should be submitted
+ were changed as follows.
+ 
+ Submission Categories
+   USB3 Host Controller : Device - USB Controller
+   USB3 Root Hub        : Unclassified
+ 
+ With this change, the INF file for driver installation is separated into
+ two files. The nusb3xhc.inf is for the USB3 Host Controller, and the 
+ usb3hub.inf is for the USB3 Root hub.
+
+- The following bugs were fixed
+ 1. UQ WiMAX USB module (UD01SS) is not detected correctly.
+
+ 2. There is a possibility that bluescreen occurs when attempting hot plug
+    operations at the downstream port of the USB2.0 HUB connected with 
+    the USB3.0 port. 
+
+---------------------------------------------------------------------------
+ Version 1.0.19.0 : Februay 5th, 2010
+---------------------------------------------------------------------------
+- Windows Logo Information
+  Submission ID: 1387363
+
+- The following functions were added.
+ 1. One of the notifications that we reported in the IBB-ND0-100001
+    (Notification and product restriction information, Dec 14th 2009), 
+    "Discontinue storage access after sleep(S3) and hibernation(S4) in 
+    PC system", is fixed.
+
+ 2. When disabling a SS Device with safely remove, the USB port connected 
+    with the SS device is placed in U3 instead of U0.
+
+- Added command line option to this installer.
+
+  /v"NO_MONITOR=1"
+
+- When this command line option is set, the USB3.0 Monitor Application
+  (nusb3mon.exe/dll) is not installed.
+
+  ##Caution##
+   If the USB3.0 Monitor Application is already installed, it is necessary to
+   uninstall the USB3 driver package of previous version before installing the 
+   new USB3 driver package(v1.0.19.0 or later).
+
+---------------------------------------------------------------------------
+ Version 1.0.18.0 : December 1st, 2009
+---------------------------------------------------------------------------
+We received Device Logo in the USB Controller Subcategory of the WLK1.4.
+
+As for system logo test,
+Microsoft announced testing process for USB3.0 xHCI Controller below.  
+http://www.microsoft.com/whdc/whql/resources/news/whqlnews_112409.htm
+
+- Windows Logo Information
+  Submission ID: 1377656
+  Product Name: NEC Electronics USB3 Host-01
+  Category: Device
+  Subcategory: Bus Controllers and Ports > USB Controller
+  Qualification Level: Signature Only - Microsoft Windows XP family, x86 - Unclassified
+                       Signature Only - Microsoft Windows XP family, x64 - Unclassified
+                       Logo - Microsoft Windows Vista family, x86 Basic - Basic
+                       Logo - Microsoft Windows Vista family, x64 Basic - Basic
+                       Logo - Device - Compatible with Windows 7
+                       Logo - Device - Compatible with Windows 7 x64
+
+- The following bugs were fixed.
+ 1. When host driver is disabled and uPD720200 goes to D3hot state,
+    CLKREQ# does not work.
+
+ 2. When connectiong a certain Keyboard with fingerprint function, 
+    PC can't enter S3/S4/S5 state.
+
+ 3. When using a certain ZIP Drive, file transfer is aborted.
+
+---------------------------------------------------------------------------
+ Version 1.0.17.0 : Nobember 2nd, 2009
+---------------------------------------------------------------------------
+
+- This version includes the CAT files signed by
+  Microsoft Windows Hardware Compatibility Publisher.
+  This device driver complies with WHQL certification as Unclassified 
+  Category on Windows XP, Vista & 7. 
+  The Submission ID for WHQL certification is 1371310.
+
+- The following bug was fixed.
+   1. Function drivers were not unloaded when disconnectiong gold tree from
+      the roothub port of USB3 HC. 
+
+   2. After Warm Reset was issued, enumeration process might fail.
+
+- InstallShield project file, License.rtf and versionDLL were updated.
+
+- The following functions were added.
+   1. When Link Errors frequently occur in the SuperSpeed-Port, driver changes 
+      the connection from the SuperSpeed to HighSpeed.
+
+   2. Transfer throughput was improved.
+
+   3. Dynamic U1/U2 state control function was disabled. When enabling U1/U2 
+      function, the device that used SuperSpeed link with host went down unexpectedly.
+      We decided to disable this function to get interoperability.
+      To get better interoperability, please use the FW version 3.0.2.1 
+      released Nov.2nd 2009 or later.
+
+---------------------------------------------------------------------------
+ Version 1.0.14.0 : October 6th, 2009
+---------------------------------------------------------------------------
+
+- This version includes the CAT files signed by
+  Microsoft Windows Hardware Compatibility Publisher.
+  This device driver complies with WHQL certification as Unclassified 
+  Category on Windows XP, Vista & 7. 
+  The Submission ID of WHQL certification is 1358042.
+
+- The following bugs are fixed.
+   1. If the USB Device has multiple Endpoints with same EndpointAddress,
+      the USB Device is not enumerated.
+
+   2. A USB2.0 Device connected with mulitiple layered USB2.0 HUB is not detected
+      after resuming Sleep and Hibernate.
+
+- Updated InstallShield project file, script file, customDLL & versionDLL.
+
+- Added the following functions to this installer.
+   1. Command line option for checking existence of USB3.0 Host Controller.
+
+       /v"CHECK_HW_EXIST=1"
+
+     When this command line option is set, the installer checks existence of 
+     the USB3.0 Host Controller(uPD720200). If the uPD720200 is not in the PC,
+     this installer does not install the device drivers.
+
+     ##Caution##
+     To install the device drivers with this command line option after uninstalling
+     the device drivers, it is necessary to restart on the PC.
+
+   2. Previously, this installer did not install device drivers to the PC
+      in which device drivers with same version are already installed.
+      In this version, it reinstalls the device drivers to the PC.
+
+---------------------------------------------------------------------------
+ Version 1.0.12.0 : September 11th, 2009
+---------------------------------------------------------------------------
+- Updated End User Licence Agreement.
+
+- This version includes the CAT files signed by
+  Microsoft Windows Hardware Compatibility Publisher.
+  This device driver complies with WHQL certification as Unclassified 
+  Category on Windows XP, Vista & 7. 
+  The Submission ID of WHQL certification is 1349589.
+
+- This package includes "Install Shield 2010 Project Files" in the EXE folder
+  so that cusotmers can customize the install package.
+
+- Installer Wizard Messages, "nusb3mon.exe" and "nusb3utl.exe" support 
+  the following languages.
+
+  LCID : Language
+   0401 : Arabic
+   0404 : Traditional Chinese
+   0405 : Czech
+   0406 : Danish
+   0407 : German
+   0408 : Greek
+   0409 : English
+   040A : Spanish (Traditional)
+   040B : Finnish
+   040C : French
+   040D : Hebrew
+   040E : Hungarian
+   0410 : Italian
+   0411 : Japanese
+   0412 : Korean
+   0413 : Dutch
+   0414 : Norwegian (Bokmal)
+   0415 : Polish
+   0416 : Portuguese (Brazilian)
+   0419 : Russian
+   041B : Slovak
+   041D : Swedish
+   041E : Thai
+   041F : Turkish
+   0424 : Slovenian
+   0804 : Simplified Chinese
+   0816 : Portuguese(Standard)
+   0C04 : Chinese (Hong Kong)
+   0C0A : Spanish (Modern)
+   2C0A : Spanish (Latin America)
+
+- The following bugs are fixed.
+   1. Bluescreen sometimes occurs when starting WebCam application.
+
+   2. The mouse-supported SelectiveSuspend function does not work when 
+      it wakes up from suspend state.
+
+   3. Can't access CD-ROM Media in a Blu-Ray Drive.
+
+- Optimized SS/HS bulk transfer performance
+
+---------------------------------------------------------------------------
+ Version 1.0.10.0 : August 26th, 2009
+---------------------------------------------------------------------------
+- This version includes the CAT files signed by
+  Microsoft Windows Hardware Compatibility Publisher.
+  This device driver complies with WHQL certification as Unclassified 
+  Category on Windows XP, Vista & 7. 
+  The Submission ID of WHQL certification is 1346130.
+
+- All files except for the CAT files are the same as Version1.0.10.0 Beta2
+
+---------------------------------------------------------------------------
+ Version 1.0.10.0Beta2 : August 24th, 2009
+---------------------------------------------------------------------------
+- This version includes Microsoft TestSigned CAT Files.
+  Note: If this driver package is used on x64 Windows Vista/7,
+        need to set the following command. 
+        >bcdedit -set TESTSIGNING ON
+
+- This installer package is generated with the InstallShield2010.
+  If the previous driver package (v0.X.X.X , v1.0.1.0 or v1.0.7.0) is installed,
+  please uninstall the previous driver package and install the new package.
+
+- Installer Wizard Messages, "nusb3mon.exe" and "nusb3utl.exe" support 
+  the following languages.
+
+  LCID : Language
+   404 : Traditional Chinese
+   407 : German
+   409 : English
+   40A : Spanish
+   40C : French
+   410 : Italian
+   411 : Japanese
+   412 : Korean
+   413 : Dutch
+   804 : Simplified Chinese
+   816 : Portuguese(Standard)
+
+- The following bugs are fixed.
+   1. Some hub devices are not detected after resuming Sleep and Hibernate.
+
+   2. Bluescreen occurs after resuming Sleep and Hibernate.
+
+- Known issue. This issue will fixed in the next version.
+   1. Bluescreen sometimes occurs when starting WebCam application.
+
+---------------------------------------------------------------------------
+ Version 1.0.7.0Beta : July 17th, 2009
+---------------------------------------------------------------------------
+- The following bugs are fixed.
+
+1. USB Devices are not detected after resuming from Sleep and Hibernate.
+
+2. Bluescreen occurs after resuming from Sleep and Hibernate.
+
+3. USB-VGA Devices do not work correctly.
+
+4. The message that bandwidth is getting low might not be indicated.
+
+-The following function is Added
+1. Add a Vender Defined Command. 
+
+---------------------------------------------------------------------------
+ Version 1.0.1.0Beta : June 15th, 2009
+---------------------------------------------------------------------------
+- This package includes the following applications.
+  1. nusb3mon.exe
+  This application provides the following function 
+  USB3.0 Specificatin Section 11.1 indicates the follwoing function.
+  To address the situation where a USB 3.0 device is connected to a
+  USB 2.0-only port on a USB 3.0- capable host, after establishing a
+  USB 2.0 high-speed connection with the device, it is recommended
+  that the host inform the user that the device will support
+  SuperSpeed operation if it is moved to a USB 3.0-capable port on the
+  same host. If a USB 3.0 device is connected to a USB 3.0- capable
+  host via a USB 2.0 hub, it is recommended that the host inform the
+  user that the device will support SuperSpeed operation if it is
+  moved to an appropriate host port or if the hub is replaced with a
+  USB 3.0 hub.
+
+  2. nusb3utl.exe 
+  This application provides functions that show Driver Version 
+  and Firmware Version.
+
+- The following bugs are fixed.
+
+1. Function driver is not unloaded after resuming from Sleep and Hibernate.
+
+2. USB Remote wake up function does not work correctly.
+
+3. Bluescreen occured when repeating hot-plug of FS-Speaker Device 
+   that is connected with HS-Hub that is connected to USB3.0 HC.
+
+---------------------------------------------------------------------------
+ Version 0.9.12.0Beta : May 29th, 2009
+---------------------------------------------------------------------------
+- Changed installer package configuration.
+
+  1. EXE type
+     *All files are included in the EXE file.
+     *Combined x86 and x64 in one package.
+
+  2. ZIP type
+     *Conposed of 3 contents, setup.exe, x86 folder and x64 folder.
+     *All files for x86 are in x86 folder.
+     *All files for x64 are in x64 folder.
+     *Setup.exe installs drivers automatically.
+
+---------------------------------------------------------------------------
+ Version 0.9.12.0Beta : May 27th, 2009
+---------------------------------------------------------------------------
+- The following bugs are fixed.
+
+1. Function driver is not unloaded after resuming from Sleep and Hibernate.
+
+2. When repeating hot-pulg of a USB2.0 device, the device is not detected.
+
+3. When connecting two USB Devices and after resuming from Sleep and Hibernate,
+   both devices are not detected.
+
+4. Bluescreen occurred when USB-VGA device is running.
+
+5. Dual Display mode of a USB-VGA device can't operate.
+
+---------------------------------------------------------------------------
+ Version 0.9.4.0Beta : March 27th, 2009
+---------------------------------------------------------------------------
+- Support for Super Speed Transactions
+
+---------------------------------------------------------------------------
+ Version 0.9.3.0Beta : March 9th, 2009
+---------------------------------------------------------------------------
+- The following bugs are fixed.
+
+1. If the system is booted up with a USB device already present on the USB 
+   port, the USB port is inoperative and cannot recover even if the 
+   USB device is unplugged and then plugged back in.
+
+---------------------------------------------------------------------------
+ Version 0.9.0.0Beta : February 9th, 2009
+---------------------------------------------------------------------------
+- First Beta Version Release
+
+

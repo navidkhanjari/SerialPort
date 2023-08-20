@@ -1,0 +1,176 @@
+; CH35XDRV.INF
+; Driver for CH35X (It supports multi-setial ports,parallel port)
+; For windows 98/ME
+; Copyright (C) WCH  2012
+; Ver V1.3
+
+[Version]
+Signature=$CHICAGO$
+Class=MultiFunction
+ClassGUID={4d36e971-e325-11ce-bfc1-08002be10318}
+Provider=%WinChipHead%
+DriverVer=07/09/2012,1.3.2012.7
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%WinChipHead%=WinChipHead
+
+[WinChipHead]
+%WinChipHead_PORT_4SC%=WCH4SC_inst, PCI\VEN_4348&DEV_5334&SUBSYS_50534348
+%WinChipHead_PORT_4S1PB%=WCH4S1PB_inst, PCI\VEN_4348&DEV_5334&SUBSYS_53344348
+%WinChipHead_PORT_6S%=WCH6S_inst, PCI\VEN_4348&DEV_3873
+%WinChipHead_PORT_6S%=WCH6S_inst, PCI\VEN_4348&DEV_3873&SUBSYS_38734348
+%WinChipHead_PORT_8SA%=WCH8SA_inst, PCI\VEN_4348&DEV_3853
+%WinChipHead_PORT_8SA%=WCH8SA_inst, PCI\VEN_4348&DEV_3853&SUBSYS_38534348
+%WinChipHead_PORT_8SB%=WCH8SB_inst, PCI\VEN_4348&DEV_5338
+%WinChipHead_PORT_8SB%=WCH8SB_inst, PCI\VEN_4348&DEV_5338&SUBSYS_53384348
+%WinChipHead_PORT_16S%=WCH16S_inst, PCI\VEN_4348&DEV_5838
+%WinChipHead_PORT_16S%=WCH16S_inst, PCI\VEN_4348&DEV_5838&SUBSYS_58384348
+
+;public section
+[StandardMF.Reg]
+HKR,,DevLoader,,*CONFIGMG
+HKR,,Enumerator,,*CONFIGMG
+HKR,,CMDrivFlags,1,03,00,00,00
+
+[SourceDisksFiles]
+PCIMF.VXD = 1
+
+[DestinationDirs]
+WCH_inst.CopyFiles.VXD = 11
+
+[WCH_inst.CopyFiles.VXD]
+PCIMF.VXD, , , 2
+
+[WCH_inst.AddReg]
+HKR,,DevLoader,0,PCIMF.VXD
+
+;;4SC
+; WIN98/ME
+[WCH4SC_inst]
+CopyFiles = WCH_inst.CopyFiles.VXD
+AddReg = WCH_inst.AddReg
+
+[WCH4SC_inst.HW]
+AddReg = WCH4SC_inst.RegHW
+
+[WCH4SC_inst.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI5334_COM_0
+HKR,Child0001,HardwareID,,MF\PCI5334_COM_1
+HKR,Child0002,HardwareID,,MF\PCI5334_COM_2
+HKR,Child0003,HardwareID,,MF\PCI5334_COM_3
+
+
+;;4S1PB
+; WIN98/ME
+[WCH4S1PB_inst]
+CopyFiles = WCH_inst.CopyFiles.VXD
+AddReg = WCH_inst.AddReg
+
+[WCH4S1PB_inst.HW]
+AddReg = WCH4S1PB_inst.RegHW
+
+[WCH4S1PB_inst.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI5334_COM_0
+HKR,Child0001,HardwareID,,MF\PCI5334_COM_1
+HKR,Child0002,HardwareID,,MF\PCI5334_COM_2
+HKR,Child0003,HardwareID,,MF\PCI5334_COM_3
+HKR,Child0004,HardwareID,,MF\PCI5334_LPT_0
+
+;;6S
+; WIN98/ME
+[WCH6S_inst]
+CopyFiles = WCH_inst.CopyFiles.VXD
+AddReg = WCH_inst.AddReg
+
+[WCH6S_inst.HW]
+AddReg = WCH6S_inst.RegHW
+
+[WCH6S_inst.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI3873_COM_0
+HKR,Child0001,HardwareID,,MF\PCI3873_COM_1
+HKR,Child0002,HardwareID,,MF\PCI3873_COM_2
+HKR,Child0003,HardwareID,,MF\PCI3873_COM_3
+HKR,Child0004,HardwareID,,MF\PCI3873_COM_4
+HKR,Child0005,HardwareID,,MF\PCI3873_COM_5
+
+;;8SA 
+; WIN98/ME
+[WCH8SA_inst]
+CopyFiles = WCH_inst.CopyFiles.VXD
+AddReg = WCH_inst.AddReg
+
+[WCH8SA_inst.HW]
+AddReg = WCH8SA_inst.RegHW
+
+[WCH8SA_inst.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI3853_COM_0
+HKR,Child0001,HardwareID,,MF\PCI3853_COM_1
+HKR,Child0002,HardwareID,,MF\PCI3853_COM_2
+HKR,Child0003,HardwareID,,MF\PCI3853_COM_3
+HKR,Child0004,HardwareID,,MF\PCI3853_COM_4
+HKR,Child0005,HardwareID,,MF\PCI3853_COM_5
+HKR,Child0006,HardwareID,,MF\PCI3853_COM_6
+HKR,Child0007,HardwareID,,MF\PCI3853_COM_7
+
+;;8SB 
+; WIN98/ME
+[WCH8SB_inst]
+CopyFiles = WCH_inst.CopyFiles.VXD
+AddReg = WCH_inst.AddReg
+
+[WCH8SB_inst.HW]
+AddReg = WCH8SB_inst.RegHW
+
+[WCH8SB_inst.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI5338_COM_0
+HKR,Child0001,HardwareID,,MF\PCI5338_COM_1
+HKR,Child0002,HardwareID,,MF\PCI5338_COM_2
+HKR,Child0003,HardwareID,,MF\PCI5338_COM_3
+HKR,Child0004,HardwareID,,MF\PCI5338_COM_4
+HKR,Child0005,HardwareID,,MF\PCI5338_COM_5
+HKR,Child0006,HardwareID,,MF\PCI5338_COM_6
+HKR,Child0007,HardwareID,,MF\PCI5338_COM_7
+
+;;16S
+; WIN98/ME
+[WCH16S_inst]
+CopyFiles = WCH_inst.CopyFiles.VXD
+AddReg = WCH_inst.AddReg
+
+[WCH16S_inst.HW]
+AddReg = WCH16S_inst.RegHW
+
+[WCH16S_inst.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI5838_COM_0
+HKR,Child0001,HardwareID,,MF\PCI5838_COM_1
+HKR,Child0002,HardwareID,,MF\PCI5838_COM_2
+HKR,Child0003,HardwareID,,MF\PCI5838_COM_3
+HKR,Child0004,HardwareID,,MF\PCI5838_COM_4
+HKR,Child0005,HardwareID,,MF\PCI5838_COM_5
+HKR,Child0006,HardwareID,,MF\PCI5838_COM_6
+HKR,Child0007,HardwareID,,MF\PCI5838_COM_7
+HKR,Child0008,HardwareID,,MF\PCI5838_COM_8
+HKR,Child0009,HardwareID,,MF\PCI5838_COM_9
+HKR,Child00010,HardwareID,,MF\PCI5838_COM_10
+HKR,Child00011,HardwareID,,MF\PCI5838_COM_11
+HKR,Child00012,HardwareID,,MF\PCI5838_COM_12
+HKR,Child00013,HardwareID,,MF\PCI5838_COM_13
+HKR,Child00014,HardwareID,,MF\PCI5838_COM_14
+HKR,Child00015,HardwareID,,MF\PCI5838_COM_15
+
+[SourceDisksNames]
+
+[Strings]
+WinChipHead= "WinChipHead"
+WinChipHead_PORT_4SA = "WCH PCI=>QUAD SERIAL"
+WinChipHead_PORT_4SB = "WCH PCI=>QUAD SERIAL"
+WinChipHead_PORT_4SC = "WCH PCI=>QUAD SERIAL"
+WinChipHead_PORT_4S1PA = "WCH PCI=>QUAD SERIAL&&PARALLEL"
+WinChipHead_PORT_4S1PB = "WCH PCI=>QUAD SERIAL&&PARALLEL"
+WinChipHead_PORT_6S = "WCH PCI=>SIX SERIAL"
+WinChipHead_PORT_8SA = "WCH PCI=>OCTAL SERIAL"
+WinChipHead_PORT_8SB = "WCH PCI=>OCTAL SERIAL"
+WinChipHead_PORT_16S = "WCH PCI=>SIXTEEN SERIAL"

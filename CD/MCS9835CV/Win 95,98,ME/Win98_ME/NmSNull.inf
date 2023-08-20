@@ -1,0 +1,53 @@
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;  FILE : NmSNull.inf
+;;  OS SUPPORTED : WIN98/ME ONLY.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;
+; Version Section
+;
+[Version]
+LayoutFile = layout.inf
+Signature  = $CHICAGO$
+Class      = NmBridge
+Provider   = %ProviderName%
+DriverVer  = 11/27/2006
+
+
+;------------------------
+; Install class "NmBridge"
+;------------------------
+[ClassInstall]
+AddReg=Class.AddReg
+
+[Class.AddReg]
+HKR,,,,"NmBridge"
+HKR,,SilentInstall,,"1"
+HKR,,Icon,,-23
+
+;----------------------
+; Install Drivers
+;----------------------
+[Manufacturer]
+%ProviderName%=Multi_IO_Cards
+
+;
+; Manufacturer Name Section
+;
+[Multi_IO_Cards]
+%NullPortName%=NullPort,NMENUM\PCI9710_NULL
+
+;
+; Install Sections
+;
+[NullPort]
+
+[Strings]
+ProviderName="MosChip Technology"
+NullPortName="MosChip Bridge"
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; END OF FILE
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+

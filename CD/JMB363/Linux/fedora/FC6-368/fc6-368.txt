@@ -1,0 +1,18 @@
+Support OS:
+Fedora Core 6 i386
+Fedora Core 6 x86_64
+
+Steps:
+1. Use dd(Linux) or Rawritewin.exe(Windows) to write driver disk.
+2. CD/DVD boot form OS installation disc.
+3. Insert driver disk to floppy drive.
+4. Add "linux dd" after "boot:" and press enter.
+5. Select "YES" in "Do you have a driver disk?".
+6. Select a device which you like to use.
+
+Fixed bugs:
+1. Driver recognizes JMB368 as JMB361.
+2. JMB368 40/80 pins detection issue.
+
+Known Issues:
+None

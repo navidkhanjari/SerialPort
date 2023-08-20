@@ -1,0 +1,109 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;  FILE : NmMfEnum.inf
+;;  This file works in conjunction with nmmfenum.vxd.
+;;  OS SUPPORTED : WIN98/ME ONLY.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[Version]
+LayoutFile = layout.inf
+Signature  = $CHICAGO$
+Class      = NmMultiFunction
+Provider   = %ProviderName%
+DriverVer  = 11/27/2006
+
+[DestinationDirs]
+DefaultDestDir  = 11    ;LDID_SYS
+Inf.Copy = 17       	;DIRID_INF
+
+[SourceDiskFiles]
+; 1 = Disk Number
+NmMfEnum.inf=1
+NmSNull.inf=1
+NmPorts.inf=1
+NmMfEnum.vxd=1
+NmUninst.exe=1
+
+[SourceDisksNames]
+1=%DiskName%,,
+
+;------------------------
+; Install CLass 
+;------------------------
+[ClassInstall]
+CopyFiles=Inf.Copy,Uninstall.Copy
+AddReg=Class.AddReg
+
+[Class.AddReg]
+HKR,,Icon,,-23
+
+[Manufacturer]
+%ProviderName%=Multi_IO_Cards
+
+;------------------------
+; Install Drivers
+;------------------------
+[Multi_IO_Cards]
+%MultiFunctionName%=NmMfEnum,PCI\VEN_9710&DEV_9805
+%MultiFunctionName%=NmMfEnum,PCI\VEN_9710&DEV_9815
+%MultiFunctionName%=NmMfEnum,PCI\VEN_9710&DEV_9820
+%MultiFunctionName%=NmMfEnum,PCI\VEN_9710&DEV_9825
+%MultiFunctionName%=NmMfEnum,PCI\VEN_9710&DEV_9835
+%MultiFunctionName%=NmMfEnum,PCI\VEN_9710&DEV_9845
+%MultiFunctionName%=NmMfEnum,PCI\VEN_9710&DEV_9855
+
+
+[NmMfEnum]
+CopyFiles=Inf.Copy,NmMfEnum.Copy,Uninstall.Copy
+AddReg=NmMfEnum.AddReg,Uninstall.AddReg
+UpdateAutoBat=NmDosIn.AutoBat
+
+[NmMfEnum.Hw]
+AddReg=NmMfEnum.Hw.AddReg
+
+[NmMfEnum.AddReg]
+HKR,,DevLoader,0,NMMFENUM.vxd
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; NmMfEnum.Hw.AddReg Section
+;
+; Remap To Legacy I/O Ports
+;
+; The following line will enable Remap of serial/parallel ports
+; HKR,,RemapToLegacyPort,1,1
+
+; DEFAULT Action is to enable remapping. If the line 
+; RemapToLegacyPort line is not present here, then driver
+; will enable the remapping of LPT/COM ports. 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[NmMfEnum.Hw.AddReg]
+HKR,,RemapToLegacyPort,1,1
+
+[Uninstall.AddReg]
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%ProviderName%,DisplayName,0,%UninstallName%
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%ProviderName%,UninstallString,0,NmUninst.exe
+
+[Inf.Copy]
+NmMfEnum.inf
+NmSNull.inf
+NmPorts.inf
+
+[NmMfEnum.Copy]
+NMMFENUM.vxd
+
+[Uninstall.Copy]
+NmUninst.exe
+
+[NmDosIn.AutoBat]
+PrefixPath=11
+CmdDelete=NmDosIn
+
+[Strings]
+ProviderName="MosChip Technology"
+MultiFunctionName="MosChip PCI Multi-IO Controller"
+DiskName="PCI Multi-IO Drivers Disk"
+UninstallName="MosChip Multi-IO Controller"
+
+; END OF FILE
+

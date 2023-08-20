@@ -1,0 +1,163 @@
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;  MosChip Semiconductor Technology Ltd.
+;;
+;;  FILE : M65Ports.inf
+;;  OS SUPPORTED : WIN98, WinMe ONLY.
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; Version Section
+;
+[Version]
+LayoutFile = layout.inf
+Signature  = $CHICAGO$
+Class      = Ports
+ClassGuid  = {4D36E978-E325-11CE-BFC1-08002BE10318}
+Provider   = %ProviderName%
+DriverVer  = 12/23/2008,1.0.0.2
+
+
+[DestinationDirs]
+DefaultDestDir  = 11    ;LDID_SYS
+Inf.Copy = 17       	;DIRID_INF
+
+
+;------------------------
+; Install class "Ports"
+;------------------------
+
+[ClassInstall]
+AddReg=PortsClass.AddReg
+
+[PortsClass.AddReg]
+HKR,,,,"Ports (COM & LPT)"
+HKR,,Icon,,-23
+
+[DestinationDirs]
+DefaultDestDir  = 11    ;LDID_SYS
+Inf.Copy = 17       	;DIRID_INF
+
+[SourceDiskFiles]
+M65Enum.inf=1
+M65Ports.inf=1
+M65Enum.vxd=1
+M65unst.exe=1
+
+[SourceDisksNames]
+1=%DiskName%,,
+
+
+;----------------------
+; Install Drivers
+;----------------------
+[Manufacturer]
+%ProviderName%=M65Ports
+
+[M65Ports]
+%ComPortName%=M65ComPort,PCI\VEN_9710&DEV_9865&SUBSYS_1000A000&REV_00
+%EcpPortName%=M65EcpPort,PCI\VEN_9710&DEV_9865&SUBSYS_2000A000&REV_00
+%ComPortName%=M65ComPort,M65ENUM\PCI9710_COM
+%EcpPortName%=M65EcpPort,M65ENUM\PCI9710_LPT
+
+;
+; Install Sections
+;
+
+
+[M65ComPort]
+CopyFiles=Inf.Copy,M65Enum.Copy,Uninstall.Copy
+AddReg=ComPort.AddReg,Uninstall.AddReg
+LogConfig=c1a,c2a,c3a,c4a,caa
+
+[M65EcpPort]
+CopyFiles=Inf.Copy,M65Enum.Copy,Uninstall.Copy
+AddReg=EcpPort.AddReg,Uninstall.AddReg
+LogConfig=p1a,p2a,paa
+Reboot
+
+[c1a]
+ConfigPriority=HARDRECONFIG
+IOConfig=3f8-3ff(3ff::)
+IRQConfig=S:3,4,5,7,9,10,11,12,14,15
+
+[c2a]
+ConfigPriority=HARDRECONFIG
+IOConfig=2f8-2ff(3ff::)
+IRQConfig=S:3,4,5,7,9,10,11,12,14,15
+
+[c3a]
+ConfigPriority=HARDRECONFIG
+IOConfig=3e8-2ff(3ff::)
+IRQConfig=S:3,4,5,7,9,10,11,12,14,15
+
+[c4a]
+ConfigPriority=HARDRECONFIG
+IOConfig=2e8-2ff(3ff::)
+IRQConfig=S:3,4,5,7,9,10,11,12,14,15
+
+[caa]
+ConfigPriority=HARDRECONFIG
+IOConfig=8@100-FFFF%FFF8(FFFF::)
+IRQConfig=S:3,4,5,7,9,10,11,12,14,15
+
+[p1a]
+ConfigPriority=HARDRECONFIG
+IOConfig=378-37f(ffff::),778-77f(ffff::)
+IRQConfig=S:3,4,5,7,9,10,11,12,14,15
+
+[p2a]
+ConfigPriority=HARDRECONFIG
+IOConfig=278-27f(ffff::),678-67f(ffff::)
+IRQConfig=S:3,4,5,7,9,10,11,12,14,15
+
+[paa]
+ConfigPriority=HARDRECONFIG
+IOConfig=8@100-FFFF%FFF8(FFFF::)
+IRQConfig=S:3,4,5,7,9,10,11,12,14,15
+
+[ComPort.AddReg]
+HKR,,DevLoader,,*vcomm
+HKR,,Contention,0,*vcd
+HKR,,Enumerator,0,serenum.vxd
+HKR,,PortDriver,,serial.vxd
+HKR,,ConfigDialog,,serialui.dll
+HKR,,DCB,3,1c,00,00,00,80,25,00,00,15,20,00,00,00,00,0a,00,0a,00,08,00,00,11,13,00,00,00
+HKR,,PortSubClass,1,01
+HKR,,EnumPropPages,,"serialui.dll,EnumPropPages"
+
+
+[EcpPort.AddReg]
+HKR,,DevLoader,0,*vcomm
+HKR,,Contention,0,*vpd
+HKR,,Enumerator,0,lptenum.vxd
+HKR,,PortDriver,0,lpt.vxd
+HKR,,ECPDevice,1,01
+HKR,,PortSubClass,1,00
+
+
+[Uninstall.AddReg]
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%ProviderName%,DisplayName,0,%UninstallName%
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%ProviderName%,UninstallString,0,M65unst.exe
+
+[Inf.Copy]
+M65Enum.inf
+M65Ports.inf
+
+[M65Enum.Copy]
+M65ENUM.vxd
+
+[Uninstall.Copy]
+M65unst.exe
+
+
+[Strings]
+ProviderName="MosChip Semiconductor Technology Ltd"
+ComPortName="M65-PCI Serial Port"
+EcpPortName="M65-PCI ECP Parallel Port"
+
+;-----------------------
+; END OF FILE
+;-----------------------
+

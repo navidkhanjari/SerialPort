@@ -1,0 +1,37 @@
+Install Windows XP Promise FastTrak 378 Controller manually.
+
+ 1. Please check BIOS setting was RAID mode or IDE mode (default was RAID mode).
+
+ 2. Right click "My Computer" icon on the desktop. Select "Properties" when the menu
+    appears.
+
+    Or you can
+
+    Press "Start" button. Move highlight bar to "Settings" and select 
+    "Control Panel". Double click on "System" icon.
+
+ 3. Select "Hardware" page and then click [Device Manager] button.
+
+ 4. View devices by type and find "RAID controllers" node.
+   
+ 5. Right Click the "RAID Controller" node.
+
+ 6. When the menu appears, click the "Properties" item.
+
+ 7. Please select [Driver] page to update driver.
+
+ 8. Select "Install from a list or specific location[Advanced]" and then press next.
+
+ 9. Choose "Don't search.I will choose the driver to install." and then press next.
+    
+10. Select "Have Disk". Browse the RAID mode path {CD-ROM Drive}:\Drivers\Promise
+    \378RAID\WinXP or IDE mode path {CD-ROM Drive}:\Drivers\Promise\378ATA\WinXP to 
+    the driver and click OK.
+
+11. Press Next.
+
+12. Press "Continue Anyway".
+
+13. Finally, press Finish to complete the installation.
+
+14. Please restart you computer for these changes to take effect.

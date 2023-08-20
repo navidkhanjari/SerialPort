@@ -1,0 +1,39 @@
+Install Win2000 Promise FastTrak 378 Controller Driver manually.
+
+ 1. Please check BIOS setting was RAID mode or IDE mode (default was RAID mode).
+
+ 2. Right click "My Computer" icon on the desktop. Select "Properties" when the menu
+    appears.
+
+    Or you can
+
+    Press "Start" button. Move highlight bar to "Settings" and select 
+    "Control Panel". Double click on "System" icon.
+
+ 3. Select "Hardware" page and then click [Device Manager] button.
+
+ 4. View devices by type and find "Other devices" node.
+   
+ 5. Right Click the "RAID Controller" node.
+
+ 6. When the menu appears, click the "Properties" item.
+
+ 7. Please select select [Driver] page to update driver.
+
+ 8. Press Next while "Upgrade Device Driver Wizard" window appears.
+
+ 9. Choose "Select for a suitable driver for my device(recommended)" option and then
+    press Next.
+
+10. Select "Specify a location" check box.
+
+11. Browse the RAID mode path:{CD-ROM Drive}:\Drivers\Promise\378RAID\Win2000 or IDE mode
+    path {CD-ROM Drive}:\Drivers\Promise\378ATA\Win2000 to the driver and click OK.
+
+12. Press Next.
+
+13. Press Yes.
+
+14. Finally, press Finish to complete the installation.
+
+15. Please restart you computer for these changes to take effect.

@@ -1,0 +1,2 @@
+modprobe mcs9865
+modprobe mcs9865-isa

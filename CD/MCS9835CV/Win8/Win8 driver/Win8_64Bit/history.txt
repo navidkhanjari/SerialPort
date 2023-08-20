@@ -1,0 +1,151 @@
+//======================================================================
+// ASIX MCS98xx Windows driver revision history
+//
+// This document describes the major changes, additions and bug fixes 
+// made to the driver between released versions. 
+//======================================================================
+
+Version 2.0.3.0 Date: 18th Dec 2012
+==========================================
+1.Added a co-installer for sorting ports sequence.
+2.Fixed a bug about getting initial registry value.
+3.Fixed a bug that the uninstaller program may be terminated when 
+  uninstalling.
+
+Version 2.0.2.0 Date: 18th Sep 2012
+==========================================
+1.Added Windows 8 support.
+2.Added MP Utility parallel port test support.
+
+
+Version 2.0.1.0 Date: 13th Jan 2012
+==========================================
+1.Fixed the high CPU utilization issue with the serial port.
+
+
+Version 2.0.0.19 Date: 14th Apr 2010
+==========================================
+1.Running the loopback test (Toshiba) on ISA serial ports to 
+  fix the frame error issues with the TG16C554-MCS9845CV-BA. Bug:5719  
+
+
+Version 2.0.0.18W Date: 19th Jan 2010
+==========================================
+1.Got the WHQL Certification for Windows7 and XP from Microsoft.   
+
+
+Version 2.0.0.16W Date: 24th Dec 2008
+==========================================
+1.Fixed the 100% CPU utilization issue with the parallel port. 
+2.Got the WHQL Certification from Microsoft.   
+
+
+Version 2.0.0.15W Date: 16th Dec 2008
+==========================================
+1.Fixed the 100% CPU utilization issue with the parallel port
+
+
+Version 2.0.0.14 Date: 6th Nov 2008
+==========================================
+1.Added the silent Setup feature.
+2.Modified the Uninstall utility.
+
+
+Version 2.0.0.13_Sunix_2 Date: 25th Sept 2008
+==========================================
+1.Added the Setup feature for sunix.
+2.Modified the Uninstall utility for sunix.
+
+
+Version 2.0.0.12 Date: 03th July 2008
+========================================
+1. Fixed the event-id issue which is logging to the event viewer.
+2. Changes made since version 2.0.0.6 are effected to vista drivers.
+
+
+Version 2.0.0.11 Date: 18th April 2008
+========================================
+1) Fixed the Standby Disable issue when parallel port is installed.
+2) Modified the property sheet, Allows to configure the transceiver mode 
+   if the port is MCS98XX re-spin (Taurus) serial port.
+3) Made changes in the INF files to WHQL testing.
+
+
+Version 2.0.0.10 Date: 19th Sept 2007
+========================================
+1) Added code in the driver to find out whether it is internal UART or external.
+2) Added support for Inter Character Gap.
+
+
+Version 2.0.0.9 Date: 11th Sept 2007
+========================================
+1) Added support for MCS98XX-Respin chips.
+1) Added support for memory mapped serial registers.
+3) Added RS422/485 support.
+4) Added auto hardware flow control support.
+5) Maintained the backward compatibility with NmSeries chips.
+6) Added support for testing the SPP, CBFIFO, EPP and ECP parallel port modes.
+
+
+
+Version 2.0.0.8_No_Serenum Date: 24th July 2007
+========================================
+1) Fixed the 18 serial port issue with ATM.
+2) Removed the serenum serial enumerator support. 
+
+
+Version 2.0.0.8 Date: 24th July 2007
+========================================
+1) Fixed the 18 serial port issue with ATM. 
+
+
+
+Version 2.0.0.7 Date: 18th April 2007
+========================================
+1) Fixed the Event Viewer issue (Event-18)
+2) Fixed the Framing error issue with Card reader (Toshiba)
+
+
+Version 2.0.0.6 Date: 21st Dec 2006
+========================================
+1) Fixed the issues in Vista32/64 bit uninstall application
+
+
+
+Version 2.0.0.5 Date: 12th Dec 2006
+========================================
+1) Added Vista32/64 bit drivers with uninstall application
+2) NmCoInsta.dll is made UNICODE compatible.
+
+
+Version 2.0.0.4 Date: 30th Nov 2006
+========================================
+1) Fixed the LPT co-installer issue in 64-bit windows. 
+
+
+
+Version 2.0.0.3 Date: 21st Nov 2006
+========================================
+1) Added co-installer (NmCoInst.dll) to create/Make the LPT1 if No LPT present in the machine.
+2) Added 98/ME customised driver support with uninstall application.
+3) Added co-installer (NmCoInst.dll) support for both 32bit and 64bit Windows.(No support for 98/Me)
+
+
+Version 2.0.0.2: Date: 18th Oct 2006
+==============================
+1) Replaced the NetMos name with MosChip
+2) Provided the Uninstallation name for customization. (Sunix requirement)
+
+
+Version 2.0.0.1: Date: 13th Oct 2006
+==============================
+1) Fix for serial port close issue with Master.exe. 
+
+
+
+Version 2.0.0.0: Date 11th Oct 2006
+==============================
+1) Initial version of customised driver.
+2) Removed the higher baudrate support.
+3) Fix for supporting upto 8 parallel ports.
+4) Fix for 100 CPU utilisation because of not disabling the interrupts.

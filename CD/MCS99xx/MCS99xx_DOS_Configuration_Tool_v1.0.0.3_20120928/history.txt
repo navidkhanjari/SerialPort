@@ -1,0 +1,32 @@
+*************************************************************
+This DOS Driver Supports Serial and Parallel ports with Device ID 0x9900,0x9950,0x9904,0x9912,0x9922.
+
+*************************************************************
+
+Driver Version:-
++++++++++++++++
+1.0.0.3
+
+Release Date:-
+++++++++++++
+12-May-2010
+
+File Size:-
++++++++++
+98 KB
+
+Operating System Support:-
+++++++++++++++++++++++++
+1) DOS 6.22
+
+
+Major changes:-
+++++++++++++
+Initial Release
+
+Known Issues:-
+++++++++++++
+
+The Re-Mapping to legacy addresses will work in systems that have PCI and PCIe expansion slots that are on Bus 0. 
+Systems have the PCI and PCIe expansion slots behind a Bridge (Bus-1, Bus-2) may not work since legacy address is not recognised by system. 
+ 

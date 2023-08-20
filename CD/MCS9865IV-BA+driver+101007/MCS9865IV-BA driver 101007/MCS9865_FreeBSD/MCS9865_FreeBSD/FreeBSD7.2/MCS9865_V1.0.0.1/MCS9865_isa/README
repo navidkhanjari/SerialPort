@@ -1,0 +1,73 @@
+		
+			MCs9865 FreeBSD 7.2 ISA driver For parallel and serial
+
+
+For isa-serial driver kernel need to compile.
+Procedure for kernel compilation.
+
+1. Install the kernel source
+2. cd /usr/src/sys/i386/conf
+3. cp GENERIC MYKERNEL
+4. vi MYKERNEL ( edit MYKERNEL file by enabling puc driver)
+   (ex: device  puc  (remove the # before device))
+6. config MYKERNEL
+7. cd ../compile/MYKERNEL
+8. make cleandepend
+9. make depend
+10. make
+11. make install
+12. reboot
+
+
+
+Procedure:
+
+	1. #make 	: To compile the driver.
+	2. #make ld	: To load the driver.
+	3. #make uld	: To unload the driver.
+
+
+	After loading the driver, with dmesg command one should see the following messge.
+
+puc0: [FILTER]
+uart0: <16550 or compatible> on puc0
+uart0: [FILTER]
+uart1: <16550 or compatible> on puc0
+uart1: [FILTER]
+ppc1: <Parallel port> on puc0
+ppc1: Generic chipset (NIBBLE-only) in COMPATIBLE mode
+ppbus1: <Parallel port bus> on ppc1
+plip1: cannot reserve interrupt, failed.
+lpt1: <Printer> on ppbus1
+lpt1: Polled port
+ppi1: <Parallel I/O> on ppbus1
+
+
+Detection: 
+	Tested with ISA 2 serial and one parallel device.
+	
+	To know serial port name check the /dev directory.
+	uart0 indicates /dev/ttyu0
+	similarly uartX indicates /dev/ttyuX where X=0 to f
+
+	where uart0 and uart1 will be displayed by executing "dmesg" command
+
+	The serials ports are /dev/ttyu0, /dev/ttyu1 ... /dev/ttyuf
+	The paralle port is /dev/lpt1.
+
+
+Testing serial port:
+minicom Usage:
+
+	The minicom application is also placed in the same folder 
+	usage: ./minicom -s
+
+
+	Tested Upto 1x baudrate with minicom.
+	
+Testing parallel port:
+
+	Tested only command line printing.
+
+	1. create a text file.
+	2. print it using "cat <file name> >  /dev/lpt1"

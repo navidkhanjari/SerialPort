@@ -1,0 +1,265 @@
+==========================================================================================
+=                                                                                        =
+=                  WCH Multi-I/O Board Driver Installation Guide                         =
+=                                                                                        =
+=                                 For Kernel 2.4 & 2.6 & 3.0                             =
+=                   Copyright 2012 WCH GROUP all right reserved                          =
+=                                                                   Version: 2.0.0.1     =
+=                                                                   Date: 2012/12/28     =
+==========================================================================================
+
+Item
+
+A. Release note
+
+B. Introduction
+
+C. Distributions test
+
+D. Installation
+
+   D.1 Driver install
+   D.2 Device node creation
+	
+E. Loading driver automatic after system bootup
+   
+   E.1 
+    RedHat 8
+    Fedora Core 1
+    Fedora Core 8
+    Fedora Core 10
+    Fedora Core 11
+    Mandriva 2008
+       		
+   E.2 
+    Suse 9.3
+    SuSE 11.2 Milestone 4
+
+   E.3 
+    Ubutu 8.04 Destop
+	
+   E.4 
+    Turbo Liunx 10
+    Red Hat Enterprise Liunx 4.0
+       
+   E.5 
+    Others	
+
+F. Utility
+
+   F.1 wchdump
+   F.2 wchterm
+
+==========================================================================================
+
+A. Release note
+
+	Support kernel 2.4, 2.6 and 3.0 on x86 machine only. Distributions test refer to item C. 
+	Before driver installation. Make sure system with c compiler and kernel development 
+	package.   
+				
+------------------------------------------------------------------------------------------
+
+B. Introduction
+
+	Maximum 2 boards can be installed in combination(up to 64 serial port), 
+	support wch multi i/o boards as list below.
+
+	(S - serial port)
+				
+			
+------------------------------------------------------------------------------------------
+
+C. Distributions test
+
+	Driver tested with distributions as list.
+
+  	RedHat 8
+  	Fedora Core 1	
+  	Fedora Core 8
+  	Fedora Core 10
+  	Fedora Core 11
+  	Mandriva 2008
+  	Turbo Liunx 10
+  	Red Hat Enterprise Liunx 4.0 
+  	Suse 9.3
+  	SuSE 11.2 Milestone 4
+  	Ubutu 8.04 Destop
+
+------------------------------------------------------------------------------------------
+
+D. Installation
+	
+	D.1 Driver install
+		Please create a directory under root directory,  e.g /temp, do commands:
+
+		# cd /
+		# mkdir temp
+
+		After get driver file "wch_vx.x.x.x.tar.gz". Copy file to /temp
+		directory, then extract and install, do commands:
+
+		# cp wch_vx.x.x.x.tar.gz /temp 
+		# cd /temp
+		# tar xvfz wch_vx.x.x.x.tar.gz
+		# cd /temp/wch
+		# make clean ; make install
+
+		*************************************************************
+		* If system is Suse 9.0 and errors occur when               *
+		* "make clean ; make install", do commands:                 *
+		*                                                           *
+		* # cd /usr/src/linux/                                      *
+		* # make cloneconfig                                        *
+		* # make dep                                                * 
+		*                                                           *
+		* then do "make clean ; make install" again in /temp/wch	*
+		*************************************************************
+
+		Load driver module, do command:
+
+		# modprobe wch
+		or
+		# insmod /temp/wch/driver/wch.ko (wch.o for kernel 2.4)
+
+
+		Check driver module, do command:
+		# lsmod | grep wch
+
+
+		Unload driver, do command:
+		# rmmod wch
+
+
+	D.2 Device node creation 
+		Each serial port has one device node which is named "ttyWCH?",
+		maximum up to 256 serial ports.
+		
+		This setp will be done when do "make clean ; make install", if
+		device nodes aren't in /dev, do commands:
+				
+		# cd /temp/wch/wchmknod
+		# ./wchmknod
+
+		This will create device nodes in /dev.
+
+------------------------------------------------------------------------------------------
+
+E. Loading driver automatic after system bootup
+
+  	
+	E.1 
+	    After finish item D. Edit /etc/rc.d/rc.local for loading driver 
+	    automatic after system bootup. Use vi or other editor to open rc.local, 
+	    and add "modprobe wch" in last line.
+
+
+	E.2 
+	    After finish item D.
+	    Edit /etc/rc.d/boot.local for loading driver automatic after system bootup. 
+	    Use vi or other	editor to open boot.local, and add "modprobe wch" in last line.
+	    Edit /etc/rc.d/halt.lAfter finish item D. Edit /etc/rc.d/rc.local for loading driver 
+	    automatic after system bootup. Use vi or other editor to open rc.local, 
+	    and add "modprobe wch" in last line.ocal for unloading driver when system halt. 
+	    Use vi or other editor to open halt.local, and add "rmmod wch" in last line.
+	    
+	    
+	E.3 
+	    After finish item D. Edit /etc/init.d/rc.local for loading driver 
+	    automatic after system bootup. Use vi or other editor to open rc.local, 
+	    and add words as below in last line.
+				
+			modprobe wch
+		
+	E.4 
+	    After finish item D. Edit /etc/rc.d/rc.local for loading driver 
+	    automatic after system bootup. Use vi or other editor to open rc.local, 
+	    and add words as below in last lien. 
+		
+			modprobe wch
+		
+		
+	E.5 
+	    In general, other distributions will loading driver automatic after system bootup.		
+	    If it doesn't, please refer to item E.1 or E.2. or E.3 or E.4
+				
+				
+------------------------------------------------------------------------------------------
+
+F. Utility
+
+	F1. wchdump - dump port informations, do command:
+
+		# wchdump
+
+		the informations should be like this
+
+		================ Found  8 WCH port , list informations ====================
+        		                                     WCH driver ver -- 2.0.0.0
+
+		ttyWCH0 --
+		WCH CH358_8S Series (bus:1 device: 9) , base address = 9000,    irq = 169
+
+		ttyWCH1 --
+		WCH CH358_8S Series (bus:1 device: 9) , base address = 9400,    irq = 169
+
+		ttyWCH2 --
+		WCH CH358_8S Series (bus:1 device: 9) , base address = 9800,    irq = 169
+
+		ttyWCH3 --
+		WCH CH358_8S Series (bus:1 device: 9) , base address = 9c00,    irq = 169
+
+		ttyWCH4 --
+		WCH CH358_8S Series (bus:1 device: 9) , base address = 9008,    irq = 169
+
+		ttyWCH5 --
+		WCH CH358_8S Series (bus:1 device: 9) , base address = 9408,    irq = 169
+
+		ttyWCH6 --
+		WCH CH358_8S Series (bus:1 device: 9) , base address = 9808,    irq = 169
+
+		ttyWCH7 --
+		WCH CH358_8S Series (bus:1 device: 9) , base address = 9c08,    irq = 169
+		=============================================================================
+
+		In this case, 
+
+		Driver version is 2.0.0.0
+
+		ttyWCH0 is the 1st serial port on wch CH358_8S series board, 
+		base address is 0x9000 and irq is 169.
+
+		ttyWCH1 is the 2nd serial port on wch CH358_8S series board, 
+		base address is 0x9400 and irq is 169.
+
+		ttyWCH2 is the 3rd serial port on wch CH358_8S series board,
+		base address is 0x9800 and irq is 169.
+
+		ttyWCH3 is the 4th serial port on wch CH358_8S series board,
+		base address is 0x9C00 and irq is 169.
+
+		ttyWCH4 is the 5th serial port on wch CH358_8S series board,
+		base address is 0x9008 and irq is 169.
+
+		ttyWCH5 is the 6th serial port on wch CH358_8S series board,
+		base address is 0x9408 and irq is 169.
+
+		ttyWCH6 is the 7th serial port on wch CH358_8S series board,
+		base address is 0x9808 and irq is 169.
+
+		ttyWCH7 is the 8th serial port on wch CH358_8S series board,
+		base address is 0x9C08 and irq is 169.
+
+		bus:1 means the bus number of board is 1.
+		device:9 means the device number of board is 9.
+
+		If no information print on screen. Make sure the device node
+		exist in /dev and driver module loaded.
+
+		
+		
+	F2. wchterm - dumb terminal for test tty device node data transmitting and receiving, do command:
+
+		# wchterm
+
+------------------------------------------------------------------------------------------

@@ -1,0 +1,185 @@
+==========================================
+MCS99xx Windows Driver release history
+==========================================
+
+Release Version: 2.0.1.0, Dated: 16th October 2012
+=================================================================
+- Added Windows 8 support.
+- Added the StnCoInst.ini file to determine the sorting rule of 
+  cascaded COM ports.
+- Modified the co installer to support sorting ports what are on
+  more cards.
+
+Release Version: 2.0.0.4, Dated: 14th November 2011
+=================================================================
+- Removed Container ID provider from the Parallel port driver for 
+  the printer detach failed issue.
+
+Release Version: 2.0.0.2, Dated: 19th August 2011
+=================================================================
+- Done modifications in the serial port driver to resolve the System - 
+  Disable Enable With IO in the WHQL tests for System logo on Windows 7.
+- In the Parallel port driver also,added code to provide ContainerID 
+  for the IRP_MN_QUERY_ID for the Raw port we create, which is required 
+  from Win7 onwards.
+- Setup and Uninstall applications' version numbering changed so as to 
+  sync with the driver disk version number.
+- Drivers are self signed so that the customer can perorm the WHQL system 
+  tests with out a problem.
+
+Release Version: 2.0.0.1, Dated: 16th December 2010
+=================================================================
+- Added registy parameter "CreateRawPort" in service key to enable 
+  disable creation of Microsoft Rawport. (Bug: 728)
+- Modified the setup/un-install utility to fix installation issue 
+  with Vista/Win7 64-Bit OS (bug: 748)
+
+Release Version: 2.0.0.0, Dated: 5th October 2010
+=================================================================
+- Driver disk modified for WHQL certification.
+- Added co-installer which assigns least COM/LPT number to the 
+  primary chip ports and then the secondary chip ports.
+  (i.e Fix given for APL_SNR; \\192.168.200.231\drivers\Saturn\WindowsDrivers\CustomDrivers\APL_SNR\Version_1.0.1.12)
+
+Release Version: 1.0.0.13, Dated: 20th Aug 2010
+==============================================================
+- Added registry parameter ("UsePCIeClockForBaudGeneration" in 
+  driver key) to select either PCIe clock or External clock for 
+  baud rate generation.
+- Added configurable parameters for DTR Polarity and DTROverLapTime; 
+  Refer ReadMe_DTRPolarity.txt available in this driver disk.
+- Win64 Self-Signed driver.
+
+Release Version: 1.0.0.12, Dated: 17th Aug 2010
+==============================================================
+- Made a work-around for Bug#688 in the parallel port driver.
+
+Release Version: 1.0.0.11, Dated: 13th Aug 2010
+==============================================================
+- To fix the COM/LPT port number assignment in Windows 7 OS in 
+  sequence according to the function number on the PCI bus, every 
+  single serial or Parallel port has been enumerated through MF.
+
+Release Version: 1.0.0.10, Dated: 19th May 2010
+==============================================================
+- Fixed the issue in Co-instlaller componant which is not functioning 
+  properly in non-english OS.
+
+Release Version: 1.0.0.9, Dated: 07th April 2010
+==============================================================
+- This is Windows-7 specific release,the Co-Installer is added.
+- As the windows 7 Os assigns the COM/LPT numbers not in sequence,the 
+  co installer will help the port numbers to be assigned properly.
+
+Release Version: 1.0.0.8, Dated: 16th December 2009
+=================================================================
+1.Bug #493 ,regarding the Parallel port fail in CBFIFO mode after 
+  PC wake-up from hibernate is fixed.
+
+Release Version: 1.0.0.7, Dated: 13th November 2009
+=================================================================
+1.Serial Port driver is modified as to avoid system crash which is 
+  observed in Vista OS.
+2.Setup and Uninstall utilities are modified as to support 
+  Windows 7 OS.
+
+Release Version: 1.0.0.6, Dated: 4th November 2009
+================================================================
+1.Added ECP-SW support in this driver release.(ModeSelectd = 5)
+2.Fixed the CB-FIFO printing issue (Bug 504).
+
+Release Version: 1.0.0.5, Dated: 29th October 2009
+================================================================
+1) The Parallel port by default will be put into the Software ECP 
+   mode not in Hardware ECP mode (Bug:279).
+2) The Stand by issue with saturn Serial ports in Cascade mode 
+   resolved (Bug: 353).
+3) Serial port enumeration with yellow mark in Cascade mode is 
+   resolved (Bug: 625).
+4) Safe Removal icon in system tray is made disabled.
+
+Release Version: 1.0.0.4, Dated: 13th August 2009
+===============================================================
+1) These drivers compatible with Windows 7 Os apart from Vista 
+   and XP.
+2) Added manifest files to Setup and Uninstall utilities,and these 
+   utilities are modified to support Windows 7 OS.
+
+Release Version: 1.0.0.3, Dated: 17th June 2009
+=============================================================
+1) Internal Loopback test is added in the MP utility.
+2) Version has changed to Version_1.0.0.3
+
+Release Version: 1.0.0.2, Dated: 1st May 2009
+=============================================================
+1) Fix made for the following bugs: 504, 493, 507, 509
+2) Version has changed to Version_1.0.0.2
+
+For the issue, "ECOM modem is detecting as a serial mouse (Bug 507)", 
+we made a work-arround in the serial driver to configure the baudrate
+closer to the modem baudrate, while enumerating the modem.  As this 
+specific modem is sending data at little higher baud (1280) than the 
+supported baudrate (1200) while enumeration.
+
+Release Version: 1.0.0.1, Dated: 5th March 2009
+=============================================================
+1) Fixed the Bugs 327, 328, 351, 361, 386, 390 
+2) Modified the driver strings. Bug:369 (change request from Apps)
+
+Release Version: 1.0.0.0, Dated: 19th Jan 2009
+=============================================================
+1) Fixed the Bug:321 (Failed to report the Ink status in CBFIFO mode) 
+2) Fixed the Bug 319 (Remote wakeup fails in Dell Precision T5400 and Dell)
+3) Added SetUp Utility
+4) Disabled the MSI based interrupts in Windows Vista OS.
+5) Changes are done in Setup, Uninstall and StnPorts.dll to support 
+   localization of strings that appear on the GUI.
+   Now they can show different language strings in different 
+   language operating systems. These changes cover VISTA, XP 
+   32 bit and 64 bit operating systems.
+
+Release Version: 0.0.0.6, Dated: 17th Dec 2008
+=============================================================
+1) No modification regarding driver code with the previous release.
+2) Previous release, Version_0.0.0.5, was not made with the 
+   proper builds for serial port driver in Vista environment. (Bug: 312)
+
+Release Version: 0.0.0.5, Dated: 5th Dec 2008
+=============================================================
+1) Fix made for the Intex serial mouser issue - bugId:219
+2) Released Mass Production Utility
+
+Release Version: 0.0.0.4, Dated: 22nd Sept 2008
+=============================================================
+1) Added support for Serial Transmitter Shutdown
+2) Added support to validate GPIO using parallel port interface
+
+Release Version: 0.0.0.3, Dated: 11th Sept 2008
+=============================================================
+1) Fixed the Burn-In test issues (Bug 159 and 172)
+2) Support to validate Remote wake-up featur with out port opening. (Bug 160)
+
+Release Version: 0.0.0.2, Dated: 18th Aug 2008
+=============================================================
+1) Fixed the Remote wake-up issue (Bug 135 and 139)
+2) Fixed the issue with file transfers using the RTS/CTS flow control 
+   enabled in HyperTerminal as well as in property sheet. (Bug129)
+3)Support to validate Message Signaled Interrupt. (In Vista OS only)
+
+Release Version: 0.0.0.1, Dated: 11th July 2008
+=============================================================
+1) Supports 9900, 9904, 9912, 9922 and 9950 PIDs only. 
+2) Supports Both Cascade and Non-Cascade modes.
+3) Un-install utility is provided.
+
+==========================================
+Driver pre-releases for FPGA validation.
+==========================================
+
+Release Version: 1.0.0.5, Dated: 11th June 2008
+=============================================================
+1) This driver supports both non-cascaded and cascaded mode of MCS9950 serial ports.
+2) StarEx WHQL Driver binaries are used for both serial port and parallel port.
+3) This Initial version of the driver doesn't have the setup and uninstall utilities. 
+
+

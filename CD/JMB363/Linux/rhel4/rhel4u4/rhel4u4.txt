@@ -1,0 +1,46 @@
+Support OS:
+RedHat Enterprise Linux 4 Update 4 i386
+RedHat Enterprise Linux 4 Update 4 x86_64
+
+Support Chip/Mode:
+JMB360/1/2/3/5/6/8 IDE mode
+JMB360/1/2/3/5/6 AHCI mode
+
+Steps:
+IDE mode (JMB360/1/2/3/5/6/8)
+0. Use dd(Linux) or Rawritewin.exe(Windows) to write driver disk.
+1. CD/DVD boot form OS installation disc.
+2. Insert IDE driver disk to floppy drive.
+3. Add "linux dd" after "boot:" and press enter.
+4. Select "YES" in "Do you have a driver disk?".
+5. Select a device (floppy) which you like to use.
+6. Select "No" in "More Driver Disks?".
+7. Continue with normal installation process.
+
+Single AHCI mode (JMB360/362)
+1. Insert AHCI driver disk to floppy drive.
+2. Add "linux dd" after "boot:" and press enter.
+3. Select "YES" in "Do you have a driver disk?".
+4. Select a device (floppy) which you like to use.
+5. Select "No" in "More Driver Disks?".
+6. Continue with normal installation process.
+
+Multi-Function mode (JMB361/3/5/6)
+1. Insert AHCI driver disk to floppy drive.
+2. Add "linux dd" after "boot:" and press enter.
+3. Select "YES" in "Do you have a driver disk?".
+4. Select a device (floppy) which you like to use.
+5. Select "Yes" in "More Driver Disks?".
+6. Insert IDE driver disk to floppy drive.
+7. Select a device (floppy) which you like to use.
+8. Select "No" in "More Driver Disks?".
+9. Continue with normal installation process.
+
+Known Issues:
+1. IDE driver is not probing Secondary Slave device, if Secondary Master is nothing plugged.
+2. If SATA ports are set in IDE mode, SATA HDD is recognized as UDMA33.
+   But SATA HDD works well, and performs 50MB/s up.
+
+MD5SUM
+02dfb3de13b2e6e713531420e92a083e	rhel4u4-ahci.img (AHCI driver disk)
+fc8d0436afd13bd63f222d6470e71890	rhel4u4-ide.img (IDE driver disk)

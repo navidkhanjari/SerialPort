@@ -1,0 +1,236 @@
+JMB36X (360/361/363) RAID/AHCI Driver Release History
+
+// [Package Description]
+// RX.XX.XX                          - Driver would get eSATA setting from BIOS/Option Rom.
+// RX.XX.XX_eSATA                    - Driver would report all Device connected as Removable Device.
+//
+// [Notice]
+// JMB36X driver got logo of Windows XP, Windows Vista, and Windows 7 since R1.17.49WHQL.
+---------------------------------------------------------------------------------------------------------------------------------
+
+R1.17.59WHQL (09/20/2010)
+
+  1. Fix issue:
+    a. Fix the issue that the performance will suffer for JMB36X C.
+    b. SATA ODD (Samsung TSS-TS-H353) can not be detected normally.
+       - Samsung TSS-TS-H353 (ODD) will not send D2H FIS for first COMRESET.
+       - If driver fails to receive D2H FIS, issue COMRESET again.
+
+---------------------------------------------------------------------------------------------------------------------------------
+R1.17.58WHQL (08/20/2010)
+
+  1. Fix issue:
+    a. Driver and BIOS sometimes can not detect inconsistent RAID1 after reboot.
+       - When one device is plugged out, RAID segment info can not be updated since channel is occupied.
+       - Release all corresponding channels when plug-out occurs during data transferring.
+       - Add a mechanism to retry to update RAID segment info if error occurs.
+    b. Fix the issue that PMP can not be recognized (freeze and crash).
+    c. Update RAID segment info every 1 GB to speed up RAID rebuilding process.
+
+---------------------------------------------------------------------------------------------------------------------------------
+R1.17.57WHQL (07/28/2010)
+
+  1. Fix issue:
+    a. Hog-plug fails for the first time after S3 resume.
+       - If device is unplugged during sleep, hot-plug will fail for the first time after resume.
+       - After resume, rescan devices and clear database if device does not exist.
+  
+---------------------------------------------------------------------------------------------------------------------------------
+R1.17.56WHQL (06/10/2010)
+
+  1. Fix issue:
+    a. Windows will freeze when device remains busy abnormally (by LeCroy Infusion and a hammer).
+    b. Modify command error and timeout handling (Command timeout handling is only for READ and WRITE commands).
+       Disconnect the abnormal disk if error or timeout continues.)
+ 
+---------------------------------------------------------------------------------------------------------------------------------
+R1.17.55WHQL (02/24/2010)
+
+  - Fix issue:
+    a. Gigabyte JMB36X External HD recognization problem.
+
+---------------------------------------------------------------------------------------------------------------------------------
+R1.17.54WHQL (01/18/2010)
+
+  - Fix issue:
+    a. Specific External HDD Box may get disappear and appear again when plug HDD with another port.
+       - Caused by the External Box may get re-link with this case.
+       - Modify driver to just re-initialize the disk with this case.
+    b. Some PMP device may be identified as HDD on specific platforms.
+       - The link of the PMP may get lost during Reset procedure and then identify procedure may get problem.
+       - Add check for Link lost conditions during Device Identification.
+    c. Some PATA HDD may not be recognized correctly with specific PATA Cable.
+       - Caused by some Device Status may not be updated correctly to AlternateStatus when using this cable.
+       - Check Status in Command Register to avoid this issue.
+
+---------------------------------------------------------------------------------------------------------------------------------
+R1.17.53WHQL (12/15/2009)
+ 
+  -Fix Issue
+    a. Fail to load driver during Install Windows 7/Vista if one PATA NEC DVD Recorder is connected to 36X.
+      - Caused by the DVD Recorder may keep BUSY after it reports Command Complete with specfic ATAPI commands.
+        Driver may fail to issue latter commands when it is still BUSY.
+      - Add checking BUSY and delay if this issue occurs.
+    b. Snapshot compare fail after resume from Sleep.
+      - Caused by OS may fail to record Disk Power Capability after boot up on specific platforms.
+      - Modify method to check and report Device Removable to avoid return Busy with QueryCapabilities.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+R1.17.52WHQL (11/05/2009)
+ 
+  -Fix Issue
+    -OS may not shutdown properly on some P55 platform if create Raid with Intel SATA ports.
+     Caused by ISR of JMB36X driver is called after MMIO is disabled.
+     Add checking to ignore ISR call if MMIO is not accessible.
+    -Add checking for IDE Channel Swap case with Single Function IDE Mode.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+R1.17.51WHQL (10/14/2009)
+    - Modify sequence of handling Smart Command to avoid unexpected request completion.
+    - Modify to re-enumerate connected devices in thread after resume from sleep if no device is connected before sleep.
+      To reduce resume time needed if no device is connected.
+    - Implement supporting for 2363 PATA Controller at function 1.
+    - Modify sequence of handling PATA - ATAPI command 0x46 to avoid compatibility issue of some PATA Optical Devices.
+    - Modify sequence of handling PATA - ATAPI command 0x5A to avoid compatibility issue of some PATA Optical Devices.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+R1.17.50WHQL (08/24/2009)
+    - Enlarge status checking time after ComReset and enlarge driver timeout time with the HDD resume command
+      because some HDD would need more time to get ready after Disk Turn Off and Resume.
+    - Fix issue that OS may not install driver of specifc SATA CD/DVD-Rom correctly when it is newly reported.
+    - Modify driver to always re-enumerate connected devices after resume from sleep.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+R1.17.49WHQL (07/17/2009)
+    - WHQL version which has Win7/Vista/XP Logos.
+    - Fix install Vista - load driver take long time issue on specific platform.
+    - Fix BSOD issue if unexpected interrupt signals when driver is handling Smart Command.
+    - Implement Extra Request Timeout Detection and Recovery procedures.
+    - Fix issue that may not reboot after install driver with single function IDE mode if specific IDE CD-Rom is connected.
+    - Add Retry times of PMP Initialize because some PMP may need more time to get ready after Power ON.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+R1.17.48.16 (Test driver) (06/25/2009)
+    - Fix issue that System may freeze for a short time when handling Smart Command.
+    - Fix issue that System may freeze for a short time when Hotplug eSATA device.
+    - Fix issue that driver report incorrect Revision with eSata Disk Device.
+    - Fix issue that sometimes Disk may not be reported after Create/Modify Raid Type.
+    - Fix SONY Tape Device Identify issue.
+    - Add options to issue HardDisk Standy Command with Sleep and Shutdown.
+    - Fix RaidAP 2TB capacity supporting issue
+    - Fix issue that some HDD connected with PMP may get timeout with first command after turn-off and resume.
+    - Fix S1 resume issue on specific platform. (Found with 1.17.48.15)
+    - Fix Removable Disk reporting issue on specific platforms. (Found with 1.17.48.15)
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+R1.17.47WHQL_WIN7 (06/04/09')
+    - WHQL version which has Win7/Vista/XP Logos.
+    - Fix bootup delay with Optical Device issue.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+R1.17.47WHQL (02/25/09')
+    - Fix the issue that IDE HDD is wrongly set as UDMA mode 2. (a bug of R1.17.44.02)
+    - Fix the issue that hard disks are removed for unknown reasons sometimes.
+    - Fix the issue that DTM 1.3 "Reinstall With IO"  failed on Windows 7.
+    - Fix the issue that disk error counter is not written to disk successfully.
+    - Fix the issue that creating RAID from existing disk results in BSOD.
+    - Fix the issue that hotplug failed sometimes.
+    - Fix the issue that when SATA ODD is connected IDE disk will disappear after resuming from S3.
+    - Add the option to support AAM.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+R1.17.46WHQL(01/21/09')
+    - Fix the issue that waking up disks makes mouse freeze.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+R1.17.45WHQL(12/30/08')
+    - Fix the issue that the RAID will disappear after creating RAID.
+    - Set disk to standby when shutting down.
+    - In Device Manager it leaves the drive listed with a yellow exclamation mark after safely removing the eSATA drive.
+    - Switching IDE/AHCI/RAID mode in BIOS results in BSOD.
+    - Show the original HDD/ODD model name in device manager for eSATA devices. (not show SATA*****) 
+    - Add the option to disable eSATA disk write cache in disk policy. 
+    
+---------------------------------------------------------------------------------------------------------------------------------
+
+R1.17.44WHQL(12/05/08')
+    - Fix the issue that PMP disks frozen state are not set after resuming from S3.
+    - Fix the issue that PMP disks has an exclamation mark in device manager after resuming from S3.
+    - Not to support PMP RAID.
+    - Fix the issue that Win2000 BSOD when resuming from S1. 
+    - Fix the issue that JMB368 will reboot when entering S3.
+    - Fix the issue that RAID rebuilding will not stop even if the disk is removed.
+    - Fix the issue that RAID rebuilding is slow. 
+    - Fix the issue that hot-plugging in the 2 RAID SATA disks quickly, the disk detection time is long. 
+    - Fix the issue that S4 failed. 
+    - Fix the issue that OS in Seagate FreeAgentPro BSOD when resuming from S4. 
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+R1.17.43WHQL (11/17/08')
+
+    - Fix the issue that system event log has error #117 in Vista.
+    - Burning disc sometimes failed with some IDE ODDs on some platforms.
+    - Snake TB-400S PMP hotplug failed.
+    - Fix the issue that hard disk becomes write-protected sometimes on the platform equipped with 4GB DRAM.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+R1.17.42.09WHQL (10/23/08')
+
+    - Fail to enter hibernation on some platforms.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+R1.17.42WHQL (10/07/08')
+
+    - Fix the issue that JMB322 create/delete RAID sometimes fails, especially with two JMB322 controllers.
+    - Fix the issue that fail to burn disc of UDF format. (End User)
+    - Fix the issue that fail to erase disc.
+    - Solve the issue that the performance of sequential 2K r/w is poor.
+    - Fix the issue that OS on RAID of two eSATA enclosures wakes up late.
+    - Fix the issue that JMB322+Hitachi HDS721010KLA330 1TB hard disk disappears after resuming from S3.
+    - Improve the read performance.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+R1.17.39WHQL (08/01/08')
+
+    - Burning disc failed.
+    - The hotplug of two SATA ODD has problem.
+    - Removable icon doesn't show for HDD.
+    - IDE disks are wrongly set as removable.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+R1.17.38WHQL (06/23/08')
+
+    - Fix the failure that serial number offset is -1 in WLK 1.2 "Storage Query Property" test.
+    - The "safely remove device" disappears after creating PMP RAID.
+    - Hot plug too fast will make the system hang up.
+    - W/r the eject button of JMB336 ODD enclosure for HP Voodoo NB.
+    - Add "Bustype" in inf to pass WLK 1.2 "Storage Query Property" test.
+    - Work around the issue that S3/S4 will crash if OS is installed in disk connected to eSATA port. (ASUS iCH10)
+    - It needs more than 15 sec to detect a plug-in ODD.
+    - Adding subsystem vendor ID 0x90081071 for Mitac.
+    - CPU utilization is abnormally high when WD Mybook 1TB spins down.
+    - Some systems can't be shut down if ODD is connected.
+    - Interface error happens frequently in eSATA port if block size is set as 128KB.
+    - Adding subsystem vendor ID 0x83521043 for ASUS.
+    - Only modified inf. Driver is not changed.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+R1.17.37WHQL
+
+    - System freezes for several seconds when turning on the power of hard disks. 
+

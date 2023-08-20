@@ -1,0 +1,72 @@
+; Copyright (c) 2010 Asmedia Technology 
+;#############################################################################
+;#
+;#    Filename:  TXTSETUP.OEM
+;#
+;#############################################################################
+[Disks]
+disk1 = "Asmedia 106x SATA Controller", \ASM106x, \x86
+disk2 = "Asmedia 106x SATA Controller", \ASM106x, \x64
+
+[Defaults]
+scsi = asAHCI_32bit
+
+;#############################################################################
+[scsi]
+; asahxp32.inf
+asAHCI_32bit        = "Asmedia 106x SATA Controller 32bit"
+
+; asahxp64.inf
+asAHCI_64bit        = "Asmedia 106x SATA Controller 64bit"
+
+;#############################################################################
+
+; asahxp32.inf
+
+[Files.scsi.asAHCI_32bit]
+driver = disk1, asahxp32.sys, asahxp32
+inf = disk1, asahxp32.inf
+catalog = disk1, asahxp32.cat
+
+
+;------------asahxp64.inf---------------------------
+; asahxp64.inf
+[Files.scsi.asAHCI_64bit]
+driver = disk2, asahxp64.sys, asahxp64
+inf = disk2, asahxp64.inf
+catalog = disk2, asahxp64.cat
+
+;#############################################################################
+[Config.asahxp32]
+value = parameters\PnpInterface,5,REG_DWORD,1
+value = "", ErrorControl, REG_DWORD, 1
+value = "", Group, REG_SZ, "SCSI Miniport"
+value = "", Start, REG_DWORD, 0
+value = "", Type, REG_DWORD, 1
+
+
+[Config.asahxp64]
+value = parameters\PnpInterface,5,REG_DWORD,1
+value = "", ErrorControl, REG_DWORD, 1
+value = "", Group, REG_SZ, "SCSI Miniport"
+value = "", Start, REG_DWORD, 0
+value = "", Type, REG_DWORD, 1
+;#############################################################################
+
+; asahxp32.inf
+[HardwareIds.scsi.asAHCI_32bit]
+id = "PCI\VEN_1B21&DEV_0601","asahxp32"
+id = "PCI\VEN_1B21&DEV_0602","asahxp32"
+id = "PCI\VEN_1B21&DEV_0611","asahxp32"
+id = "PCI\VEN_1B21&DEV_0612","asahxp32"
+
+
+; asahxp64.inf
+[HardwareIds.scsi.asAHCI_64bit]
+id = "PCI\VEN_1B21&DEV_0601","asahxp64"
+id = "PCI\VEN_1B21&DEV_0602","asahxp64"
+id = "PCI\VEN_1B21&DEV_0611","asahxp64"
+id = "PCI\VEN_1B21&DEV_0612","asahxp64"
+
+
+

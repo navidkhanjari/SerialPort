@@ -1,0 +1,29 @@
+# Copyright (c) 2009 Moschip Semiconductor Pvt Ltd. All Rights Reserved.
+# 
+# THIS IS THE UNPUBLISHED PROPRIETARY SOURCE CODE OF MOSCHIP SEMICONDUCTOR PVT LTD.
+# The copyright notice above does not evidence any actual or intended
+# publication of such source code.
+# 
+# This module contains Proprietary Information of Connect Tech Inc
+# and should be treated as Confidential.
+
+WINCEREL=1
+RELEASETYPE=LOCAL
+TARGETTYPE=NOTARGET
+TARGETNAME=MCS9900Ce50
+TARGETLIBS= \
+  $(_PROJECTROOT)\cesysgen\sdk\lib\$(_CPUINDPATH)\coredll.lib \
+
+SOURCES= \
+
+FILE_VIEW_ROOT_FOLDER= \
+  prelink.bat \
+  postlink.bat \
+
+FILE_VIEW_PARAMETER_FOLDER= \
+  ProjSysgen.bat \
+  MCS9900Ce50.bib \
+  MCS9900Ce50.reg \
+
+PRELINK_PASS_CMD=prelink.bat
+POSTLINK_PASS_CMD=postlink.bat

@@ -1,0 +1,306 @@
+; CH38MDRV.INF
+; Driver for PCI-E chip(CH38X)(It supports multi-setial ports,parallel port)
+; For windows 2000
+; Copyright (C) WCH  2012
+; Ver V1.2
+
+[Version]
+Signature=$CHICAGO$
+Class=MultiFunction
+ClassGUID={4d36e971-e325-11ce-bfc1-08002be10318}
+Provider=%WinChipHead%
+DriverVer=12/08/2011,1.1.2011.12
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%WinChipHead%=WinChipHead,NT
+
+[WinChipHead]
+%WinChipHead_PORTE_1P%=WCH1P_instE, PCI\VEN_1C00&DEV_3050
+%WinChipHead_PORTE_1P%=WCH1P_instE, PCI\VEN_1C00&DEV_3050&SUBSYS_30501C00
+%WinChipHead_PORTE_2S%=WCH2S_instE, PCI\VEN_1C00&DEV_3253
+%WinChipHead_PORTE_2S%=WCH2S_instE, PCI\VEN_1C00&DEV_3253&SUBSYS_32531C00
+%WinChipHead_PORTE_2S1P%=WCH2S1P_instE, PCI\VEN_1C00&DEV_3250
+%WinChipHead_PORTE_2S1P%=WCH2S1P_instE, PCI\VEN_1C00&DEV_3250&SUBSYS_32501C00
+%WinChipHead_PORTE_4S%=WCH4S_instE, PCI\VEN_1C00&DEV_3470
+%WinChipHead_PORTE_4S%=WCH4S_instE, PCI\VEN_1C00&DEV_3470&SUBSYS_34701C00
+%WinChipHead_PORTE_4S1P%=WCH4S1P_instE, PCI\VEN_1C00&DEV_3450
+%WinChipHead_PORTE_4S1P%=WCH4S1P_instE, PCI\VEN_1C00&DEV_3450&SUBSYS_34501C00
+%WinChipHead_PORTE_8S%=WCH8S_instE, PCI\VEN_1C00&DEV_3853
+%WinChipHead_PORTE_8S%=WCH8S_instE, PCI\VEN_1C00&DEV_3853&SUBSYS_38531C00
+%WinChipHead_PORTE_8S%=WCH8S_instEB, PCI\VEN_1C00&DEV_3258
+%WinChipHead_PORTE_8S%=WCH8S_instEB, PCI\VEN_1C00&DEV_3258&SUBSYS_32581C00
+%WinChipHead_PORTE_28S%=WCH28S_instE, PCI\VEN_1C00&DEV_4353
+%WinChipHead_PORTE_28S%=WCH28S_instE, PCI\VEN_1C00&DEV_4353&SUBSYS_43531C00
+
+[WinChipHead.NT]
+%WinChipHead_PORTE_1P%=WCH1P_instE, PCI\VEN_1C00&DEV_3050
+%WinChipHead_PORTE_1P%=WCH1P_instE, PCI\VEN_1C00&DEV_3050&SUBSYS_30501C00
+%WinChipHead_PORTE_2S%=WCH2S_instE, PCI\VEN_1C00&DEV_3253
+%WinChipHead_PORTE_2S%=WCH2S_instE, PCI\VEN_1C00&DEV_3253&SUBSYS_32531C00
+%WinChipHead_PORTE_2S1P%=WCH2S1P_instE, PCI\VEN_1C00&DEV_3250
+%WinChipHead_PORTE_2S1P%=WCH2S1P_instE, PCI\VEN_1C00&DEV_3250&SUBSYS_32501C00
+%WinChipHead_PORTE_4S%=WCH4S_instE, PCI\VEN_1C00&DEV_3470
+%WinChipHead_PORTE_4S%=WCH4S_instE, PCI\VEN_1C00&DEV_3470&SUBSYS_34701C00
+%WinChipHead_PORTE_4S1P%=WCH4S1P_instE, PCI\VEN_1C00&DEV_3450
+%WinChipHead_PORTE_4S1P%=WCH4S1P_instE, PCI\VEN_1C00&DEV_3450&SUBSYS_34501C00
+%WinChipHead_PORTE_8S%=WCH8S_instE, PCI\VEN_1C00&DEV_3853
+%WinChipHead_PORTE_8S%=WCH8S_instE, PCI\VEN_1C00&DEV_3853&SUBSYS_38531C00
+%WinChipHead_PORTE_8S%=WCH8S_instEB, PCI\VEN_1C00&DEV_3258
+%WinChipHead_PORTE_8S%=WCH8S_instEB, PCI\VEN_1C00&DEV_3258&SUBSYS_32581C00
+%WinChipHead_PORTE_28S%=WCH28S_instE, PCI\VEN_1C00&DEV_4353
+%WinChipHead_PORTE_28S%=WCH28S_instE, PCI\VEN_1C00&DEV_4353&SUBSYS_43531C00
+
+;;1P
+; WIN2K
+[WCH1P_instE.NT]
+Include = mf.inf
+Needs = MFINSTALL.mf
+
+[WCH1P_instE.NT.HW]
+AddReg=WCH1P_instE.NT.RegHW
+
+[WCH1P_instE.NT.Services]
+Include = mf.inf
+Needs = MFINSTALL.mf.Services
+
+[WCH1P_instE.NT.RegHW]
+HKR,Child0000,HardwareID,,MF\PCIE3050_LPT_0
+HKR,Child0000,ResourceMap,1,04,06
+
+;;2S
+; WIN2K
+[WCH2S_instE.NT]
+Include = mf.inf
+Needs = MFINSTALL.mf
+
+[WCH2S_instE.NT.HW]
+AddReg=WCH2S_instE.NT.RegHW
+
+[WCH2S_instE.NT.Services]
+Include = mf.inf
+Needs = MFINSTALL.mf.Services
+
+[WCH2S_instE.NT.RegHW]
+HKR,Child0001,HardwareID,,MF\PCIE3253_COM_0
+HKR,Child0001,ResourceMap,1,00,06
+HKR,Child0000,HardwareID,,MF\PCIE3253_COM_1
+HKR,Child0000,ResourceMap,1,00,06
+
+;;2S1P
+; WIN2K
+[WCH2S1P_instE.NT]
+Include = mf.inf
+Needs = MFINSTALL.mf
+
+[WCH2S1P_instE.NT.HW]
+AddReg=WCH2S1P_instE.NT.RegHW
+
+[WCH2S1P_instE.NT.Services]
+Include = mf.inf
+Needs = MFINSTALL.mf.Services
+
+[WCH2S1P_instE.NT.RegHW]
+HKR,Child0002,HardwareID,,MF\PCIE3250_COM_0
+HKR,Child0002,ResourceMap,1,00,06
+HKR,Child0001,HardwareID,,MF\PCIE3250_COM_1
+HKR,Child0001,ResourceMap,1,00,06
+HKR,Child0000,HardwareID,,MF\PCIE3250_LPT_0
+HKR,Child0000,ResourceMap,1,04,06
+
+;;4S
+; WIN2K
+[WCH4S_instE.NT]
+Include = mf.inf
+Needs = MFINSTALL.mf
+
+[WCH4S_instE.NT.HW]
+AddReg=WCH4S_instE.NT.RegHW
+
+[WCH4S_instE.NT.Services]
+Include = mf.inf
+Needs = MFINSTALL.mf.Services
+
+[WCH4S_instE.NT.RegHW]
+HKR,Child0003,HardwareID,,MF\PCIE3470_COM_0
+HKR,Child0003,ResourceMap,1,00,06
+HKR,Child0002,HardwareID,,MF\PCIE3470_COM_1
+HKR,Child0002,ResourceMap,1,00,06
+HKR,Child0001,HardwareID,,MF\PCIE3470_COM_2
+HKR,Child0001,ResourceMap,1,00,06
+HKR,Child0000,HardwareID,,MF\PCIE3470_COM_3
+HKR,Child0000,ResourceMap,1,00,06
+
+;;4S1P
+; WIN2K
+[WCH4S1P_instE.NT]
+Include = mf.inf
+Needs = MFINSTALL.mf
+
+[WCH4S1P_instE.NT.HW]
+AddReg=WCH4S1P_instE.NT.RegHW
+
+[WCH4S1P_instE.NT.Services]
+Include = mf.inf
+Needs = MFINSTALL.mf.Services
+
+[WCH4S1P_instE.NT.RegHW]
+HKR,Child0004,HardwareID,,MF\PCIE3450_COM_0
+HKR,Child0004,ResourceMap,1,00,06
+HKR,Child0003,HardwareID,,MF\PCIE3450_COM_1
+HKR,Child0003,ResourceMap,1,00,06
+HKR,Child0002,HardwareID,,MF\PCIE3450_COM_2
+HKR,Child0002,ResourceMap,1,00,06
+HKR,Child0001,HardwareID,,MF\PCIE3450_COM_3
+HKR,Child0001,ResourceMap,1,00,06
+HKR,Child0000,HardwareID,,MF\PCIE3450_LPT_0
+HKR,Child0000,ResourceMap,1,04,06
+
+;;8SA 
+; WIN2K
+[WCH8S_instE.NT]
+Include = mf.inf
+Needs = MFINSTALL.mf
+
+[WCH8S_instE.NT.HW]
+AddReg=WCH8S_instE.NT.RegHW
+
+[WCH8S_instE.NT.Services]
+Include = mf.inf
+Needs = MFINSTALL.mf.Services
+
+[WCH8S_instE.NT.RegHW]
+HKR,Child0007,HardwareID,,MF\PCIE3853_COM_0
+HKR,Child0007,ResourceMap,1,00,06
+HKR,Child0006,HardwareID,,MF\PCIE3853_COM_1
+HKR,Child0006,ResourceMap,1,00,06
+HKR,Child0005,HardwareID,,MF\PCIE3853_COM_2
+HKR,Child0005,ResourceMap,1,00,06
+HKR,Child0004,HardwareID,,MF\PCIE3853_COM_3
+HKR,Child0004,ResourceMap,1,00,06
+HKR,Child0003,HardwareID,,MF\PCIE3853_COM_4
+HKR,Child0003,ResourceMap,1,00,06
+HKR,Child0002,HardwareID,,MF\PCIE3853_COM_5
+HKR,Child0002,ResourceMap,1,00,06
+HKR,Child0001,HardwareID,,MF\PCIE3853_COM_6
+HKR,Child0001,ResourceMap,1,00,06
+HKR,Child0000,HardwareID,,MF\PCIE3853_COM_7
+HKR,Child0000,ResourceMap,1,00,06
+
+;;8SB
+; WIN2K
+[WCH8S_instEB.NT]
+Include = mf.inf
+Needs = MFINSTALL.mf
+
+[WCH8S_instEB.NT.HW]
+AddReg=WCH8S_instEB.NT.RegHW
+
+[WCH8S_instEB.NT.Services]
+Include = mf.inf
+Needs = MFINSTALL.mf.Services
+
+[WCH8S_instEB.NT.RegHW]
+HKR,Child0007,HardwareID,,MF\PCIE3258_COM_0
+HKR,Child0007,ResourceMap,1,00,06
+HKR,Child0006,HardwareID,,MF\PCIE3258_COM_1
+HKR,Child0006,ResourceMap,1,00,06
+HKR,Child0005,HardwareID,,MF\PCIE3258_COM_2
+HKR,Child0005,ResourceMap,1,00,06
+HKR,Child0004,HardwareID,,MF\PCIE3258_COM_3
+HKR,Child0004,ResourceMap,1,00,06
+HKR,Child0003,HardwareID,,MF\PCIE3258_COM_4
+HKR,Child0003,ResourceMap,1,00,06
+HKR,Child0002,HardwareID,,MF\PCIE3258_COM_5
+HKR,Child0002,ResourceMap,1,00,06
+HKR,Child0001,HardwareID,,MF\PCIE3258_COM_6
+HKR,Child0001,ResourceMap,1,00,06
+HKR,Child0000,HardwareID,,MF\PCIE3258_COM_7
+HKR,Child0000,ResourceMap,1,00,06
+
+;;28s 
+; WIN2K
+[WCH28S_instE.NT]
+Include = mf.inf
+Needs = MFINSTALL.mf
+
+[WCH28S_instE.NT.HW]
+AddReg=WCH28S_instE.NT.RegHW
+
+[WCH28S_instE.NT.Services]
+Include = mf.inf
+Needs = MFINSTALL.mf.Services
+
+[WCH28S_instE.NT.RegHW]
+HKR,Child0027,HardwareID,,MF\PCIE4353_COM_0
+HKR,Child0027,ResourceMap,1,00,06
+HKR,Child0026,HardwareID,,MF\PCIE4353_COM_1
+HKR,Child0026,ResourceMap,1,00,06
+HKR,Child0025,HardwareID,,MF\PCIE4353_COM_2
+HKR,Child0025,ResourceMap,1,00,06
+HKR,Child0024,HardwareID,,MF\PCIE4353_COM_3
+HKR,Child0024,ResourceMap,1,00,06
+HKR,Child0023,HardwareID,,MF\PCIE4353_COM_4
+HKR,Child0023,ResourceMap,1,00,06
+HKR,Child0022,HardwareID,,MF\PCIE4353_COM_5
+HKR,Child0022,ResourceMap,1,00,06
+HKR,Child0021,HardwareID,,MF\PCIE4353_COM_6
+HKR,Child0021,ResourceMap,1,00,06
+HKR,Child0020,HardwareID,,MF\PCIE4353_COM_7
+HKR,Child0020,ResourceMap,1,00,06
+HKR,Child0019,HardwareID,,MF\PCIE4353_COM_8
+HKR,Child0019,ResourceMap,1,00,06
+HKR,Child0018,HardwareID,,MF\PCIE4353_COM_9
+HKR,Child0018,ResourceMap,1,00,06
+HKR,Child0017,HardwareID,,MF\PCIE4353_COM_10
+HKR,Child0017,ResourceMap,1,00,06
+HKR,Child0016,HardwareID,,MF\PCIE4353_COM_11
+HKR,Child0016,ResourceMap,1,00,06
+HKR,Child0015,HardwareID,,MF\PCIE4353_COM_12
+HKR,Child0015,ResourceMap,1,00,06
+HKR,Child0014,HardwareID,,MF\PCIE4353_COM_13
+HKR,Child0014,ResourceMap,1,00,06
+HKR,Child0013,HardwareID,,MF\PCIE4353_COM_14
+HKR,Child0013,ResourceMap,1,00,06
+HKR,Child0012,HardwareID,,MF\PCIE4353_COM_15
+HKR,Child0012,ResourceMap,1,00,06
+HKR,Child0011,HardwareID,,MF\PCIE4353_COM_16
+HKR,Child0011,ResourceMap,1,00,06
+HKR,Child0010,HardwareID,,MF\PCIE4353_COM_17
+HKR,Child0010,ResourceMap,1,00,06
+HKR,Child0009,HardwareID,,MF\PCIE4353_COM_18
+HKR,Child0009,ResourceMap,1,00,06
+HKR,Child0008,HardwareID,,MF\PCIE4353_COM_19
+HKR,Child0008,ResourceMap,1,00,06
+HKR,Child0007,HardwareID,,MF\PCIE4353_COM_20
+HKR,Child0007,ResourceMap,1,00,06
+HKR,Child0006,HardwareID,,MF\PCIE4353_COM_21
+HKR,Child0006,ResourceMap,1,00,06
+HKR,Child0005,HardwareID,,MF\PCIE4353_COM_22
+HKR,Child0005,ResourceMap,1,00,06
+HKR,Child0004,HardwareID,,MF\PCIE4353_COM_23
+HKR,Child0004,ResourceMap,1,00,06
+HKR,Child0003,HardwareID,,MF\PCIE4353_COM_24
+HKR,Child0003,ResourceMap,1,00,06
+HKR,Child0002,HardwareID,,MF\PCIE4353_COM_25
+HKR,Child0002,ResourceMap,1,00,06
+HKR,Child0001,HardwareID,,MF\PCIE4353_COM_26
+HKR,Child0001,ResourceMap,1,00,06
+HKR,Child0000,HardwareID,,MF\PCIE4353_COM_27
+HKR,Child0000,ResourceMap,1,00,06
+
+[SourceDisksNames]
+
+[SourceDisksFiles]
+
+[Strings]
+WinChipHead= "WinChipHead"
+WinChipHead_PORTE_1P = "WCH PCI Express=>PARALLEL"
+WinChipHead_PORTE_2S = "WCH PCI Express=>DUAL SERIAL"
+WinChipHead_PORTE_2S1P = "WCH PCI Express=>DUAL SERIAL&&PARALLEL"
+WinChipHead_PORTE_4S = "WCH PCI Express=>QUAD SERIAL"
+WinChipHead_PORTE_4S1P = "WCH PCI Express=>QUAD SERIAL&PARALLEL"
+WinChipHead_PORTE_8S = "WCH PCI Express=>OCTAL SERIAL"
+WinChipHead_PORTE_28S = "WCH PCI Express=>28 SERIAL"

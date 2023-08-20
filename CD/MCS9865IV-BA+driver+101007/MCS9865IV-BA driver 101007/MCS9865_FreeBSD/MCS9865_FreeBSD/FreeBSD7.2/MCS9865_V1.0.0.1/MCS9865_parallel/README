@@ -1,0 +1,28 @@
+				
+			MCS9865 FREEBSD 7.2 Parallel port driver
+
+
+Procedure:
+
+	1. #make 	: To compile the driver.
+	2. #make ld	: To load the driver.
+	3. #make uld	: To unload the driver.
+
+
+	After loading the driver, with dmesg command one should see the fallowing messge.
+The port names are /dev/lpt1 Use these names for accessing the ports.
+ 
+
+ppc1: <NetMos NM9865 1284 Printer port> port 0xe800-0xe807,0xe480-0xe487 mem 0xfebfb000-0xfebfbfff,0xfebfa000-0xfebfafff irq 18 at device 0.2 on pci5
+ppc1: Generic chipset (EPP/NIBBLE) in COMPATIBLE mode
+ppbus3: <Parallel port bus> on ppc1
+
+
+Usage:
+
+Tested only command line printing.
+
+	1. create a text file.
+	2. print it using "cat <file name> > /dev/lpt1"
+	
+

@@ -1,0 +1,35 @@
+
+.SUFFIXES: .cpp .o
+
+
+TARGET	 = lx201fw21
+
+APL_DIR	 = ./lx201FWxx/lx201FWxx
+LIB_DIR	 = ./xhc201w/xhc201w
+
+FILES 	 = $(APL_DIR)/lx201FWxx
+FILES 	+= $(APL_DIR)/log
+FILES 	+= $(LIB_DIR)/xhc201w
+FILES 	+= $(LIB_DIR)/comutil
+FILES 	+= $(LIB_DIR)/debug
+FILES 	+= $(LIB_DIR)/fileio
+FILES 	+= $(LIB_DIR)/sromio
+
+OBJS  	 = $(FILES:%=%.o)
+
+CFLAGS 		= -Wall -I$(APL_DIR) -I$(LIB_DIR) -I./xhc201w/inc -I./xhc201w/xhc201w_driver
+
+#CFLAGS += -D_DEBUG
+
+
+all:    $(TARGET)
+$(TARGET) : $(OBJS)
+	$(CC) -o $@ $(OBJS) -lstdc++ 
+
+.cpp.o:
+	$(CC) $(CFLAGS) -c $<  -o $@
+
+clean :
+	$(RM) $(TARGET)
+	$(RM) $(APL_DIR)/*.o
+	$(RM) $(LIB_DIR)/*.o

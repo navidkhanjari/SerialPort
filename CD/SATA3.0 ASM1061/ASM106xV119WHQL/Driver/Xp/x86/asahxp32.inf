@@ -1,0 +1,72 @@
+; asahxp.INF
+; Installation INF for ASMEDIA AHCI SATA Controller for Windows XP/2003
+; Copyright (C) 2010 Asmedia Technology
+
+[Version]
+signature="$CHICAGO$"
+Class=SCSIAdapter
+ClassGUID={4D36E97B-E325-11CE-BFC1-08002BE10318}
+Provider=%ASMEDIA%
+DriverVer=01/30/2011,1.1.9.000
+CatalogFile=asahxp32.cat
+
+[Manufacturer]
+%ASMEDIA%=ASMEDIA_AHCI
+
+[ASMEDIA_AHCI]
+%PCI\VEN_1B21&DEV_0601.DeviceDesc%= ahci_Inst, PCI\VEN_1B21&DEV_0601
+%PCI\VEN_1B21&DEV_0602.DeviceDesc%= ahci_Inst, PCI\VEN_1B21&DEV_0602
+%PCI\VEN_1B21&DEV_0611.DeviceDesc%= ahci_Inst, PCI\VEN_1B21&DEV_0611
+%PCI\VEN_1B21&DEV_0612.DeviceDesc%= ahci_Inst, PCI\VEN_1B21&DEV_0612
+
+[ControlFlags]
+ExcludeFromSelect =*;
+
+; --------------source
+[SourceDisksNames]
+1=%SOURCEDISK%
+
+[SourceDisksFiles]
+asahxp32.sys = 1
+
+; --------------dest
+[DestinationDirs]
+DefaultDestDir = 12 ; DIRID_DRIVERS
+
+[ahci_Inst.NTx86]
+CopyFiles=@asahxp32.sys
+
+[ahci_Inst.NTx86.Services]
+AddService = %SERVICENAME%, 2, AHCI_Service_Inst.NTx86, Miniport_EventLog_Inst
+
+[AHCI_Service_Inst.NTx86]
+ServiceType    = 1
+StartType      = 0
+ErrorControl   = 1
+ServiceBinary  = %12%\asahxp32.sys
+LoadOrderGroup = SCSI Miniport
+AddReg         = AHCI_pnp
+
+[AHCI_pnp]
+HKR, "Parameters\PnpInterface", "5", 0x00010001, 0x00000001
+HKR,Parameters,BusType,0x00010001,0x0000003
+HKR,"Parameters\Device",MaximumSGList, 0x00010001, 0x21
+HKR,"Parameters\Device",NumberOfRequests, 0x00010001, 0xF1
+
+[Miniport_EventLog_Inst]
+AddReg = Miniport_EventLog_AddReg
+
+[Miniport_EventLog_AddReg]
+HKR,,EventMessageFile,0x00020000,"%%SystemRoot%%\System32\IoLogMsg.dll"
+HKR,,TypesSupported,0x00010001,7
+
+
+
+[Strings]
+ASMEDIA = "Asmedia Technology"
+PCI\VEN_1B21&DEV_0611.DeviceDesc ="Asmedia 106x SATA Controller"
+PCI\VEN_1B21&DEV_0612.DeviceDesc ="Asmedia 106x SATA Controller"
+PCI\VEN_1B21&DEV_0601.DeviceDesc ="Asmedia 106x SATA Controller"
+PCI\VEN_1B21&DEV_0602.DeviceDesc ="Asmedia 106x SATA Controller"
+SOURCEDISK  = "Asmedia 106x SATA Controller"
+SERVICENAME = "asahxp32"

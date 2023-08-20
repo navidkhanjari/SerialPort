@@ -1,0 +1,39 @@
+Procedure for installing serial application(minicom)
+
+1. cd MCS9865_Vx.xx.xx
+2. cd serialapp
+3. pkg_add lrzsz-0.12.20_1.tbz
+4. pkg_add minicom-2.3_1.tbz
+
+
+Procedure for kernel compilation.
+
+1. Install the kernel source
+2. cd /usr/src/sys/i386/conf
+3. cp GENERIC MYKERNEL
+4. vi MYKERNEL ( edit MYKERNEL and add following lines in the file)
+
+	a)Serial port section which is defined as Serial
+
+	#Serial(COM) ports
+	options	COM_MULTIPORT
+	device		sio
+	device		uart
+
+	b)Parallel port section which is defined as parallel port
+
+	#parallel port
+	#device		ppc	#disable built-in parallel port support
+
+	c)Dumb serial and parallel port section
+	
+	device		puc	#enable puc support
+
+
+5.  config MYKERNEL
+6.  cd ../compile/MYKERNEL
+7.  make cleandepend
+8.  make depend
+9.  make
+10. make install
+11. reboot

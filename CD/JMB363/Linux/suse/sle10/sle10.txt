@@ -1,0 +1,27 @@
+Support OS:
+SuSE Linux Enterprise Desktop 10 32bit
+SuSE Linux Enterprise Server 10 32bit
+
+Support Chip/Mode:
+JMB360/1/2/3/5/6/8 IDE mode
+JMB360/1/2/3/5/6 AHCI mode
+
+Steps:
+1. Use dd(Linux) or Rawritewin.exe(Windows) to write driver disk.
+2. Make sure your JMB36x is set in IDE or AHCI mode.
+3. CD/DVD boot form OS installation disc.
+4. Insert driver disk to floppy drive.
+5. Select "Installation" and fill in "Boot Options" with "manual=1".
+6. Select the language.
+7. Choose a keyboard map.
+8. Select "Kernel Modules (Hardware Drivers)"
+8-1. If you are using USB Floppy drive, please select "usb-storage" module first.
+9. Select "Add Driver Update" and exit to Main Menu.
+10.Start Installation or System -> Start Installation or Update
+11.Install OS in the normal process.
+
+Known Issues:
+None
+
+MD5SUM
+6f776ab65cb2ebb7c60c22e0f8b85b23	sle10.img

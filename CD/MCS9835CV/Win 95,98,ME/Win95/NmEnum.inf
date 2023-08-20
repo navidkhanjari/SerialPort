@@ -1,0 +1,99 @@
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;  NetMos Technology, inc.
+;;
+;;  FILE : NmEnum.inf
+;;  This file works in conjunction with nmenum.vxd.
+;;  OS SUPPORTED : WIN95, WIN98 ONLY.
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[Version]
+LayoutFile = layout.inf
+Signature  = $CHICAGO$
+Class      = NetMosMultiFunction
+Provider   = %ProviderName%
+
+[DestinationDirs]
+DefaultDestDir  = 11    ;LDID_SYS
+Inf.Copy = 17       	;DIRID_INF
+
+[SourceDiskFiles]
+; 1 = Disk Number
+NmEnum.inf=1
+NmSNull.inf=1
+NmPorts.inf=1
+NmEnum.vxd=1
+NmUninst.exe=1
+
+[SourceDisksNames]
+1=%DiskName%,,
+
+;------------------------
+; Install CLass 
+;------------------------
+[ClassInstall]
+CopyFiles=NmEnum.Copy,Inf.Copy,Uninstall.Copy
+AddReg=Class.AddReg
+
+[Class.AddReg]
+HKR,,Icon,,-23
+
+[Manufacturer]
+%MfgName%=NetMosCards
+
+;------------------------
+; Install Drivers
+;------------------------
+[NetMosCards]
+%Nm9735Name%=NmEnum,PCI\VEN_9710&DEV_9735
+%Nm9745Name%=NmEnum,PCI\VEN_9710&DEV_9745
+
+[NmEnum]
+CopyFiles=Inf.Copy,NmEnum.Copy,Uninstall.Copy
+AddReg=NmEnum.AddReg,Uninstall.AddReg
+
+[NmEnum.AddReg]
+HKR,,DevLoader,0,NMENUM.vxd
+
+[Uninstall.AddReg]
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%MfgName%,DisplayName,0,%UninstallName%
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%MfgName%,UninstallString,0,NmUninst.exe
+
+[Inf.Copy]
+NmEnum.inf
+NmSNull.inf
+NmPorts.inf
+
+[NmEnum.Copy]
+NMENUM.vxd
+
+[Uninstall.Copy]
+NmUninst.exe
+
+[Strings]
+ProviderName="NetMos Technology"
+MfgName="NetMos Technology"
+DiskName="NetMos Multi I/O Driver Disk"
+UninstallName="NetMos Multi-IO Controller"
+ComPortName="NetMos PCI Serial Port"
+LptPortName="NetMos PCI Parallel Port"
+EcpPortName="NetMos PCI SPP/BPP/ECP/EPP Port"
+NullPortName="NetMos Bridge"
+Nm9705Name="NetMos PCI 9705 Parallel Port"
+Nm9735Name="NetMos PCI 9735 Multi-I/O Controller"
+Nm9745Name="NetMos PCI 9745 Multi-I/O Controller"
+NmS9705Name="NetMos PCI 9705 Parallel Port"
+NmS9735Name="NetMos PCI 9735 Serial Port"
+NmS9745Name="NetMos PCI 9745 Serial Port"
+Nm9805Name="NetMos PCI 9805 Parallel Port"
+Nm9815Name="NetMos PCI 9815 Multi-I/O Controller"
+Nm9820Name="NetMos PCI 9820 Serial Port"
+Nm9825Name="NetMos PCI 9825 Serial Port"
+Nm9835Name="NetMos PCI 9835 Multi-I/O Controller"
+Nm9845Name="NetMos PCI 9845 Multi-I/O Controller"
+Nm9855Name="NetMos PCI 9855 Multi-I/O Controller"
+
+; END OF FILE
+

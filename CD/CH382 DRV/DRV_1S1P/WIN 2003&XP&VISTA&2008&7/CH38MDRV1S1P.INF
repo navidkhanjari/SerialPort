@@ -1,0 +1,55 @@
+; CH38MDRV.INF
+; Driver for PCI-E chip(CH38X)(It supports multi-setial ports,parallel port)
+; For windows 2003/XP/VISTA/2008/7
+; Copyright (C) WCH  2011
+; Ver V1.1
+
+[Version]
+Signature=$CHICAGO$
+Class=MultiFunction
+ClassGUID={4d36e971-e325-11ce-bfc1-08002be10318}
+Provider=%WinChipHead%
+DriverVer=12/08/2011,1.1.2011.12
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%WinChipHead%=WinChipHead,NT,NTamd64
+
+[WinChipHead.NT]
+%WinChipHead_PORTE_1S1P%=WCH1S1P_instE, PCI\VEN_1C00&DEV_3250
+%WinChipHead_PORTE_1S1P%=WCH1S1P_instE, PCI\VEN_1C00&DEV_3250&SUBSYS_32501C00
+
+[WinChipHead.NTAMD64]
+%WinChipHead_PORTE_1S1P%=WCH1S1P_instE, PCI\VEN_1C00&DEV_3250
+%WinChipHead_PORTE_1S1P%=WCH1S1P_instE, PCI\VEN_1C00&DEV_3250&SUBSYS_32501C00
+
+;;1S1P
+; WINXP adn later
+[WCH1S1P_instE.NT]
+Include = mf.inf
+Needs = MFINSTALL.mf
+
+[WCH1S1P_instE.NT.HW]
+AddReg=WCH1S1P_instE.NT.RegHW
+
+[WCH1S1P_instE.NT.Services]
+Include = mf.inf
+Needs = MFINSTALL.mf.Services
+
+[WCH1S1P_instE.NT.RegHW]
+HKR,Child0001,HardwareID,,MF\PCIE3250_COM_0
+HKR,Child0001,VaryingResourceMap,1,00,C0,00,00,00,08,00,00,00
+HKR,Child0001,ResourceMap,1,06
+HKR,Child0000,HardwareID,,MF\PCIE3250_LPT_0
+HKR,Child0000,VaryingResourceMap,1,04,00,00,00,00,04,00,00,00
+HKR,Child0000,ResourceMap,1,06
+
+[SourceDisksNames]
+
+[SourceDisksFiles]
+
+[Strings]
+WinChipHead= "WinChipHead"
+WinChipHead_PORTE_1S1P = "WCH PCI Express=>SERIAL&&PARALLEL"

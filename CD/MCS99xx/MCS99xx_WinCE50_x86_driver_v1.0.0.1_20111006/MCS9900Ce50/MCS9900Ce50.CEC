@@ -1,0 +1,41 @@
+CECInfo
+(
+	Name ( "MCS9900Ce50" )
+	CECVersion ( 5.00 )
+	Description ( "Moschip serial and parallel drivers" )
+	GUID ( {9FBD854A-8FB3-45C3-AA41-D58A3292F04A} )
+	Vendor ( "Moschip Ltd" )
+)
+ComponentType
+(
+	Name ( "MOSCHIP SEMICONDUCTOR PVT LTD-9900" )
+	GUID ( {5AF9091E-8D47-419B-84D7-82D96BC3607F} )
+	Description ( "PCIe to Serial and Parallel Driver" )
+	Group ( "\Device Drivers" )
+	Vendor ( "Moschip Semiconductor Pvt Ltd" )
+	MaxResolvedImpsAllowed( 999 )
+	Implementations
+	(
+		Implementation
+		(
+			Name ( "MOSCHIP SEMICONDUCTOR PVT LTD-9900" )
+			GUID ( {9ED90E01-29A6-4D26-8AA3-84BB9AE496B4} )
+			Description ( "PCIe to Serial and Parallel Drivers" )
+			Version ( "1.0.0.2" )
+			Locale ( 0409 )
+			Vendor ( "Moschip Semiconductor Pvt Ltd" )
+			Date ( "6/5/2009" )
+			SizeIsCPUDependent( 1 )
+			BuildMethods
+			(
+				BuildMethod
+				(
+					GUID ( {FBB0EAB7-A765-4B63-8B2F-55A81E03EBC2} )
+					Step ( CESYSGEN )
+					CPU ( "x86" )
+					Action ( '#SRCCODE( USER_PROJECT, "$(_WINCEROOT)\PLATFORM\MCS9900Ce50\MCS9900Ce50.pbpxml" )' )
+				)
+			)
+		)
+	)
+)

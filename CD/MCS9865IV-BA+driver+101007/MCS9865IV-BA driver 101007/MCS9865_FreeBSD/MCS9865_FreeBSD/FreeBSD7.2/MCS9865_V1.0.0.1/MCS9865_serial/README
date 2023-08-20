@@ -1,0 +1,31 @@
+			MCS9865 FreeBSD 7.2 serial driver
+
+Procedure:
+
+	1. #make 	: To compile the driver.
+	2. #make ld	: To load the driver.
+	3. #make uld	: To unload the driver.
+
+
+	After loading the driver, with dmesg command one should see the following messge.
+
+
+mcs9865_uart4: <Non-standard mcs9865_uart class UART with FIFOs> port 0xec00-0xec07 mem 0xfebff000-0xfebfffff,0xfebfe000-0xfebfefff irq 16 at device 0.0 on pci5
+mcs9865_uart4: [FILTER]
+mcs9865_uart5: <Non-standard mcs9865_uart class UART with FIFOs> port 0xe880-0xe887 mem 0xfebfd000-0xfebfdfff,0xfebfc000-0xfebfcfff irq 17 at device 0.1 on pci5
+mcs9865_uart5: [FILTER]
+
+Note: The above messages will be displayed by executing "dmesg" at the command prompt.
+
+mcs9865_uart4 indicates serial port name /dev/ttyu4 in the /dev directory.
+similarly  for other ports mcs9865_uartX indicates serial port name /dev/ttyuX where X=0 to f.
+
+example: The serial ports are /dev/ttyu4 and /dev/ttyu5 
+
+minicom Usage:
+
+	The minicom application is also placed in the same folder 
+	usage: ./minicom -s
+
+
+	Tested Upto 2x baudrate with minicom.

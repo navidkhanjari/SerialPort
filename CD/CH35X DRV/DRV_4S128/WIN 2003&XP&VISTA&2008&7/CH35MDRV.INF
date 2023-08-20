@@ -1,0 +1,318 @@
+; CH35MDRV.INF
+; Driver for CH35X (It supports multi-setial ports,parallel port)
+; For windows 2003/XP/VISTA/2008/7/8
+; Copyright (C) WCH  2012
+; Ver V1.3
+
+[Version]
+Signature=$CHICAGO$
+Class=MultiFunction
+ClassGUID={4d36e971-e325-11ce-bfc1-08002be10318}
+Provider=%WinChipHead%
+DriverVer=07/09/2012,1.3.2012.7
+CatalogFile.NT = CH35MDRV.CAT
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%WinChipHead%=WinChipHead,NT,NTamd64
+
+[WinChipHead.NT]
+%WinChipHead_PORT_4SC%=WCH4SC_inst, PCI\VEN_4348&DEV_5334&SUBSYS_50534348
+%WinChipHead_PORT_4S1PA%=WCH4S1PA_inst, PCI\VEN_4348&DEV_7073
+%WinChipHead_PORT_4S1PA%=WCH4S1PA_inst, PCI\VEN_4348&DEV_7073&SUBSYS_34734348
+%WinChipHead_PORT_4S1PB%=WCH4S1PB_inst, PCI\VEN_4348&DEV_5334&SUBSYS_53344348
+%WinChipHead_PORT_6S%=WCH6S_inst, PCI\VEN_4348&DEV_3873
+%WinChipHead_PORT_6S%=WCH6S_inst, PCI\VEN_4348&DEV_3873&SUBSYS_38734348
+%WinChipHead_PORT_8SA%=WCH8SA_inst, PCI\VEN_4348&DEV_3853
+%WinChipHead_PORT_8SA%=WCH8SA_inst, PCI\VEN_4348&DEV_3853&SUBSYS_38534348
+%WinChipHead_PORT_8SB%=WCH8SB_inst, PCI\VEN_4348&DEV_5338
+%WinChipHead_PORT_8SB%=WCH8SB_inst, PCI\VEN_4348&DEV_5338&SUBSYS_53384348
+%WinChipHead_PORT_16S%=WCH16S_inst, PCI\VEN_4348&DEV_5838
+%WinChipHead_PORT_16S%=WCH16S_inst, PCI\VEN_4348&DEV_5838&SUBSYS_58384348
+
+[WinChipHead.NTAMD64]
+%WinChipHead_PORT_4SC%=WCH4SC_inst, PCI\VEN_4348&DEV_5334&SUBSYS_50534348
+%WinChipHead_PORT_4S1PA%=WCH4S1PA_inst, PCI\VEN_4348&DEV_7073
+%WinChipHead_PORT_4S1PA%=WCH4S1PA_inst, PCI\VEN_4348&DEV_7073&SUBSYS_34734348
+%WinChipHead_PORT_4S1PB%=WCH4S1PB_inst, PCI\VEN_4348&DEV_5334&SUBSYS_53344348
+%WinChipHead_PORT_6S%=WCH6S_inst, PCI\VEN_4348&DEV_3873
+%WinChipHead_PORT_6S%=WCH6S_inst, PCI\VEN_4348&DEV_3873&SUBSYS_38734348
+%WinChipHead_PORT_8SA%=WCH8SA_inst, PCI\VEN_4348&DEV_3853
+%WinChipHead_PORT_8SA%=WCH8SA_inst, PCI\VEN_4348&DEV_3853&SUBSYS_38534348
+%WinChipHead_PORT_8SB%=WCH8SB_inst, PCI\VEN_4348&DEV_5338
+%WinChipHead_PORT_8SB%=WCH8SB_inst, PCI\VEN_4348&DEV_5338&SUBSYS_53384348
+%WinChipHead_PORT_16S%=WCH16S_inst, PCI\VEN_4348&DEV_5838
+%WinChipHead_PORT_16S%=WCH16S_inst, PCI\VEN_4348&DEV_5838&SUBSYS_58384348
+
+;;4SC
+; WIN2K
+[WCH4SC_inst.NT]
+Include = mf.inf
+Needs = MFINSTALL.mf
+
+[WCH4SC_inst.NT.HW]
+AddReg=WCH4SC_inst.NT.RegHW
+
+[WCH4SC_inst.NT.Services]
+Include = mf.inf
+Needs = MFINSTALL.mf.Services
+
+[WCH4SC_inst.NT.RegHW]
+HKR,Child0003,HardwareID,,MF\PCI5334_COM_0
+HKR,Child0003,VaryingResourceMap,1,00,00,00,00,00,08,00,00,00
+HKR,Child0003,ResourceMap,1,0a
+HKR,Child0002,HardwareID,,MF\PCI5334_COM_1
+HKR,Child0002,VaryingResourceMap,1,02,00,00,00,00,08,00,00,00
+HKR,Child0002,ResourceMap,1,0a
+HKR,Child0001,HardwareID,,MF\PCI5334_COM_2
+HKR,Child0001,VaryingResourceMap,1,04,00,00,00,00,08,00,00,00
+HKR,Child0001,ResourceMap,1,0a
+HKR,Child0000,HardwareID,,MF\PCI5334_COM_3
+HKR,Child0000,VaryingResourceMap,1,06,00,00,00,00,08,00,00,00
+HKR,Child0000,ResourceMap,1,0a
+
+;;4S1PA
+; WIN2K
+[WCH4S1PA_inst.NT]
+Include = mf.inf
+Needs = MFINSTALL.mf
+
+[WCH4S1PA_inst.NT.HW]
+AddReg=WCH4S1PA_inst.NT.RegHW
+
+[WCH4S1PA_inst.NT.Services]
+Include = mf.inf
+Needs = MFINSTALL.mf.Services
+
+[WCH4S1PA_inst.NT.RegHW]
+HKR,Child0004,HardwareID,,MF\PCI7073_COM_0
+HKR,Child0004,VaryingResourceMap,1,00,00,00,00,00,08,00,00,00
+HKR,Child0004,ResourceMap,1,0a
+HKR,Child0003,HardwareID,,MF\PCI7073_COM_1
+HKR,Child0003,VaryingResourceMap,1,02,00,00,00,00,08,00,00,00
+HKR,Child0003,ResourceMap,1,0a
+HKR,Child0002,HardwareID,,MF\PCI7073_COM_2
+HKR,Child0002,VaryingResourceMap,1,04,00,00,00,00,08,00,00,00
+HKR,Child0002,ResourceMap,1,0a
+HKR,Child0001,HardwareID,,MF\PCI7073_COM_3
+HKR,Child0001,VaryingResourceMap,1,06,00,00,00,00,08,00,00,00
+HKR,Child0001,ResourceMap,1,0a
+HKR,Child0000,HardwareID,,MF\PCI7073_LPT_0
+HKR,Child0000,VaryingResourceMap,1,08,00,00,00,00,04,00,00,00
+HKR,Child0000,ResourceMap,1,0a
+
+;;4S1PB
+; WIN2K
+[WCH4S1PB_inst.NT]
+Include = mf.inf
+Needs = MFINSTALL.mf
+
+[WCH4S1PB_inst.NT.HW]
+AddReg=WCH4S1PB_inst.NT.RegHW
+
+[WCH4S1PB_inst.NT.Services]
+Include = mf.inf
+Needs = MFINSTALL.mf.Services
+
+[WCH4S1PB_inst.NT.RegHW]
+HKR,Child0004,HardwareID,,MF\PCI5334_COM_0
+HKR,Child0004,VaryingResourceMap,1,00,00,00,00,00,08,00,00,00
+HKR,Child0004,ResourceMap,1,0a
+HKR,Child0003,HardwareID,,MF\PCI5334_COM_1
+HKR,Child0003,VaryingResourceMap,1,02,00,00,00,00,08,00,00,00
+HKR,Child0003,ResourceMap,1,0a
+HKR,Child0002,HardwareID,,MF\PCI5334_COM_2
+HKR,Child0002,VaryingResourceMap,1,04,00,00,00,00,08,00,00,00
+HKR,Child0002,ResourceMap,1,0a
+HKR,Child0001,HardwareID,,MF\PCI5334_COM_3
+HKR,Child0001,VaryingResourceMap,1,06,00,00,00,00,08,00,00,00
+HKR,Child0001,ResourceMap,1,0a
+HKR,Child0000,HardwareID,,MF\PCI5334_LPT_0
+HKR,Child0000,VaryingResourceMap,1,08,00,00,00,00,04,00,00,00
+HKR,Child0000,ResourceMap,1,0a
+
+;;6S
+; WIN2K
+[WCH6S_inst.NT]
+Include = mf.inf
+Needs = MFINSTALL.mf
+
+[WCH6S_inst.NT.HW]
+AddReg=WCH6S_inst.NT.RegHW
+
+[WCH6S_inst.NT.Services]
+Include = mf.inf
+Needs = MFINSTALL.mf.Services
+
+[WCH6S_inst.NT.RegHW]
+HKR,Child0005,HardwareID,,MF\PCI3873_COM_0
+HKR,Child0005,VaryingResourceMap,1,00,00,00,00,00,08,00,00,00
+HKR,Child0005,ResourceMap,1,0a
+HKR,Child0004,HardwareID,,MF\PCI3873_COM_1
+HKR,Child0004,VaryingResourceMap,1,02,00,00,00,00,08,00,00,00
+HKR,Child0004,ResourceMap,1,0a
+HKR,Child0003,HardwareID,,MF\PCI3873_COM_2
+HKR,Child0003,VaryingResourceMap,1,04,00,00,00,00,08,00,00,00
+HKR,Child0003,ResourceMap,1,0a
+HKR,Child0002,HardwareID,,MF\PCI3873_COM_3
+HKR,Child0002,VaryingResourceMap,1,06,00,00,00,00,08,00,00,00
+HKR,Child0002,ResourceMap,1,0a
+HKR,Child0001,HardwareID,,MF\PCI3873_COM_4
+HKR,Child0001,VaryingResourceMap,1,06,00,00,00,00,08,00,00,00
+HKR,Child0001,ResourceMap,1,0a
+HKR,Child0000,HardwareID,,MF\PCI3873_COM_5
+HKR,Child0000,VaryingResourceMap,1,06,00,00,00,00,08,00,00,00
+HKR,Child0000,ResourceMap,1,0a
+
+;;8SA 
+; WIN2K
+[WCH8SA_inst.NT]
+Include = mf.inf
+Needs = MFINSTALL.mf
+
+[WCH8SA_inst.NT.HW]
+AddReg=WCH8SA_inst.NT.RegHW
+
+[WCH8SA_inst.NT.Services]
+Include = mf.inf
+Needs = MFINSTALL.mf.Services
+
+[WCH8SA_inst.NT.RegHW]
+HKR,Child0007,HardwareID,,MF\PCI3853_COM_0
+HKR,Child0007,VaryingResourceMap,1,00,00,00,00,00,08,00,00,00
+HKR,Child0007,ResourceMap,1,0a
+HKR,Child0006,HardwareID,,MF\PCI3853_COM_1
+HKR,Child0006,VaryingResourceMap,1,02,00,00,00,00,08,00,00,00
+HKR,Child0006,ResourceMap,1,0a
+HKR,Child0005,HardwareID,,MF\PCI3853_COM_2
+HKR,Child0005,VaryingResourceMap,1,04,00,00,00,00,08,00,00,00
+HKR,Child0005,ResourceMap,1,0a
+HKR,Child0004,HardwareID,,MF\PCI3853_COM_3
+HKR,Child0004,VaryingResourceMap,1,06,00,00,00,00,08,00,00,00
+HKR,Child0004,ResourceMap,1,0a
+HKR,Child0003,HardwareID,,MF\PCI3853_COM_4
+HKR,Child0003,VaryingResourceMap,1,08,00,00,00,00,08,00,00,00
+HKR,Child0003,ResourceMap,1,0a
+HKR,Child0002,HardwareID,,MF\PCI3853_COM_5
+HKR,Child0002,VaryingResourceMap,1,08,08,00,00,00,08,00,00,00
+HKR,Child0002,ResourceMap,1,0a
+HKR,Child0001,HardwareID,,MF\PCI3853_COM_6
+HKR,Child0001,VaryingResourceMap,1,08,10,00,00,00,08,00,00,00
+HKR,Child0001,ResourceMap,1,0a
+HKR,Child0000,HardwareID,,MF\PCI3853_COM_7
+HKR,Child0000,VaryingResourceMap,1,08,18,00,00,00,08,00,00,00
+HKR,Child0000,ResourceMap,1,0a
+
+;;8SB 
+; WIN2K
+[WCH8SB_inst.NT]
+Include = mf.inf
+Needs = MFINSTALL.mf
+
+[WCH8SB_inst.NT.HW]
+AddReg=WCH8SB_inst.NT.RegHW
+
+[WCH8SB_inst.NT.Services]
+Include = mf.inf
+Needs = MFINSTALL.mf.Services
+
+[WCH8SB_inst.NT.RegHW]
+HKR,Child0007,HardwareID,,MF\PCI5338_COM_0
+HKR,Child0007,VaryingResourceMap,1,00,00,00,00,00,08,00,00,00
+HKR,Child0007,ResourceMap,1,0a
+HKR,Child0006,HardwareID,,MF\PCI5338_COM_1
+HKR,Child0006,VaryingResourceMap,1,02,00,00,00,00,08,00,00,00
+HKR,Child0006,ResourceMap,1,0a
+HKR,Child0005,HardwareID,,MF\PCI5338_COM_2
+HKR,Child0005,VaryingResourceMap,1,04,00,00,00,00,08,00,00,00
+HKR,Child0005,ResourceMap,1,0a
+HKR,Child0004,HardwareID,,MF\PCI5338_COM_3
+HKR,Child0004,VaryingResourceMap,1,06,00,00,00,00,08,00,00,00
+HKR,Child0004,ResourceMap,1,0a
+HKR,Child0003,HardwareID,,MF\PCI5338_COM_4
+HKR,Child0003,VaryingResourceMap,1,00,08,00,00,00,08,00,00,00
+HKR,Child0003,ResourceMap,1,0a
+HKR,Child0002,HardwareID,,MF\PCI5338_COM_5
+HKR,Child0002,VaryingResourceMap,1,02,08,00,00,00,08,00,00,00
+HKR,Child0002,ResourceMap,1,0a
+HKR,Child0001,HardwareID,,MF\PCI5338_COM_6
+HKR,Child0001,VaryingResourceMap,1,04,08,00,00,00,08,00,00,00
+HKR,Child0001,ResourceMap,1,0a
+HKR,Child0000,HardwareID,,MF\PCI5338_COM_7
+HKR,Child0000,VaryingResourceMap,1,06,08,00,00,00,08,00,00,00
+HKR,Child0000,ResourceMap,1,0a
+
+;;16s 
+; WIN2K
+[WCH16S_inst.NT]
+Include = mf.inf
+Needs = MFINSTALL.mf
+
+[WCH16S_inst.NT.HW]
+AddReg=WCH16S_inst.NT.RegHW
+
+[WCH16S_inst.NT.Services]
+Include = mf.inf
+Needs = MFINSTALL.mf.Services
+
+[WCH16S_inst.NT.RegHW]
+HKR,Child00015,HardwareID,,MF\PCI5838_COM_0
+HKR,Child00015,VaryingResourceMap,1,00,00,00,00,00,08,00,00,00
+HKR,Child00015,ResourceMap,1,0a
+HKR,Child00014,HardwareID,,MF\PCI5838_COM_1
+HKR,Child00014,VaryingResourceMap,1,02,00,00,00,00,08,00,00,00
+HKR,Child00014,ResourceMap,1,0a
+HKR,Child00013,HardwareID,,MF\PCI5838_COM_2
+HKR,Child00013,VaryingResourceMap,1,04,00,00,00,00,08,00,00,00
+HKR,Child00013,ResourceMap,1,0a
+HKR,Child00012,HardwareID,,MF\PCI5838_COM_3
+HKR,Child00012,VaryingResourceMap,1,06,00,00,00,00,08,00,00,00
+HKR,Child00012,ResourceMap,1,0a
+HKR,Child00011,HardwareID,,MF\PCI5838_COM_4
+HKR,Child00011,VaryingResourceMap,1,00,08,00,00,00,08,00,00,00
+HKR,Child00011,ResourceMap,1,0a
+HKR,Child00010,HardwareID,,MF\PCI5838_COM_5
+HKR,Child00010,VaryingResourceMap,1,02,08,00,00,00,08,00,00,00
+HKR,Child00010,ResourceMap,1,0a
+HKR,Child0009,HardwareID,,MF\PCI5838_COM_6
+HKR,Child0009,VaryingResourceMap,1,04,08,00,00,00,08,00,00,00
+HKR,Child0009,ResourceMap,1,0a
+HKR,Child0008,HardwareID,,MF\PCI5838_COM_7
+HKR,Child0008,VaryingResourceMap,1,06,08,00,00,00,08,00,00,00
+HKR,Child0008,ResourceMap,1,0a
+HKR,Child0007,HardwareID,,MF\PCI5838_COM_8
+HKR,Child0007,VaryingResourceMap,1,08,00,00,00,00,08,00,00,00
+HKR,Child0007,ResourceMap,1,0a
+HKR,Child0006,HardwareID,,MF\PCI5838_COM_9
+HKR,Child0006,VaryingResourceMap,1,08,10,00,00,00,08,00,00,00
+HKR,Child0006,ResourceMap,1,0a
+HKR,Child0005,HardwareID,,MF\PCI5838_COM_10
+HKR,Child0005,VaryingResourceMap,1,08,20,00,00,00,08,00,00,00
+HKR,Child0005,ResourceMap,1,0a
+HKR,Child0004,HardwareID,,MF\PCI5838_COM_11
+HKR,Child0004,VaryingResourceMap,1,08,30,00,00,00,08,00,00,00
+HKR,Child0004,ResourceMap,1,0a
+HKR,Child0003,HardwareID,,MF\PCI5838_COM_12
+HKR,Child0003,VaryingResourceMap,1,08,08,00,00,00,08,00,00,00
+HKR,Child0003,ResourceMap,1,0a
+HKR,Child0002,HardwareID,,MF\PCI5838_COM_13
+HKR,Child0002,VaryingResourceMap,1,08,18,00,00,00,08,00,00,00
+HKR,Child0002,ResourceMap,1,0a
+HKR,Child0001,HardwareID,,MF\PCI5838_COM_14
+HKR,Child0001,VaryingResourceMap,1,08,28,00,00,00,08,00,00,00
+HKR,Child0001,ResourceMap,1,0a
+HKR,Child0000,HardwareID,,MF\PCI5838_COM_15
+HKR,Child0000,VaryingResourceMap,1,08,38,00,00,00,08,00,00,00
+HKR,Child0000,ResourceMap,1,0a
+
+[Strings]
+WinChipHead= "WinChipHead"
+WinChipHead_PORT_4SC = "WCH PCI=>QUAD SERIAL"
+WinChipHead_PORT_4S1PA = "WCH PCI=>QUAD SERIAL&&PARALLEL"
+WinChipHead_PORT_4S1PB = "WCH PCI=>QUAD SERIAL&&PARALLEL"
+WinChipHead_PORT_6S = "WCH PCI=>SIX SERIAL"
+WinChipHead_PORT_8SA = "WCH PCI=>OCTAL SERIAL"
+WinChipHead_PORT_8SB = "WCH PCI=>OCTAL SERIAL"
+WinChipHead_PORT_16S = "WCH PCI=>SIXTEEN SERIAL"

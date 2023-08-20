@@ -1,0 +1,641 @@
+****************************************************************************
+**************** D720201 & D720202 Design Resources Release ****************
+***** All of this Software is under NDA or Software license agreement ******
+****************************************************************************
+ Release Note                                                  March 29.2012
+ 
+ Renesas Electronics uPD720201 & uPD720202
+ USB 3.0 Host Controller Driver Kit (x86 and x64)
+ for Windows XP, VISTA, 7 and Server 2008 Release 2
+ 
+ Kit Version : 3.0.16.0 : March 29th, 2011
+ Copyright (C) 2011-2012 Renesas Electronics Corporation All Rights Reserved
+****************************************************************************
+
+NOTE1:
+ This installer package is generated with the InstallShield2010 SP1.
+
+---------------------------------------------------------------------------
+Table of Contents
+---------------------------------------------------------------------------
+1. Release Files
+2. Command Line Options
+3. How to install/uninstall the driver package
+4. History
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------
+1. Release Files
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------
+Date        Time         Size   File Name                Version
+--EXE(Installer Package)
+ 2012/03/29 10:12      9776KB   RENESAS-USB3-Host-Driver-30160-setup.exe   3.0.16.0
+ 2011/05/19 11:18         1KB   setup.iss
+ 2012/03/29 20:02       975KB   InstallShield 2010 SP1 Projects-120329.zip 3.0.16.0
+ 
+--ZIP
+ 2012/03/29 20:03      8063KB   RENESAS-USB3-Host-Driver-30160-Setup-x86-x64-Binary.zip 3.0.16.0
+---contents
+ 2011/08/23 14:53        11KB   0x0C04.ini
+ 2009/09/11 14:50        21KB   0x2C0a.ini
+ 2009/05/20 16:30        24KB   0x040a.ini
+ 2009/03/18 15:05        22KB   0x040b.ini
+ 2009/05/20 17:27        25KB   0x040c.ini
+ 2009/03/16 14:23        18KB   0x040d.ini
+ 2009/03/18 15:07        22KB   0x040e.ini
+ 2009/05/20 16:46        22KB   0x041b.ini
+ 2009/05/20 16:46        22KB   0x041d.ini
+ 2009/03/18 15:15        22KB   0x041e.ini
+ 2009/05/20 16:58        22KB   0x041f.ini
+ 2009/05/20 16:55        19KB   0x0401.ini
+ 2011/07/15 10:09        11KB   0x0404.ini
+ 2009/05/20 17:03        22KB   0x0405.ini
+ 2009/05/20 17:03        23KB   0x0406.ini
+ 2009/05/20 17:22        25KB   0x0407.ini
+ 2009/03/18 15:26        26KB   0x0408.ini
+ 2009/05/21 15:53        21KB   0x0409.ini
+ 2009/05/20 17:06        24KB   0x0410.ini
+ 2009/06/08 16:45        15KB   0x0411.ini
+ 2009/03/16 14:28        14KB   0x0412.ini
+ 2009/05/20 17:07        24KB   0x0413.ini
+ 2009/05/20 17:08        23KB   0x0414.ini
+ 2009/05/20 17:09        23KB   0x0415.ini
+ 2009/05/20 17:09        23KB   0x0416.ini
+ 2009/05/20 17:12        22KB   0x0419.ini
+ 2009/05/20 17:13        23KB   0x0424.ini
+ 2009/05/21 17:44        11KB   0x0804.ini
+ 2009/05/20 17:14        24KB   0x0816.ini
+ 2012/03/29 09:38        58KB   1025.mst
+ 2012/03/29 09:38        48KB   1028.mst
+ 2012/03/29 09:38        67KB   1029.mst
+ 2012/03/29 09:38        68KB   1030.mst
+ 2012/03/29 09:38        78KB   1031.mst
+ 2012/03/29 09:38        78KB   1032.mst
+ 2012/03/29 09:38         4KB   1033.mst
+ 2012/03/29 09:38        76KB   1034.mst
+ 2012/03/29 09:38        68KB   1035.mst
+ 2012/03/29 09:38        76KB   1036.mst
+ 2012/03/29 09:38        26KB   1037.mst
+ 2012/03/29 09:38        72KB   1038.mst
+ 2012/03/29 09:38        76KB   1040.mst
+ 2012/03/29 09:38        72KB   1041.mst
+ 2012/03/29 09:38        64KB   1042.mst
+ 2012/03/29 09:38        73KB   1043.mst
+ 2012/03/29 09:38        65KB   1044.mst
+ 2012/03/29 09:38        71KB   1045.mst
+ 2012/03/29 09:38        70KB   1046.mst
+ 2012/03/29 09:38        67KB   1049.mst
+ 2012/03/29 09:38        68KB   1051.mst
+ 2012/03/29 09:38        64KB   1053.mst
+ 2012/03/29 09:38        63KB   1054.mst
+ 2012/03/29 09:38        66KB   1055.mst
+ 2012/03/29 09:38        69KB   1060.mst
+ 2012/03/29 09:38        48KB   2052.mst
+ 2012/03/29 09:38        71KB   2070.mst
+ 2012/03/29 09:38         4KB   3076.mst
+ 2012/03/29 09:38         4KB   11274.mst
+ 2012/03/29 09:37      5748KB   ISSetup.dll
+ 2012/03/29 09:38       734KB   rusb3drv.msi
+ 2012/03/29 10:12       973KB   setup.exe
+ 2012/03/29 09:38         3KB   Setup.ini
+ 2011/05/19 11:18         1KB   setup.iss
+
+ ----Files
+ 2011/09/20 09:17        97KB   rusb3mon.dll             3.0.8.0
+ 2011/09/20 09:17       113KB   rusb3mon.exe             3.0.8.0
+ 2012/03/22 20:58        50KB   rusb3ver.dll             3.0.16.0
+ -----0C0A
+ 2011/09/15 10:23         4KB   rusb3mon.exe.mui
+ -----0C04
+ 2011/09/15 10:23         2KB   rusb3mon.exe.mui
+ -----2C0A
+ 2011/09/15 10:23         4KB   rusb3mon.exe.mui
+ -----040A
+ 2011/09/15 10:23         4KB   rusb3mon.exe.mui
+ -----040B
+ 2011/09/15 10:23         4KB   rusb3mon.exe.mui
+ -----040C
+ 2011/09/15 10:23         4KB   rusb3mon.exe.mui
+ -----040D
+ 2011/09/15 10:23         3KB   rusb3mon.exe.mui
+ -----040E
+ 2011/09/15 10:23         4KB   rusb3mon.exe.mui
+ -----041B
+ 2011/09/15 10:23         4KB   rusb3mon.exe.mui
+ -----041D
+ 2011/09/15 10:23         4KB   rusb3mon.exe.mui
+ -----041E
+ 2011/09/15 10:23         3KB   rusb3mon.exe.mui
+ -----041F
+ 2011/09/15 10:23         4KB   rusb3mon.exe.mui
+ -----0401
+ 2011/09/15 10:23         3KB   rusb3mon.exe.mui
+ -----0404
+ 2011/09/15 10:23         3KB   rusb3mon.exe.mui
+ -----0405
+ 2011/09/15 10:23         3KB   rusb3mon.exe.mui
+ -----0406
+ 2011/09/15 10:23         4KB   rusb3mon.exe.mui
+ -----0407
+ 2011/09/15 10:23         4KB   rusb3mon.exe.mui
+ -----0408
+ 2011/09/15 10:23         4KB   rusb3mon.exe.mui
+ -----0409
+ 2011/09/15 10:23         4KB   rusb3mon.exe.mui
+ -----0410
+ 2011/09/15 10:23         4KB   rusb3mon.exe.mui
+ -----0411
+ 2011/09/15 10:23         3KB   rusb3mon.exe.mui
+ -----0412
+ 2011/09/15 10:23         3KB   rusb3mon.exe.mui
+ -----0413
+ 2011/09/15 10:23         4KB   rusb3mon.exe.mui
+ -----0414
+ 2011/09/15 10:23         4KB   rusb3mon.exe.mui
+ -----0415
+ 2011/09/15 10:23         4KB   rusb3mon.exe.mui
+ -----0416
+ 2011/09/15 10:23         4KB   rusb3mon.exe.mui
+ -----0419
+ 2011/09/15 10:23         3KB   rusb3mon.exe.mui
+ -----0424
+ 2011/09/15 10:23         3KB   rusb3mon.exe.mui
+ -----0804
+ 2011/09/15 10:23         3KB   rusb3mon.exe.mui
+ -----0816
+ 2011/09/15 10:23         4KB   rusb3mon.exe.mui
+ 
+ -----x64
+ 2011/12/26 09:46        80KB   rusb3co.dll              3.0.13.0
+ 2012/03/26 19:06         9KB   rusb3hub.cat
+ 2012/03/15 09:02         3KB   rusb3hub.inf
+ 2012/03/15 09:12       101KB   rusb3hub.sys             3.0.16.0
+ 2012/03/26 19:06         9KB   rusb3xhc.cat
+ 2012/03/15 09:02         3KB   rusb3xhc.inf
+ 2012/03/15 09:12       216KB   rusb3xhc.sys             3.0.16.0
+ -------0C0A
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------0C04
+ 2011/06/10 16:19         1KB   rusb3co.dll.mui
+ -------2C0A
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------040A
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------040B
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------040C
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------040D
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------040E
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------041B
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------041D
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------041E
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------041F
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------0401
+ 2011/06/10 16:19         1KB   rusb3co.dll.mui
+ -------0404
+ 2011/06/10 16:19         1KB   rusb3co.dll.mui
+ -------0405
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------0406
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------0407
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------0408
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------0409
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------0410
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------0411
+ 2011/06/10 16:19         1KB   rusb3co.dll.mui
+ -------0412
+ 2011/06/10 16:19         1KB   rusb3co.dll.mui
+ -------0413
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------0414
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------0415
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------0416
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------0419
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------0424
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------0804
+ 2011/06/10 16:19         1KB   rusb3co.dll.mui
+ -------0816
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ 
+ -----x64_XP
+ 2011/12/26 09:46        80KB   rusb3co.dll              3.0.13.0
+ 2012/03/26 19:06         9KB   rusb3hub.cat
+ 2012/03/15 09:02         3KB   rusb3hub.inf
+ 2012/03/15 09:10       101KB   rusb3hub.sys             3.0.16.0
+ 2012/03/26 19:06         9KB   rusb3xhc.cat
+ 2012/03/15 09:02         3KB   rusb3xhc.inf
+ 2012/03/15 09:10       216KB   rusb3xhc.sys             3.0.16.0
+
+ -----x86
+ 2011/12/26 09:45        78KB   rusb3co.dll              3.0.13.0
+ 2012/03/26 19:06         9KB   rusb3hub.cat
+ 2012/03/15 09:02         3KB   rusb3hub.inf
+ 2012/03/15 09:11        79KB   rusb3hub.sys             3.0.16.0
+ 2012/03/26 19:06         9KB   rusb3xhc.cat
+ 2012/03/15 09:02         3KB   rusb3xhc.inf
+ 2012/03/15 09:11       168KB   rusb3xhc.sys             3.0.16.0
+ -------0C0A
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------0C04
+ 2011/06/10 16:19         1KB   rusb3co.dll.mui
+ -------2C0A
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------040A
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------040B
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------040C
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------040D
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------040E
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------041B
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------041D
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------041E
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------041F
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------0401
+ 2011/06/10 16:18         1KB   rusb3co.dll.mui
+ -------0404
+ 2011/06/10 16:19         1KB   rusb3co.dll.mui
+ -------0405
+ 2011/06/10 16:18         2KB   rusb3co.dll.mui
+ -------0406
+ 2011/06/10 16:18         2KB   rusb3co.dll.mui
+ -------0407
+ 2011/06/10 16:18         2KB   rusb3co.dll.mui
+ -------0408
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------0409
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------0410
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------0411
+ 2011/06/10 16:19         1KB   rusb3co.dll.mui
+ -------0412
+ 2011/06/10 16:19         1KB   rusb3co.dll.mui
+ -------0413
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------0414
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------0415
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------0416
+ 2011/06/10 16:18         2KB   rusb3co.dll.mui
+ -------0419
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------0424
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ -------0804
+ 2011/06/10 16:19         1KB   rusb3co.dll.mui
+ -------0816
+ 2011/06/10 16:19         2KB   rusb3co.dll.mui
+ 
+ -----x86_XP
+ 2011/12/26 09:45        78KB   rusb3co.dll              3.0.13.0
+ 2012/03/26 19:06         9KB   rusb3hub.cat
+ 2012/03/15 09:02         3KB   rusb3hub.inf
+ 2012/03/15 09:10        79KB   rusb3hub.sys             3.0.16.0
+ 2012/03/26 19:06         9KB   rusb3xhc.cat
+ 2012/03/15 09:02         3KB   rusb3xhc.inf
+ 2012/03/15 09:10       168KB   rusb3xhc.sys             3.0.16.0
+
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+2. Command Line Options
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+1)Silent install
+ 
+	Ex.) setup.exe /s
+
+ -To install this driver package silently, "setup.iss" file is needed.
+  This package includes the "setup.iss" in which the following folder 
+  path is set.
+  "C:\Program Files\Renesas Electronics\USB 3.0 Host Controller Driver".
+
+  If you want to change install path, you need to generate setup.iss as
+  follows: setup /r /f1".\setup.iss"
+
+
+2)Check existence of USB3.0 Host Controller
+
+	Ex.) setup.exe /v"CHECK_HW_EXIST=1"
+
+ -When this command line option is set, the installer checks existence of 
+  the USB3.0 Host Controller(uPD720201/uPD720202). If the uPD720201/uPD720202
+  is not in the PC, this installer does not install the device drivers.
+
+ ##Caution##
+  To install the device drivers with this command line option after 
+  uninstalling the device drivers, it is necessary to restart the PC.
+
+3) Hide the pop-up message
+
+	Ex.) setup.exe /v"CHECK_HW_EXIST=1 NO_MESSAGE=1"
+
+ -This option suppresses the pop-up message when it is used with the 
+  "CHECK_HW_EXIST" option. If you want to hide the pop-up message on the
+  "CHECK_HW_EXIST" option, you should use this option on the command line.
+  
+ ##Note##
+  This option must be used only with the "CHECK_HW_EXIST" option. If this 
+  option is used by itself, it has no effect.
+
+4) Not install the USB3.0 Monitor application (rusb3mon.exe/dll)
+
+	/v"NO_MONITOR=1"
+
+ -When this command line option is set, the USB3.0 Monitor Application
+  (rusb3mon.exe/dll) is not installed.
+
+ ##Caution##
+  If the USB3.0 Monitor Application is already installed, it is necessary
+  to uninstall the USB3 driver package of previous version before installing
+  the new USB3 driver package.
+
+
+6) Disable the Dynamic U1/U2 state control function
+
+	Ex.) setup.exe /v"U1U2_DISABLE=1"
+
+ -If you want to disable the Dynamic U1/U2 state control function,
+  you should use this option on the command prompt. 
+
+7) Not display the Custom Property page on the device manager
+
+    Ex.) setup.exe /v"NO_DP_PROPERTY=1"
+
+ -This Custom Property Sheet page is enabled on default installation. 
+  If you don't want to display the Custom Property Sheet page, please
+  use this install option on the command prompt.
+
+8) Disable the check-box on the Custom Property Sheet page
+
+    Ex.) setup.exe /v"U1U2_PROPERTY_DISABLE=1"
+
+ -The Custom Property Sheet Page enables the check-box to disable the Dynamic
+  U1/U2 state control function in default installation. 
+  If you don't want to display the check-box on the Custom Property Sheet page,
+  please use this option on the command prompt. 
+
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------
+3. How to install/uninstall the driver package
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------
+Please see the "USB 3.0 Host Controller Driver Application Note(Preliminary)".
+
+A)How to install the driver package
+ 1. Installing the driver package to a computer.(Run "setup.exe")
+ 2. Installing the hardware
+ 3. Installing the driver for USB 3.0 host controller(uPD720201/uPD720202).
+
+
+B)How to uninstall the driver package
+RENESAS-USB3-Host-Driver-xxxx-Setup.exe can uninstall only by using "Programs
+and Features" in Control Panel.
+ 
+ 1. Open the "control panel".
+ 2. Click the "Programs and Features".
+ 3. Select the Renesas Electronics USB 3.0 Host Controller Driver.
+ 4. Click "Uninstall" button.
+
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------
+4. History
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------
+ Version 3.0.16.0 : March 29, 2012
+---------------------------------------------------------------------------
+- Windows Logo Information
+  Submission ID: 1490957
+  Product Name: Renesas Electronics USB3.0 Host Controller
+  Category: Device
+  Subcategory: Bus Controllers and Ports > USB Controller
+               Unclassiified
+  Qualification Level:  Signature Only - Microsoft Windows XP family, x86
+                        Signature Only - Microsoft Windows XP family, x64
+                        Logo - Microsoft Windows Vista family, x86 Basic
+                        Logo - Microsoft Windows Vista family, x64 Basic
+                        Windows 7
+                        Windows 7 x64 
+                        Logo - Certified for Microsoft Windows Server 2008 Release 2 family, x64 
+
+[1. Add function]
+1-1. IOCTL_USB_USER_REQUEST(UWSBUSER_GET_POWER_STATE_MAP) is supported.
+1-2. HUB's icon isn't shown on the Devices and Printers of Windows7.
+
+[2. Modified driver bugs]
+2-1. There is a possibility of BSOD when OUT transaction with data shorter than 8byte
+     is transferred.  Short packet is out of this issue.
+     We have never seen this BSOD on the real system. We found this on code review.
+     v3.0.8.0 or later version includes this bug.
+2-2. There is a possibility of BSOD when a user changes the resolution of the video
+     capture application and an ISO device is disconnectd.
+     We have never seen this BSOD on the real system. We found this on code review.
+2-3. There is a possibility of BSOD when OverCurrent indication occurs before Windows
+     OS detects the device. 
+     We have never seen this BSOD on the real system. We found this on code review.
+2-4. USB3.0 Devices connected with USB3.0 HUB are not detected after S3/S4 resume.
+     This issue occurs only under the following conditions.
+     - C_PORT_CONNECTION of the downstream port of the hub is not changed after resume.
+     - The PERSTB of the system is asserted after resume.
+2-5. Driver did not check the descriptor size. If USB devices send the descriptor
+     with invalid size, driver might behave in undefined operation.
+2-6. When BIOS does not release the ownership of xHCI after S3/S4 resume, host driver
+     should not have been loaded.    
+2-7. Wrong bandwidth information is displayed in the popup message when available 
+     bandwidth is consumed.
+
+[3. Solved interoperability issue caused by function driver or system]
+3-1. PC freezes when any of the specific devices are disconnected.
+3-2. The following specific devices can't work 
+     A) The specific Wireless Headset does not produce sound in Windows XP enviroment. 
+     B) The specific Keyboard is not detected. 
+        This issue only occurs on v3.0.8.0 or later verion. 
+     C) The specific Keyboard is not detected after remote wakeup under the condition
+        that ForceHCResetOnResume is set to 1.
+     D) The specific AV Portable Player disappears from Device Manager after it is
+        disabled in Device Manager.
+     E) Time from when the specific USB2.0 Flash is connected until it is detected
+        is over 30 seconds. This issue may occur on v3.0.8.0 although we have 
+        never seen this issue on the real system.
+3-3. PC freezes when the specific Audio device is disconnected actively.
+     This issue only occurs on V3.0.8.0 or later version.
+3-4. Monitor function of the specific docking station cannot work correctly after
+     resume when multi-display mode is used.
+3-5. When multiple USB3.0-hubs including the specific hub are connected by cascade 
+     connection and host driver is disabled and enabled, the hub connected with 
+     the specific hub's downstream port is not detected.
+3-6. When one of the multiple USB3.0 hubs in cascade connection is the specific
+     HUB, it is not detected after S3-Resume.
+3-7. When a specific smart phone is working in tethering mode, communication
+     speed is too slow to keep the connection.  
+
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------
+ Version 3.0.12.0 : December 8th, 2011
+---------------------------------------------------------------------------
+- Windows Logo Information
+  Submission ID: 1479314
+  Product Name: Renesas Electronics USB3.0 Host Controller
+  Category: Device
+  Subcategory: Bus Controllers and Ports > USB Controller
+               Unclassiified
+  Qualification Level:  Signature Only - Microsoft Windows XP family, x86
+                        Signature Only - Microsoft Windows XP family, x64
+                        Logo - Microsoft Windows Vista family, x86 Basic
+                        Logo - Microsoft Windows Vista family, x64 Basic
+                        Windows 7
+                        Windows 7 x64 
+                        Logo - Certified for Microsoft Windows Server 2008 Release 2 family, x64 
+
+-  Supported the uPD720201 ES2.1 whose Revision ID in the PCI Configuration
+  register is 3h.
+
+-  The following issues, which depend on specific devices, were fixed.
+
+ 1. A specific Audio device (Native Instruments AUDIO 8 DJ) isn't unloaded in
+   the device manager when this device is disconnected from USB 3.0 Host 
+   Controller.
+
+ 2. There is a possibility that a specific Audio device (Creative Sound Blaster
+   X-Fi Surround 5.1) stops working. 
+   This issue occurs with ver 3.0.8.0 or earlier version, and this issue doesn't
+   occur with ver 2.x.xx.x(uPD720200/A).
+
+-  The following additional issues were fixed.
+
+-- Driver
+ 1. Remote Wakeup function doesn't work from Hybrid sleep by a wireless mouse 
+   connected to USB 3.0 host controller.
+ 
+ 2. Additional remediation was implemented for the following ver 3.0.8.0 issue:
+
+   [ver 3.0.8.0's history, item 2]
+   There is a possibility that a multi-display isn't displayed after 
+   S3->Resume when the USB-to-VGA device connected to the USB 3.0 Host
+   is used in multi-display mode.  This issue occurs depending on USB-to-VGA
+   device driver version.
+ 
+ 3. The "/usbss" test time for the Signal Check Tool for Windows was too long  
+   (double or triple time) compared to uPD720200/A with ver 2.0.34.0 or older.
+
+ 4. There is a possibility that BSOD occurs when a SuperSpeed device which 
+   doesn't transfer the "SuperSpeed Endpoint Companion Descriptor is 
+   connected to USB 3.0 Host controller.
+
+ 5. A SuperSpeed device is reconnected in SuperSpeed mode after 
+   S3/S4->resume if the SuperSpeed device transfers the 
+   USB 2.0 Descriptor to USB 3.0 Host controller.
+
+ 6. A device cannot do Isochronous Transfer when an illegal start frame is 
+   specified by the function driver for an Isochronous transfer.
+
+ 7. There is a possibility that BSOD occurs when performing the Common Scenario
+   Stress-with-IO test in WHQL, when connecting an external USB hub to USB 3.0
+   Host Controller.
+
+---------------------------------------------------------------------------
+ Version 3.0.8.0 : October 3rd, 2011
+---------------------------------------------------------------------------
+- Fisrt Major version Release for uPD720201/uPD720202 ES2.0 or later.
+
+- Windows Logo Information
+  Submission ID: 1470301
+  Product Name: Renesas Electronics USB3.0 Host Controller
+  Category: Device
+  Subcategory: Bus Controllers and Ports > USB Controller
+               Unclassiified
+  Qualification Level:  Signature Only - Microsoft Windows XP family, x86
+                        Signature Only - Microsoft Windows XP family, x64
+                        Logo - Microsoft Windows Vista family, x86 Basic
+                        Logo - Microsoft Windows Vista family, x64 Basic
+                        Windows 7
+                        Windows 7 x64 
+                        Logo - Certified for Microsoft Windows Server 2008 Release 2 family, x64 
+
+-  The following issues, which depend on specific devices, were fixed.
+ 1. A specific USB Full Speed device that can't respond to a standard request
+    isn't detectd.
+     
+ 2. There is a possibility that a multi-display isn't displayed after 
+   S3->Resume when the USB-to-VGA device connected to the USB 3.0 Host
+   is used in multi-display mode.  This issue occurs depending on USB-to-VGA
+   device driver version.
+   
+ 3. There is a possibility that the Bluetooth communication is cut off with 
+   a specific Bluetooth module.
+ 
+ 4. There is a USB speaker which only requests a data transfer by a URB within 
+   about 1ms. In this case, sound is cut off depending on CPU performance.
+
+ 5. iPad isn't detected on iTunes application after S3->Resume.
+ 
+ 6. BSOD ("Blue Screen of Death," i.e., system halt) occurs when PC shoutdown 
+    is performed while a specific Bluetooth module (Billionton BT-0003) is 
+    connected and a specific Bluetooth module driver version is being used. 
+    This issue doesn't occur with the latest Bluetooth module driver version.
+   
+-  The following additional issues were fixed.
+-- Driver
+ 1. There is a possibility that BSOD occurs or USB 3.0 Hub isn't detected on
+   Windows XP when hot plug operation is done with a USB 3.0 Hub having USB 
+   devices already connected to it.
+
+ 2. USB 3.0 Host controller Driver forcibly caused BSOD from ver2.1.16.0 to ver
+   2.1.25.0 when Host System Error of USB 3.0 occurred.
+   When we updated to ver2.1, we had a mistake in which the USB 3.0 Host 
+   Controller Driver focibly caused BSOD.
+
+ 3. A USB device isn't detected when the USB device is connected to a downstream
+   port on a specifc USB 3.0 Hub that moves to U2 state althouth U1/U2 timeout 
+   value is zero.
+
+ 4. There is a miscalcuation of U2 Exit Latency.
+
+--Monitor
+ 1. The pop-up message is wrong when a USB 3.0 device is connected to USB 2.0 port
+   while running the Simplified Chinese OS.
+ 
+ 2. The pop-up message is wrong when USB 3.0 Host Controller does not have 
+   enough bandwidth available while running the Polish OS.
+
+
+---------------------------------------------------------------------------
+ Version 3.0.7.0Beta : September 8th, 2011
+---------------------------------------------------------------------------
+- Second Beta version Release for uPD720201/uPD720202 ES2.0 or later.
+
+---------------------------------------------------------------------------
+
+---------------------------------------------------------------------------
+ Version 3.0.2.0Beta : May 19th, 2011
+---------------------------------------------------------------------------
+- First Beta Version Release for uPD720201/uPD720202
+
+---------------------------------------------------------------------------
+

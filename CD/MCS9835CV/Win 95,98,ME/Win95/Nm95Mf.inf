@@ -1,0 +1,534 @@
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;  NetMos Technology, inc.
+;;
+;;  FILE : Nm95Mf.inf
+;;  OS SUPPORTED : WIN98 ONLY.
+;;  This inf file configures multi i/o (COM and LPT) ports
+;;  on 9855 like devices with multi io-base addresses.
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[Version]
+LayoutFile = layout.inf
+Signature  = $CHICAGO$
+Class      = MultiFunction
+ClassGUID  = {4d36e971-e325-11ce-bfc1-08002be10318}
+Provider   = %ProviderName%
+
+[DestinationDirs]
+DefaultDestDir  = 11    ;LDID_SYS
+Inf.Copy = 17       	;DIRID_INF
+
+[SourceDiskFiles]
+; 1 = Disk Number
+NmEnum.inf=1
+NmSNull.inf=1
+Nm95Mf.inf=1
+NmPorts.inf=1
+NmEnum.vxd=1
+NmUninst.exe=1
+NmDosIn.exe=1
+
+[SourceDisksNames]
+1=%DiskName%,,
+
+;------------------------
+; Install CLass 
+;------------------------
+[ClassInstall]
+AddReg=ClassInstall.AddReg
+CopyFiles=Inf.Copy,Uninstall.Copy
+
+[ClassInstall.AddReg]
+HKR,,,,%MFClassName%
+HKR,,Icon,,-23
+
+;------------------------
+; Install Drivers
+;------------------------
+[Manufacturer]
+%MfgName%=NetMos_MF
+
+[NetMos_MF]
+%Nm9805Name%=Nm9815_1P0S.MF, PCI\VEN_9710&DEV_9805
+%Nm9815Name%=Nm9815_1P0S.MF, PCI\VEN_9710&DEV_9815&SUBSYS_00101000&REV_01
+%Nm9815Name%=Nm9815_2P0S.MF, PCI\VEN_9710&DEV_9815&SUBSYS_00201000&REV_01
+%Nm9815Name%=Nm9815_2P0S.MF, PCI\VEN_9710&DEV_9815
+
+%Nm9820Name%=Nm9835_0P1S.MF, PCI\VEN_9710&DEV_9820
+%Nm9825Name%=Nm9835_0P1S.MF, PCI\VEN_9710&DEV_9825
+%Nm9835Name%=Nm9835_0P1S.MF, PCI\VEN_9710&DEV_9835&SUBSYS_00011000&REV_01
+%Nm9835Name%=Nm9835_0P2S.MF, PCI\VEN_9710&DEV_9835&SUBSYS_00021000&REV_01
+%Nm9835Name%=Nm9835_1P1S.MF, PCI\VEN_9710&DEV_9835&SUBSYS_00111000&REV_01
+%Nm9835Name%=Nm9835_1P2S.MF, PCI\VEN_9710&DEV_9835&SUBSYS_00121000&REV_01
+%Nm9835Name%=Nm9835_1P2S.MF, PCI\VEN_9710&DEV_9835
+
+%Nm9845Name%=Nm9835_0P1S.MF, PCI\VEN_9710&DEV_9845&SUBSYS_00011000&REV_01
+%Nm9845Name%=Nm9835_0P2S.MF, PCI\VEN_9710&DEV_9845&SUBSYS_00021000&REV_01
+%Nm9845Name%=Nm9835_0P4S.MF, PCI\VEN_9710&DEV_9845&SUBSYS_00041000&REV_01
+%Nm9845Name%=Nm9835_0P6S.MF, PCI\VEN_9710&DEV_9845&SUBSYS_00061000&REV_01
+%Nm9845Name%=Nm9835_1P4S.MF, PCI\VEN_9710&DEV_9845&SUBSYS_00141000&REV_01
+%Nm9845Name%=Nm9835_0P4S.MF, PCI\VEN_9710&DEV_9845
+
+%Nm9855Name%=Nm9855_1P2S.MF, PCI\VEN_9710&DEV_9855&SUBSYS_00121000&REV_01
+%Nm9855Name%=Nm9855_1P4S.MF, PCI\VEN_9710&DEV_9855&SUBSYS_00141000&REV_01
+%Nm9855Name%=Nm9855_2P0S.MF, PCI\VEN_9710&DEV_9855&SUBSYS_00201000&REV_01
+%Nm9855Name%=Nm9855_2P2S.MF, PCI\VEN_9710&DEV_9855&SUBSYS_00221000&REV_01
+%Nm9855Name%=Nm9855_1P2S.MF, PCI\VEN_9710&DEV_9855
+
+;-------------------------------------------
+[Nm9815_1P0S.MF]
+CopyFiles=Inf.Copy,Uninstall.Copy
+AddReg=MF.AddReg,Uninstall.AddReg
+UpdateAutoBat=NmDosIn.AutoBat
+
+[Nm9815_1P0S.MF.HW]
+AddReg=Nm9815_1P0S.MF.RegHW
+
+[Nm9815_1P0S.MF.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI9710_LPT
+HKR,Child0000,ResourceMap,1,00,01,02
+
+;-------------------------------------------
+[Nm9815_2P0S.MF]
+CopyFiles=Inf.Copy,Uninstall.Copy
+AddReg=MF.AddReg,Uninstall.AddReg
+UpdateAutoBat=NmDosIn.AutoBat
+
+[Nm9815_2P0S.MF.HW]
+AddReg=Nm9815_2P0S.MF.RegHW
+
+[Nm9815_2P0S.MF.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI9710_LPT
+HKR,Child0000,ResourceMap,1,00,01
+;HKR,Child0000,ResourceMap,1,00,01,02
+HKR,Child0001,HardwareID,,MF\PCI9710_LPT
+;HKR,Child0001,ResourceMap,1,00,03,04
+HKR,Child0001,ResourceMap,1,00,03
+
+
+;-------------------------------------------
+[Nm9835_0P1S.MF]
+CopyFiles=Inf.Copy,Uninstall.Copy
+AddReg=MF.AddReg,Uninstall.AddReg
+UpdateAutoBat=NmDosIn.AutoBat
+
+[Nm9835_0P1S.MF.HW]
+AddReg=Nm9835_0P1S.MF.RegHW
+
+[Nm9835_0P1S.MF.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI9710_COM
+HKR,Child0000,ResourceMap,1,00,01
+
+;-------------------------------------------
+[Nm9835_0P2S.MF]
+CopyFiles=Inf.Copy,Uninstall.Copy
+AddReg=MF.AddReg,Uninstall.AddReg
+UpdateAutoBat=NmDosIn.AutoBat
+
+[Nm9835_0P2S.MF.HW]
+AddReg=Nm9835_0P2S.MF.RegHW
+
+[Nm9835_0P2S.MF.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI9710_COM
+HKR,Child0000,ResourceMap,1,00,01
+HKR,Child0001,HardwareID,,MF\PCI9710_COM
+HKR,Child0001,ResourceMap,1,00,02
+
+;-------------------------------------------
+[Nm9835_0P4S.MF]
+CopyFiles=Inf.Copy,Uninstall.Copy
+AddReg=MF.AddReg,Uninstall.AddReg
+UpdateAutoBat=NmDosIn.AutoBat
+
+[Nm9835_0P4S.MF.HW]
+AddReg=Nm9835_0P4S.MF.RegHW
+
+[Nm9835_0P4S.MF.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI9710_COM
+HKR,Child0000,ResourceMap,1,00,01
+HKR,Child0001,HardwareID,,MF\PCI9710_COM
+HKR,Child0001,ResourceMap,1,00,02
+HKR,Child0002,HardwareID,,MF\PCI9710_COM
+HKR,Child0002,ResourceMap,1,00,03
+HKR,Child0003,HardwareID,,MF\PCI9710_COM
+HKR,Child0003,ResourceMap,1,00,04
+
+;-------------------------------------------
+[Nm9835_0P6S.MF]
+CopyFiles=Inf.Copy,Uninstall.Copy
+AddReg=MF.AddReg,Uninstall.AddReg
+UpdateAutoBat=NmDosIn.AutoBat
+
+[Nm9835_0P6S.MF.HW]
+AddReg=Nm9835_0P6S.MF.RegHW
+
+[Nm9835_0P6S.MF.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI9710_COM
+HKR,Child0000,ResourceMap,1,00,01
+HKR,Child0001,HardwareID,,MF\PCI9710_COM
+HKR,Child0001,ResourceMap,1,00,02
+HKR,Child0002,HardwareID,,MF\PCI9710_COM
+HKR,Child0002,ResourceMap,1,00,03
+HKR,Child0003,HardwareID,,MF\PCI9710_COM
+HKR,Child0003,ResourceMap,1,00,04
+HKR,Child0004,HardwareID,,MF\PCI9710_COM
+HKR,Child0004,ResourceMap,1,00,05
+HKR,Child0005,HardwareID,,MF\PCI9710_COM
+HKR,Child0005,ResourceMap,1,00,06
+
+;-------------------------------------------
+[Nm9835_1P0S.MF]
+CopyFiles=Inf.Copy,Uninstall.Copy
+AddReg=MF.AddReg,Uninstall.AddReg
+UpdateAutoBat=NmDosIn.AutoBat
+
+[Nm9835_1P0S.MF.HW]
+AddReg=Nm9835_1P0S.MF.RegHW
+
+[Nm9835_1P0S.MF.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI9710_LPT
+HKR,Child0000,ResourceMap,1,00,03,04
+
+;-------------------------------------------
+[Nm9835_1P1S.MF]
+CopyFiles=Inf.Copy,Uninstall.Copy
+AddReg=MF.AddReg,Uninstall.AddReg
+UpdateAutoBat=NmDosIn.AutoBat
+
+[Nm9835_1P1S.MF.HW]
+AddReg=Nm9835_1P1S.MF.RegHW
+
+[Nm9835_1P1S.MF.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI9710_COM
+HKR,Child0000,ResourceMap,1,00,01
+HKR,Child0001,HardwareID,,MF\PCI9710_LPT
+HKR,Child0001,ResourceMap,1,00,03,04
+
+;-------------------------------------------
+[Nm9835_1P2S.MF]
+CopyFiles=Inf.Copy,Uninstall.Copy
+AddReg=MF.AddReg,Uninstall.AddReg
+UpdateAutoBat=NmDosIn.AutoBat
+
+[Nm9835_1P2S.MF.HW]
+AddReg=Nm9835_1P2S.MF.RegHW
+
+[Nm9835_1P2S.MF.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI9710_COM
+HKR,Child0000,ResourceMap,1,00,01
+HKR,Child0001,HardwareID,,MF\PCI9710_COM
+HKR,Child0001,ResourceMap,1,00,02
+HKR,Child0002,HardwareID,,MF\PCI9710_LPT
+HKR,Child0002,ResourceMap,1,00,03,04
+
+;-------------------------------------------
+[Nm9835_1P4S.MF]
+CopyFiles=Inf.Copy,Uninstall.Copy
+AddReg=MF.AddReg,Uninstall.AddReg
+UpdateAutoBat=NmDosIn.AutoBat
+
+[Nm9835_1P4S.MF.HW]
+AddReg=Nm9835_1P4S.MF.RegHW
+
+[Nm9835_1P4S.MF.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI9710_COM
+HKR,Child0000,ResourceMap,1,00,01
+HKR,Child0001,HardwareID,,MF\PCI9710_COM
+HKR,Child0001,ResourceMap,1,00,02
+HKR,Child0002,HardwareID,,MF\PCI9710_COM
+HKR,Child0002,ResourceMap,1,00,03
+HKR,Child0003,HardwareID,,MF\PCI9710_COM
+HKR,Child0003,ResourceMap,1,00,04
+HKR,Child0004,HardwareID,,MF\PCI9710_LPT
+HKR,Child0004,ResourceMap,1,00,05,06
+
+;-------------------------------------------
+[Nm9835_2P0S.MF]
+CopyFiles=Inf.Copy,Uninstall.Copy
+AddReg=MF.AddReg,Uninstall.AddReg
+UpdateAutoBat=NmDosIn.AutoBat
+
+[Nm9835_2P0S.MF.HW]
+AddReg=Nm9835_2P0S.MF.RegHW
+
+[Nm9835_2P0S.MF.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI9710_LPT
+HKR,Child0000,ResourceMap,1,00,03,04
+HKR,Child0001,HardwareID,,MF\PCI9710_LPT
+HKR,Child0001,ResourceMap,1,00,05,06
+
+;-------------------------------------------
+[Nm9835_2P1S.MF]
+CopyFiles=Inf.Copy,Uninstall.Copy
+AddReg=MF.AddReg,Uninstall.AddReg
+UpdateAutoBat=NmDosIn.AutoBat
+
+[Nm9835_2P1S.MF.HW]
+AddReg=Nm9835_2P1S.MF.RegHW
+
+[Nm9835_2P1S.MF.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI9710_COM
+HKR,Child0000,ResourceMap,1,00,01
+HKR,Child0001,HardwareID,,MF\PCI9710_LPT
+HKR,Child0001,ResourceMap,1,00,03,04
+HKR,Child0002,HardwareID,,MF\PCI9710_LPT
+HKR,Child0002,ResourceMap,1,00,05,06
+
+;-------------------------------------------
+[Nm9835_2P2S.MF]
+CopyFiles=Inf.Copy,Uninstall.Copy
+AddReg=MF.AddReg,Uninstall.AddReg
+UpdateAutoBat=NmDosIn.AutoBat
+
+[Nm9835_2P2S.MF.HW]
+AddReg=Nm9835_2P2S.MF.RegHW
+
+[Nm9835_2P2S.MF.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI9710_COM
+HKR,Child0000,ResourceMap,1,00,01
+HKR,Child0001,HardwareID,,MF\PCI9710_COM
+HKR,Child0001,ResourceMap,1,00,02
+HKR,Child0002,HardwareID,,MF\PCI9710_LPT
+HKR,Child0002,ResourceMap,1,00,03,04
+HKR,Child0003,HardwareID,,MF\PCI9710_LPT
+HKR,Child0003,ResourceMap,1,00,05,06
+
+;-------------------------------------------
+[Nm9855_0P1S.MF]
+CopyFiles=Inf.Copy,Uninstall.Copy
+AddReg=MF.AddReg,Uninstall.AddReg
+UpdateAutoBat=NmDosIn.AutoBat
+
+[Nm9855_0P1S.MF.HW]
+AddReg=Nm9855_0P1S.MF.RegHW
+
+[Nm9855_0P1S.MF.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI9710_COM
+HKR,Child0000,ResourceMap,1,00,03
+
+;-------------------------------------------
+[Nm9855_0P2S.MF]
+CopyFiles=Inf.Copy,Uninstall.Copy
+AddReg=MF.AddReg,Uninstall.AddReg
+UpdateAutoBat=NmDosIn.AutoBat
+
+[Nm9855_0P2S.MF.HW]
+AddReg=Nm9855_0P2S.MF.RegHW
+
+[Nm9855_0P2S.MF.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI9710_COM
+HKR,Child0000,ResourceMap,1,00,03
+HKR,Child0001,HardwareID,,MF\PCI9710_COM
+HKR,Child0001,ResourceMap,1,00,04
+
+;-------------------------------------------
+[Nm9855_0P4S.MF]
+CopyFiles=Inf.Copy,Uninstall.Copy
+AddReg=MF.AddReg,Uninstall.AddReg
+UpdateAutoBat=NmDosIn.AutoBat
+
+[Nm9855_0P4S.MF.HW]
+AddReg=Nm9855_0P4S.MF.RegHW
+
+[Nm9855_0P4S.MF.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI9710_COM
+HKR,Child0000,ResourceMap,1,00,03
+HKR,Child0001,HardwareID,,MF\PCI9710_COM
+HKR,Child0001,ResourceMap,1,00,04
+HKR,Child0002,HardwareID,,MF\PCI9710_COM
+HKR,Child0002,ResourceMap,1,00,05
+HKR,Child0003,HardwareID,,MF\PCI9710_COM
+HKR,Child0003,ResourceMap,1,00,06
+
+;-------------------------------------------
+[Nm9855_1P0S.MF]
+CopyFiles=Inf.Copy,Uninstall.Copy
+AddReg=MF.AddReg,Uninstall.AddReg
+UpdateAutoBat=NmDosIn.AutoBat
+
+[Nm9855_1P0S.MF.HW]
+AddReg=Nm9855_1P0S.MF.RegHW
+
+[Nm9855_1P0S.MF.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI9710_LPT
+HKR,Child0000,ResourceMap,1,00,01,02
+
+;-------------------------------------------
+[Nm9855_1P1S.MF]
+CopyFiles=Inf.Copy,Uninstall.Copy
+AddReg=MF.AddReg,Uninstall.AddReg
+UpdateAutoBat=NmDosIn.AutoBat
+
+[Nm9855_1P1S.MF.HW]
+AddReg=Nm9855_1P1S.MF.RegHW
+
+[Nm9855_1P1S.MF.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI9710_LPT
+HKR,Child0000,ResourceMap,1,00,01,02
+HKR,Child0001,HardwareID,,MF\PCI9710_COM
+HKR,Child0001,ResourceMap,1,00,03
+
+;-------------------------------------------
+[Nm9855_1P2S.MF]
+CopyFiles=Inf.Copy,Uninstall.Copy
+AddReg=MF.AddReg,Uninstall.AddReg
+UpdateAutoBat=NmDosIn.AutoBat
+
+[Nm9855_1P2S.MF.HW]
+AddReg=Nm9855_1P2S.MF.RegHW
+
+[Nm9855_1P2S.MF.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI9710_LPT
+HKR,Child0000,ResourceMap,1,00,01,02
+HKR,Child0001,HardwareID,,MF\PCI9710_COM
+HKR,Child0001,ResourceMap,1,00,03
+HKR,Child0002,HardwareID,,MF\PCI9710_COM
+HKR,Child0002,ResourceMap,1,00,04
+
+;-------------------------------------------
+[Nm9855_1P4S.MF]
+CopyFiles=Inf.Copy,Uninstall.Copy
+AddReg=MF.AddReg,Uninstall.AddReg
+UpdateAutoBat=NmDosIn.AutoBat
+
+[Nm9855_1P4S.MF.HW]
+AddReg=Nm9855_1P4S.MF.RegHW
+
+[Nm9855_1P4S.MF.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI9710_LPT
+HKR,Child0000,ResourceMap,1,00,01,02
+HKR,Child0001,HardwareID,,MF\PCI9710_COM
+HKR,Child0001,ResourceMap,1,00,03
+HKR,Child0002,HardwareID,,MF\PCI9710_COM
+HKR,Child0002,ResourceMap,1,00,04
+HKR,Child0003,HardwareID,,MF\PCI9710_COM
+HKR,Child0003,ResourceMap,1,00,05
+HKR,Child0004,HardwareID,,MF\PCI9710_COM
+HKR,Child0004,ResourceMap,1,00,06
+
+;-------------------------------------------
+[Nm9855_2P0S.MF]
+CopyFiles=Inf.Copy,Uninstall.Copy
+AddReg=MF.AddReg,Uninstall.AddReg
+UpdateAutoBat=NmDosIn.AutoBat
+
+[Nm9855_2P0S.MF.HW]
+AddReg=Nm9855_2P0S.MF.RegHW
+
+[Nm9855_2P0S.MF.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI9710_LPT
+HKR,Child0000,ResourceMap,1,00,01,02
+HKR,Child0001,HardwareID,,MF\PCI9710_LPT
+HKR,Child0001,ResourceMap,1,00,03,04
+
+;-------------------------------------------
+[Nm9855_2P1S.MF]
+CopyFiles=Inf.Copy,Uninstall.Copy
+AddReg=MF.AddReg,Uninstall.AddReg
+UpdateAutoBat=NmDosIn.AutoBat
+
+[Nm9855_2P1S.MF.HW]
+AddReg=Nm9855_2P1S.MF.RegHW
+
+[Nm9855_2P1S.MF.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI9710_LPT
+HKR,Child0000,ResourceMap,1,00,01,02
+HKR,Child0001,HardwareID,,MF\PCI9710_LPT
+HKR,Child0001,ResourceMap,1,00,03,04
+HKR,Child0002,HardwareID,,MF\PCI9710_COM
+HKR,Child0002,ResourceMap,1,00,05
+
+;-------------------------------------------
+[Nm9855_2P2S.MF]
+CopyFiles=Inf.Copy,Uninstall.Copy
+AddReg=MF.AddReg,Uninstall.AddReg
+UpdateAutoBat=NmDosIn.AutoBat
+
+[Nm9855_2P2S.MF.HW]
+AddReg=Nm9855_2P2S.MF.RegHW
+
+[Nm9855_2P2S.MF.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI9710_LPT
+HKR,Child0000,ResourceMap,1,00,01,02
+HKR,Child0001,HardwareID,,MF\PCI9710_LPT
+HKR,Child0001,ResourceMap,1,00,03,04
+HKR,Child0002,HardwareID,,MF\PCI9710_COM
+HKR,Child0002,ResourceMap,1,00,05
+HKR,Child0003,HardwareID,,MF\PCI9710_COM
+HKR,Child0003,ResourceMap,1,00,06
+
+;-------------------------------------------
+[Nm9855_3P0S.MF]
+CopyFiles=Inf.Copy,Uninstall.Copy
+AddReg=MF.AddReg,Uninstall.AddReg
+UpdateAutoBat=NmDosIn.AutoBat
+
+[Nm9855_3P0S.MF.HW]
+AddReg=Nm9855_3P0S.MF.RegHW
+
+[Nm9855_3P0S.MF.RegHW]
+HKR,Child0000,HardwareID,,MF\PCI9710_LPT
+HKR,Child0000,ResourceMap,1,00,01,02
+HKR,Child0001,HardwareID,,MF\PCI9710_LPT
+HKR,Child0001,ResourceMap,1,00,03,04
+HKR,Child0002,HardwareID,,MF\PCI9710_LPT
+HKR,Child0002,ResourceMap,1,00,05,06
+
+;-------------------------------------------
+[MF.AddReg]
+HKR,,DevLoader,,*CONFIGMG
+HKR,,Enumerator,,*CONFIGMG
+HKR,,SilentInstall,,"1"
+
+[Uninstall.AddReg]
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%MfgName%,DisplayName,0,%UninstallName%
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%MfgName%,UninstallString,0,NmUninst.exe
+
+[Inf.Copy]
+NmEnum.inf
+NmSNull.inf
+Nm95Mf.inf
+NmPorts.inf
+
+[Uninstall.Copy]
+NmUninst.exe
+NmDosIn.exe
+
+[NmDosIn.AutoBat]
+PrefixPath=11
+CmdDelete=NmDosIn
+CmdAdd=NmDosIn,"-add -remap -silent -u"
+
+[Strings]
+MFClassName ="Multifunction"
+ProviderName="NetMos Technology"
+MfgName="NetMos Technology"
+DiskName="NetMos Multi I/O Driver Disk"
+UninstallName="NetMos Multi-IO Controller"
+ComPortName="NetMos PCI Serial Port"
+LptPortName="NetMos PCI Parallel Port"
+EcpPortName="NetMos PCI SPP/BPP/ECP/EPP Port"
+NullPortName="NetMos Bridge"
+Nm9705Name="NetMos PCI 9705 Parallel Port"
+Nm9735Name="NetMos PCI 9735 Multi-I/O Controller"
+Nm9745Name="NetMos PCI 9745 Multi-I/O Controller"
+NmS9705Name="NetMos PCI 9705 Parallel Port"
+NmS9735Name="NetMos PCI 9735 Serial Port"
+NmS9745Name="NetMos PCI 9745 Serial Port"
+Nm9805Name="NetMos PCI 9805 Parallel Port"
+Nm9815Name="NetMos PCI 9815 Multi-I/O Controller"
+Nm9820Name="NetMos PCI 9820 Serial Port"
+Nm9825Name="NetMos PCI 9825 Serial Port"
+Nm9835Name="NetMos PCI 9835 Multi-I/O Controller"
+Nm9845Name="NetMos PCI 9845 Multi-I/O Controller"
+Nm9855Name="NetMos PCI 9855 Multi-I/O Controller"
+Nm9715Name="NetMos PCI 9715 Multi-I/O Controller"
+Nm9755Name="NetMos PCI 9755 Multi-I/O Controller"
+
+;-----------------------
+; END OF FILE
+;-----------------------
+
